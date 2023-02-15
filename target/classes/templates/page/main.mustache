@@ -1,1 +1,601 @@
-hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/mainPage.css">
+
+    <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-system-task-16.png">
+    <script src="https://kit.fontawesome.com/edff7358ca.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+    <title>MAILO's PC</title>
+</head>
+<body>
+<!-- pc-header  -->
+<header class="pc-header h-[80px]">
+    <div class="header-con bg-black h-full flex justify-between">
+        <div class="header__menus-logo-wrap flex items-center w-[60%] justify-between">
+            <div class="header__logo grow"><i class="fa-solid fa-desktop text-[25px] p-[20px]
+               pr-[10px] text-red-500"></i>
+                <span class="text-[18px] text-red-500 ">MAILO's PC</span>
+            </div>
+
+            <!-- nav-bars  -->
+            <div class="header__menus w-[80%] ">
+                <ul class="flex w-[100%]">
+                    <li class="relative"><a href="#"> GAMING</a>
+                        <ul class="header__menus-2nd">
+                            <li><a href="#">Gaming Laptops</a></li>
+                            <li><a href="#">Gaming PCs</a></li>
+                            <li><a href="#">Ready To ship Systems</a></li>
+                            <li><a href="#">Geforce RTX Desktops</a></li>
+                        </ul>
+                    </li>
+                    <li class="relative"><a href="#"> WORKSTATIONS</a>
+                        <ul class="header__menus-2nd">
+                            <li><a href="#">Workstation Laptops</a></li>
+                            <li><a href="#">Workstation Laptops</a></li>
+                            <li><a href="#">Workstation Laptops</a></li>
+                        </ul>
+                    </li>
+                    <li class="relative"><a href="#"> ACCESORIES</a></li>
+                    <li class="relative"><a href="#">SPECIAL OFFERS</a>
+                        <ul class="header__menus-2nd">
+                            <li><a href="#">Workstation Laptops</a></li>
+                            <li><a href="#">Workstation Desktops</a></li>
+                            <li><a href="#">Government & Corporate</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- nav-bars :end -->
+        </div>
+
+        <div class="header__Icons flex items-center w-[15%]">
+            <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
+            <div class="sign-in text-white"><a href=""><i class="fa-solid fa-user"></i>
+                SIGN-IN
+            </a>
+            </div>
+            <div class="cart-logo text-white"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
+        </div>
+
+        <div class="horizontal-underline"></div>
+    </div>
+</header>
+<!-- pc-header  :end-->
+
+<!-- mobile-header  -->
+<header class="mobile-header h-[80px] ">
+    <div class="mobile-header-con bg-black flex h-full justify-between items-center">
+        <div class="header__Icons flex items-center w-[20%] ml-[20px]">
+            <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
+            <div class="sign-in text-white"><a href="#"><i class="fa-solid fa-user"></i></a>
+            </div>
+            <div class="cart-logo text-white"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
+        </div>
+
+        <div class="header__logo"><i class="fa-solid fa-desktop text-[25px]
+            pr-[10px] text-red-500"></i>
+            <span class="text-[28px] text-red-500 ">ORIGIN</span>
+        </div>
+
+        <div class="menu-expansion-burger mr-[20px] cursor-pointer">
+            <i class="fa-solid fa-bars bg-white text-[20px] h-full"></i>
+        </div>
+    </div>
+
+</header>
+<!-- mobile-header  :end-->
+
+<!-- mobile-side-bar (activated)  -->
+<div class="mobile-side-bar inset-0">
+    <div class="mobile-side-bar__contents bg-white w-80 h-full ml-auto flex flex-column">
+        <div class="mobile-side-bar__head bg-black pt-[15px]">
+            <div class="mobile-side-bar__btn-close border-2 cursor-pointer
+            border-black w-[30px] h-[30px] ml-auto relative pt-[10px]">
+                <div class="absolute bg-white inset-x-0 h-1/5"></div>
+                <div class="absolute bg-white inset-x-0 h-1/5"></div>
+            </div>
+        </div>
+
+        <div class="mobile-side-bar__body bg-black h-20 flex-grow">
+            <div class="mobile-side-bar__body__menu-box-1">
+                <ul>
+                    <li class="relative"><a  href="#"> GAMING</a>
+                        <ul class="mobile-side-bar__menus-2nd">
+                            <li><a href="#"> Gaming Laptops</a></li>
+                            <li>Gaming PCs<a href="#"> Gaming Laptops</a></li>
+                            <li><a href="#">Ready To ship Systems</a></li>
+                            <li><a href="#">Geforce RTX Desktops</a></li>
+                        </ul>
+                    </li>
+                    <li class="relative"><a class="" href="#"> WORKSTATIONS</a>
+                        <ul class="mobile-side-bar__menus-2nd">
+                            <li><a href="#">Workstation Laptops</a></li>
+                            <li><a href="#">Workstation Desktops</a></li>
+                            <li><a href="#">Government & Corporate</a></li>
+                        </ul>
+                    </li>
+                    <li class="relative"><a class="" href="#"> ACCESORIES</a></li>
+                    <li class="relative"><a class="" href="#">SPECIAL OFFERS</a>
+                        <ul class="mobile-side-bar__menus-2nd">
+                            <li><a href="#">Geforce RTX Desktops</a></li>
+                            <li><a href="#">Geforce RTX Desktops</a></li>
+                            <li><a href="#">Geforce RTX Desktops</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- mobile-side-bar  :end -->
+
+<section class="main-page-slideshow pt-[80px]">
+    <div class="con">
+        <!-- slide-1  -->
+        <div class="slide-1 relative">
+            <div class="slide-1__text-wrap">
+                <div class="slide-1__Textbox-1"><b>THE MOST ADVANCED GRAPHICS FOR <br> GAMERS</b></div>
+                <div class="slide-1__Textbox-2 text-[23px] text-slate-400"><b>AMD Radeon 7000 Series Graphics Cards Available Now
+                    <br>for ORIGIN PC desktops
+                </b>
+                </div>
+                <a class="slide-1__shop-now-btn inline-block mt-[20px] ml-[10px] border-3 border-white px-[40px] py-[12px] text-[20px]
+                " href="#"><b>LEARN MORE</b></a>
+            </div>
+
+        </div>
+        <!-- slid-2  -->
+        <div class="slide-2 ">
+            <div class="slide-2__text-wrap">
+                <div class="slide-1__Textbox-1"><b>THE MOST ADVANCED GRAPHICS FOR <br> GAMERS</b></div>
+                <div class="slide-1__Textbox-2 text-[23px] text-slate-400"><b>AMD Radeon 7000 Series Graphics Cards Available Now
+                    <br>for ORIGIN PC desktops
+                </b>
+                </div>
+                <a class="slide-1__shop-now-btn inline-block mt-[20px] ml-[10px] border-3 border-white px-[40px] py-[12px] text-[20px]
+                " href="#"><b>LEARN MORE</b></a>
+            </div>
+        </div>
+        <!-- slid-3  -->
+        <div class="slide-3 ">
+            <div class="slide-3__text-wrap">
+                <div class="slide-1__Textbox-1"><b>THE MOST ADVANCED GRAPHICS FOR <br> GAMERS</b></div>
+                <div class="slide-1__Textbox-2 text-[23px] text-slate-400"><b>AMD Radeon 7000 Series Graphics Cards Available Now
+                    <br>for ORIGIN PC desktops
+                </b>
+                </div>
+                <a class="slide-1__shop-now-btn inline-block mt-[20px] ml-[10px] border-3 border-white px-[40px] py-[12px] text-[20px]
+                " href="#"><b>LEARN MORE</b></a>
+            </div>
+        </div>
+        <!-- slid-4  -->
+        <div class="slide-4 ">
+            <div class="slide-4__text-wrap">
+                <div class="slide-1__Textbox-1"><b>THE MOST ADVANCED GRAPHICS FOR <br> GAMERS</b></div>
+                <div class="slide-1__Textbox-2 text-[23px] text-slate-400"><b>AMD Radeon 7000 Series Graphics Cards Available Now
+                    <br>for ORIGIN PC desktops
+                </b>
+                </div>
+                <a class="slide-1__shop-now-btn inline-block mt-[20px] ml-[10px] border-3 border-white px-[40px] py-[12px] text-[20px]
+                " href="#"><b>LEARN MORE</b></a>
+            </div>
+        </div>
+        <!-- main-page__slide_dot -->
+        <div class="main-page__slide_dot flex absolute">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</section>
+
+<!-- fixed bg  -->
+<section class="bg"></section>
+<!-- fixed bg  -->
+
+<!-- just temporary empty body
+<div class="temp-body h-[1000px]"></div> -->
+<!-- PC_Laptops -->
+<section class="PC_Laptops flex justify-center  ">
+    <div class="con flex flex-col justify-center ">
+        <div class="img-row-1 flex justify-center">
+            <div class="img-info-box h-full"> <img src="../images/GamingLaptop2.png" alt="">
+                <p>GAMING LAPTOPS</p>
+            </div>
+            <div class="img-info-box"><img src="../images/GamingDesktop2.png" alt="">
+                <p>GAMING DESKTOPS</p>
+            </div>
+            <div class="img-info-box"><img src="../images/gearshop-2.jpg" alt="">
+                <p>WORKSTATION DESKTOPS</p>
+            </div>
+        </div>
+        <div class="img-row-2 flex justify-center ">
+            <div class="img-info-box"><img src="../images/GamingLaptop2.png" alt="">
+                <p>WORKSTATION LAPTOPS</p>
+            </div>
+            <div class="img-info-box"><img src="../images/GamingDesktop2.png" alt="">
+                <p>GEARSHOP</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- PC_Laptops -->
+
+<!-- fixed bg  -->
+<section class="bg"></section>
+<!-- fixed bg  -->
+
+<!-- testimonials -->
+<section class="testimonials">
+    <!-- slide-1  -->
+    <div class="testimonials_slide_1 flex absolute">
+        <div class="testimonials_left">
+            <div class="review_wrap">
+                <p class="text-[24px] font-medium text-gray">FEATURED REVIEW</p>
+                <P class="text-[30px] font-bold text-white">MILLENIUM</P>
+                <p class="text-[25px] font-medium text-yellow">
+                    PC Mag Awards our MILLENIUM <br> 5000T a 4 out of 5</p>
+                <p class="text-[25px] font-medium text-white">
+                    "Big,Bold, and Beautiful" - PC MAG</p>
+                <div class="review-wrap__btn_group">
+                    <a class="shop_now_btn text-[15px] text-white" href="#">SHOP NOW</a>
+                    <a class="more_reviews_btn pr-[60px] text-[18px] text-white flex items-center" href="#">
+                        MORE REVIEWS ></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials_right flex justify-center items-center pb-[70px] pr-[120px]">
+            <div class="Testimonial_wrap-1">
+                <div class="title text-gray text-[25px]">TESTIMONIALS</div>
+                <div class="quote_1 text-red-500 text-[27px]">"Amazing service and PC quality"</div>
+                <div class="quote_2 text-[18px] py-[10px]">"My experience with Origin Pc has left me <br>
+                    extremely satisfied with my purchase, speedy <br>
+                    and truly HELPFUL customer support, amazing <br>
+                    communication from their team throughout the <br>
+                    whole process, quick...</div>
+                <div class="text-[18px] text-red-500 font-medium pt-[20px]">MORE TESTIMONIALS &nbsp;&nbsp; ></div>
+            </div>
+        </div>
+    </div>
+    <!-- slide-1  -->
+
+    <!-- slide-2  -->
+    <div class="testimonials_slide_2 flex absolute">
+        <div class="testimonials_left">
+            <div class="review_wrap">
+                <p class="text-[24px] font-medium text-gray">FEATURED REVIEW</p>
+                <P class="text-[30px] font-bold text-white">MILLENIUM</P>
+                <p class="text-[25px] font-medium text-yellow">
+                    PC Mag Awards our MILLENIUM <br> 5000T a 4 out of 5</p>
+                <p class="text-[25px] font-medium text-white">
+                    "Big,Bold, and Beautiful" - PC MAG</p>
+                <div class="review-wrap__btn_group">
+                    <a class="shop_now_btn text-[15px] text-white" href="#">SHOP NOW</a>
+                    <a class="more_reviews_btn pr-[60px] text-[18px] text-white flex items-center" href="#">
+                        MORE REVIEWS ></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials_right flex justify-center items-center pb-[70px] pr-[120px]">
+            <div class="Testimonial_wrap-1">
+                <div class="title text-gray text-[25px]">TESTIMONIALS</div>
+                <div class="quote_1 text-red-500 text-[27px]">"Amazing service and PC quality"</div>
+                <div class="quote_2 text-[18px] py-[10px]">"My experience with Origin Pc has left me <br>
+                    extremely satisfied with my purchase, speedy <br>
+                    and truly HELPFUL customer support, amazing <br>
+                    communication from their team throughout the <br>
+                    whole process, quick...</div>
+                <div class="text-[18px] text-red-500 font-medium pt-[20px]">MORE TESTIMONIALS &nbsp;&nbsp; ></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- slide-2  -->
+
+    <!-- slide-3  -->
+    <div class="testimonials_slide_3 flex absolute">
+        <div class="testimonials_left">
+            <div class="review_wrap">
+                <p class="text-[24px] font-medium text-gray">FEATURED REVIEW</p>
+                <P class="text-[30px] font-bold text-white">MILLENIUM</P>
+                <p class="text-[25px] font-medium text-yellow">
+                    PC Mag Awards our MILLENIUM <br> 5000T a 4 out of 5</p>
+                <p class="text-[25px] font-medium text-white">
+                    "Big,Bold, and Beautiful" - PC MAG</p>
+                <div class="review-wrap__btn_group">
+                    <a class="shop_now_btn text-[15px] text-white" href="#">SHOP NOW</a>
+                    <a class="more_reviews_btn pr-[60px] text-[18px] text-white flex items-center" href="#">
+                        MORE REVIEWS ></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials_right flex justify-center items-center pb-[70px] pr-[120px]">
+            <div class="Testimonial_wrap-1">
+                <div class="title text-gray text-[25px]">TESTIMONIALS</div>
+                <div class="quote_1 text-red-500 text-[27px]">"Amazing service and PC quality"</div>
+                <div class="quote_2 text-[18px] py-[10px]">"My experience with Origin Pc has left me <br>
+                    extremely satisfied with my purchase, speedy <br>
+                    and truly HELPFUL customer support, amazing <br>
+                    communication from their team throughout the <br>
+                    whole process, quick...</div>
+                <div class="text-[18px] text-red-500 font-medium pt-[20px]">MORE TESTIMONIALS &nbsp;&nbsp; ></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- slide-3  -->
+
+    <!-- slide-4  -->
+    <div class="testimonials_slide_4 flex absolute">
+        <div class="testimonials_left">
+            <div class="review_wrap">
+                <p class="text-[24px] font-medium text-gray">FEATURED REVIEW</p>
+                <P class="text-[30px] font-bold text-white">MILLENIUM</P>
+                <p class="text-[25px] font-medium text-yellow">
+                    PC Mag Awards our MILLENIUM <br> 5000T a 4 out of 5</p>
+                <p class="text-[25px] font-medium text-white">
+                    "Big,Bold, and Beautiful" - PC MAG</p>
+                <div class="review-wrap__btn_group">
+                    <a class="shop_now_btn text-[15px] text-white" href="#">SHOP NOW</a>
+                    <a class="more_reviews_btn pr-[60px] text-[18px] text-white flex items-center" href="#">
+                        MORE REVIEWS ></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials_right flex justify-center items-center pb-[70px] pr-[120px]">
+            <div class="Testimonial_wrap-1">
+                <div class="title text-gray text-[25px]">TESTIMONIALS</div>
+                <div class="quote_1 text-red-500 text-[27px]">"Amazing service and PC quality"</div>
+                <div class="quote_2 text-[18px] py-[10px]">"My experience with Origin Pc has left me <br>
+                    extremely satisfied with my purchase, speedy <br>
+                    and truly HELPFUL customer support, amazing <br>
+                    communication from their team throughout the <br>
+                    whole process, quick...</div>
+                <div class="text-[18px] text-red-500 font-medium pt-[20px]">MORE TESTIMONIALS &nbsp;&nbsp; ></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- slide-4  -->
+
+    <!-- dot  -->
+    <div class="testimonials__slide_dot flex">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    <!-- dot  -->
+
+
+</section>
+<!-- testimonials -->
+
+
+<!-- fixed bg  -->
+<section class="bg"></section>
+<!-- fixed bg  -->
+
+
+<!-- event carousel  -->
+<section class="event_carousel w-full">
+
+    <div class="con relative w-full">
+        <div class="event_carousel_slide_1">
+            <div class="event_carousel__text_wrap">
+                <p>MOST STYLISH <br> GAMING PC</p>
+                <P class="font-bold">ORIGIN PC MILLENIUM Nominated most <br>
+                    Stylistic Gaming PC of 2022 from SPY.com
+                </P>
+                <a class="mt-[30px] text-[20px]" href="#">LEARN MORE</a>
+            </div>
+        </div>
+        <div class="event_carousel_slide_2">
+            <div class="event_carousel__text_wrap">
+                <p class="font-bold">MOST STYLISH <br> GAMING PC</p>
+                <P>ORIGIN PC MILLENIUM Nominated most <br>
+                    Stylistic Gaming PC of 2022 from SPY.com
+                </P>
+                <a class="mt-[30px] text-[20px]" href="#">LEARN MORE</a>
+            </div>
+        </div>
+        <div class="event_carousel_slide_3">
+            <div class="event_carousel__text_wrap">
+                <p class="font-bold">MOST STYLISH <br> GAMING PC</p>
+                <P>ORIGIN PC MILLENIUM Nominated most <br>
+                    Stylistic Gaming PC of 2022 from SPY.com
+                </P>
+                <a class="mt-[30px] text-[20px]" href="#">LEARN MORE</a>
+            </div>
+        </div>
+        <div class="event_carousel_slide_4"><div class="event_carousel__text_wrap">
+            <p class="font-bold">MOST STYLISH <br> GAMING PC</p>
+            <P>ORIGIN PC MILLENIUM Nominated most <br>
+                Stylistic Gaming PC of 2022 from SPY.com
+            </P>
+            <a class="text-[20px] block" href="#">LEARN MORE</a>
+        </div>
+        </div>
+        <div class="slide_arrows absolute flex justify-between px-[15px]">
+            <div class="arrow_l flex items-center cursor-pointer"><i class="fa-solid fa-circle-arrow-left text-[40px]"></i></div>
+            <div class="arrow_r flex items-center cursor-pointer"><i class="fa-solid fa-circle-arrow-right text-[40px]"></i></div>
+        </div>
+    </div>
+</section>
+<!-- event carousel  -->
+
+
+<!-- deals  -->
+<section class="deals">
+    <div class="con">
+        <div class="deals_financing text-[20px]">
+            <i class="fa-solid fa-box block "></i>
+            <h2 class="font-bold text-[25px]">FINANCING</h2>
+            <p class="font-medium">Play Now and Pay Later</p>
+            <ul class="block">
+                <li>Easy to apply</li>
+                <li>Get instant pre-approved offers and rates</li>
+                <li>Twelve months same as cash Avaiable</li>
+                <li>No prepayment penalties</li>
+                <li>Up to 36 months of payment options</li>
+                <a class="learn_more block" href="#">LEARN MORE</a>
+            </ul>
+        </div>
+        <div class="deals_affiliates text-[20px]">
+            <i class="fa-solid fa-handshake"></i>
+            <h2 class="font-bold text-[25px]">AFFILIATES</h2>
+            <p class="font-medium">Join the Best</p>
+            <p>Partner up with the best custom PC system builder in the world
+                and earn extra cash! Become An Official ORIGIN PC Affiliate Today!</p>
+            <a class="join block" href="#">JOIN</a>
+        </div>
+        <div class="deals_support text-[20px]">
+            <i class="fa-solid fa-phone"></i>
+            <h2 class="font-bold text-[25px]">SUPPORT</h2>
+            <p class="font-medium">24/7 US Based Support</p>
+            <p>
+                Once you join us, we will have you covered. With every system, ORIGIN
+                PC provides a free phone and online lifetime service guarantee.
+            </p>
+            <a class="learn_more block" href="#">LEARN MORE</a>
+        </div>
+    </div>
+</section>
+<!-- deals  -->
+
+<!-- fixed bg  -->
+<section class="bg"></section>
+<!-- fixed bg  -->
+
+<!-- Certification  -->
+<section class="certification">
+    <div class="con relative">
+        <div class="text_icon_tab">
+            <i class="fa-solid fa-wrench text-[80px] mb-30px block"></i>
+            <h2>PC ASSEMBLE AND SUPPORT</h2>
+            <h3>IN THE USA</h3>
+            <div class="bar bg-white h-[5px] w-[150px]"></div>
+            <p>
+                By buying an Mailo's pre-assembled PC, you get access
+                to a fast and powerful PC as well as supporting jobs everywhere in US
+            </p>
+            <a href="#">LEARN MORE</a>
+
+
+
+        </div>
+    </div>
+</section>
+<!-- Certification  -->
+
+
+<!-- footer -->
+<footer class="footer-bar">
+    <div class="footer-con h-full">
+        <div class="footer__why-buy">
+            <h1>WHY BUY FROM ORIGIN PC?</h1>
+            <p>
+                If you’re searching for the cheapest Gaming PC made with inferior
+                products and questionable quality, you might as well leave
+                now. ORIGIN PC only uses the highest quality performance
+                Gaming PC components available. Every single <b href="#" class="text-red-500">customized
+                Gaming PC</b>  and <b href="#" class="text-red-500">Gaming Laptop</b> is assembled right
+                here in the United States by highly trained and
+                incredibly skilled technicians and assembly engineers.
+                Sure, we can assemble our award-winning Gaming PCs overseas
+                for less. In fact, that’s what most of our competitors do.
+                However, we choose to assemble all our Gaming PCs right
+                here in the United States because it gives us the best
+                control over manufacturing, performance, and overall
+                quality. And we’re thrilled to hire only the best PC
+                Builders in the country.
+            </p>
+        </div>
+        <div class="footer__menus flex justify-between">
+            <div class="footer__menus-product">
+                <ul>
+                    <li class="text-[22px]"> <a href="#"></a><b>Gaming PCs</b></li>
+                    <li>Gaming Laptops</li>
+                    <li>Workstation Desktops</li>
+                    <li>Workstation Laptops</li>
+                    <li>Government& Corporate</li>
+                    <li>Gearshop</li>
+                    <li>VR</li>
+                    <li>4K Uncapped</li>
+                </ul>
+            </div>
+            <div class="footer__menus-company">
+                <ul>
+                    <li class="text-[22px]"><b>Company</b></li>
+                    <li>about</li>
+                    <li>Contact</li>
+                    <li>Careers</li>
+                    <li>T&C</li>
+                    <li>Disclaimer</li>
+                    <li>Privacy Policy</li>
+                    <li>Cookies Settings</li>
+                </ul>
+            </div>
+            <div class="footer__menus-reviews">
+                <ul>
+                    <li class="text-[22px]"><b>Reviews</b></li>
+                    <li>news</li>
+                    <li>Testimonials</li>
+                </ul>
+            </div>
+
+            <div class="footer__menus-support">
+                <ul>
+                    <li class="text-[22px]"><b>OriginPCFamily</b></li>
+                    <li>Blog</li>
+                    <li>Twitch Prime</li>
+                    <li>Affiliates</li>
+                </ul>
+            </div>
+            <div class="footer__menus-newsLetter">
+                <ul>
+                    <li class="text-[22px]"><b>Get access to exclusive offers!</b></li>
+                    <li><a class="subscribe-btn" href="#">SUBSCRIBE</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer__menus-useful-links flex items-center justify-between">
+        <div class="footer__menus-useful-links__icons">
+            <ul class="flex">
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitch"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitch"></i></a></li>
+            </ul>
+        </div>
+        <div class="corsair"><img class="h-[100px]" src="../images/CorsAir.png" alt="corsairLogo"></div>
+        <div class="copyright">@ 2023 TINFO230 Group2. All rights Reserved? LMAO</div>
+    </div>
+</footer>
+<!-- footer :end  -->
+
+
+<script src="/js/mainPage.js"></script>
+<script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
+<script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
+</body>
+</html>

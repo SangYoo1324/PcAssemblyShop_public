@@ -11,4 +11,14 @@ public class PageController {
     public String mainPage(){
         return "page/main";
     }
+
+    @GetMapping("page/gaming")
+    public String gaming(){
+        return "page/gaming";
+    }
+
+    @GetMapping("page/specialOffers")
+    public String specialOffers(){
+        return "page/specialOffers";
+    }
 }
