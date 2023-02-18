@@ -21,7 +21,7 @@ public class Users{
     @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String password;
 
     @Column(nullable = false)
@@ -33,8 +33,22 @@ public class Users{
     @Column
     private Timestamp createDate;
 
+    @Column
+    private String provider;
+    @Column
+    private String provider_id;
 
-
+//    @Builder
+//    public Users(Long id, String username, String password, String email, Role role, Timestamp createDate, String provider, String provider_id) {
+//        this.id = id;
+//        this.username = username;
+//        this.password = password;
+//        this.email = email;
+//        this.role = role;
+//        this.createDate = createDate;
+//        this.provider = provider;
+//        this.provider_id = provider_id;
+//    }
 
 
 //    public String getRoleKey() {

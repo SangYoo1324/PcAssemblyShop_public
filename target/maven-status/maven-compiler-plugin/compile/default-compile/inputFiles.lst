@@ -1,12 +1,13 @@
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\Oauth\PrincipalOauth2UserService.java
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\entity\Users.java
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\repository\UsersRepository.java
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\controller\PageController.java
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\enumFile\Role.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\WebMvcConfig.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\auth\PrincipalDetailsService.java
-C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\entity\Users.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\handler\CustomAuthProvider.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\PcAssemblyShopApplication.java
-C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\repository\UsersRepository.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\handler\CustomAuthenticationFailureHandler.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\SecurityConfigure.java
-C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\controller\PageController.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\auth\PrincipalDetails.java
-C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\enumFile\Role.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\handler\CustomAuthenticationSuccessHandler.java

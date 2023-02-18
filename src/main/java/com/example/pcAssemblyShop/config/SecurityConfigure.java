@@ -126,9 +126,10 @@ public class SecurityConfigure{
                                         .defaultSuccessUrl("/page/main")
                                         .and()
                                         .oauth2Login()
-                                        .loginPage("/page/login")
+                                        .loginPage("/page/login").defaultSuccessUrl("/page/main")
                                         .userInfoEndpoint()
-                                        .userService(principalOauth2UserService);
+                                        .userService(principalOauth2UserService)
+                                        ;
                                 // 구글 로그인이 완료된 후의 후처리가 필요함 Tip. 코드X,(access token+사용자 프로필 정보)
 
                             } catch (Exception e) {

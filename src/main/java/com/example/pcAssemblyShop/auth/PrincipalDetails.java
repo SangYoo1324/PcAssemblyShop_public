@@ -12,25 +12,38 @@ package com.example.pcAssemblyShop.auth;
 
 import com.example.pcAssemblyShop.entity.Users;
 import com.example.pcAssemblyShop.enumFile.Role;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
-
-public class PrincipalDetails implements UserDetails {
+@Data
+public class PrincipalDetails implements UserDetails, OAuth2User {
 
     private Users users;
     private Set<Role> roles = new HashSet<>();
 
+    private Map<String, Object> attributes;
 
+
+    //General Login
     public PrincipalDetails(Users users){
+
         this.users= users;
     }
+    // OAUth Login
+    public PrincipalDetails(Users users, Map<String, Object> attributes){
+
+        this.users= users;
+        this.attributes= attributes;
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { // GrantedAuthority를 상속하는 객체여야 함
@@ -79,5 +92,17 @@ public class PrincipalDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+
+//OAuth2User 메서드 오버라이딩
+    @Override
+    public Map<String, Object> getAttributes() {
+        return attributes;
+    }
+
+    @Override
+    public String getName() {
+        return null;
     }
 }

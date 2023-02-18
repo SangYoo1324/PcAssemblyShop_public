@@ -1,5 +1,6 @@
 package com.example.pcAssemblyShop.controller;
 
+import com.example.pcAssemblyShop.auth.PrincipalDetails;
 import com.example.pcAssemblyShop.entity.Users;
 import com.example.pcAssemblyShop.enumFile.Role;
 import com.example.pcAssemblyShop.repository.UsersRepository;
@@ -7,7 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +23,24 @@ import java.sql.Timestamp;
 @Slf4j
 @Controller
 public class PageController {
+    // principalDetails implements Userdetail, so we can use principalDetails object for userDetail type
+    // Authentication 객체는 ->   Userdetail type / OAuth2User type
+    // 즉, principalDetails에 Userdetails & OAuth2user 을 implement 해서 type 을 principalDetails로 통일
+    @GetMapping("/test/login")
+    public  String loginTest(Authentication authentication, @AuthenticationPrincipal PrincipalDetails principalDetails){
+        log.info("/test/login ====================");
+//        PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+        log.info("authentication: "+principalDetails.getUsers());
+
+        log.info("userDetails: "+ principalDetails.getUsers());
+        return "/page/test";
+    }
+
+    @GetMapping("/users")
+    public  String users(Authentication authentication, @AuthenticationPrincipal PrincipalDetails principalDetails){
+        log.info("principalDetails: "+principalDetails.getUsers());
+        return "/page/test";
+    }
 
     @Autowired
    private UsersRepository usersRepository;
