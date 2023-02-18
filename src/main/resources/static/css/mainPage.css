@@ -49,12 +49,23 @@ header.pc-header{
 
 }
 
+.header__logo>a{
+    color: #cc181e;
+    font-weight: bold;
+
+}
+.header__logo>hover{
+    color: white;
+
+}
+
 .header__menus>ul>li{
     font-size: 20px;;
     padding: 15px;
     font-weight: bold;
     color: white;
 }
+
 
 .header__menus>ul>li:hover>a{
     color:red;
@@ -777,6 +788,8 @@ p{
         padding-right: 0px;
         padding-left: 50px;
     }
+
+
 
     /* Mobile: slide  */
     .main-page-slideshow>.con>.slide-1{
