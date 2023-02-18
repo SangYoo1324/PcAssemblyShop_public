@@ -1,5 +1,6 @@
 package com.example.pcAssemblyShop.config;
 
+import com.example.pcAssemblyShop.Oauth.PrincipalOauth2UserService;
 import com.example.pcAssemblyShop.config.handler.CustomAuthProvider;
 import com.example.pcAssemblyShop.config.handler.CustomAuthenticationFailureHandler;
 import com.example.pcAssemblyShop.config.handler.CustomAuthenticationSuccessHandler;
@@ -15,6 +16,8 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -38,6 +41,7 @@ import java.io.IOException;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+@EnableMethodSecurity
 // spring security filter can be registered on spring filter-chain
 public class SecurityConfigure{
     //Spring security Adapter is deprecated
@@ -46,8 +50,8 @@ public class SecurityConfigure{
 
     //this beans are customizing the login process failure/success/denided cases
     // alltogether with exceptionHandling() method without customization
-
-
+    @Autowired
+    private PrincipalOauth2UserService principalOauth2UserService;
 
     @Bean
     public AuthenticationFailureHandler authenticationFailureHandler() {
@@ -77,9 +81,9 @@ public class SecurityConfigure{
 //            .roles("USER")
 //            .build());
 //
-//    manager.createUser(User.withUsername("ADMIN")
-//            .password(bCryptPasswordEncoder().encode("adminPass"))
-//            .roles("USER_ROLE", "ADMIN_ROLE")
+//    manager.createUser(User.withUsername("ROLE_ADMIN")
+//            .password(bCryptPasswordEncoder().encode("ROLE_ADMINPass"))
+//            .roles("USER_ROLE", "ROLE_ADMIN_ROLE")
 //            .build());
 //
 //    return manager;
@@ -96,9 +100,11 @@ public class SecurityConfigure{
                                 "/bootstrapCSS_v5/**","/bootstrapJS_v5/**", "/page/joinProc/**",
                                 "/page/gaming/**","/page/gaming/**","/page/login/**","/page/loginProc/**").permitAll()
                         //여기 주소들은 웹 주소임. physical address (x)
-                        .requestMatchers("/page/user/**").authenticated()
+                        .requestMatchers("/page/user/**","/page/manager/**","/page/admin/**","/page/info/**")
+                        .authenticated()// 여기에 admin도 안넣어주면 admin hasRole 있어도 작동 안한다
                         .requestMatchers("/page/manager/**").hasRole("ADMIN") //해당 role 이 있어야 한다는뜻
-                        .requestMatchers("/page/admin/**").authenticated()
+                        .requestMatchers("/page/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/page/info/**").hasRole("ADMIN")
                         .anyRequest().permitAll()
 
                         //accepts entrance except for those 3 cases above
@@ -117,7 +123,13 @@ public class SecurityConfigure{
 
 //                                        .successHandler(authenticationSuccessHandler())
                                         .failureHandler(authenticationFailureHandler())
-                                        .defaultSuccessUrl("/page/main");
+                                        .defaultSuccessUrl("/page/main")
+                                        .and()
+                                        .oauth2Login()
+                                        .loginPage("/page/login")
+                                        .userInfoEndpoint()
+                                        .userService(principalOauth2UserService);
+                                // 구글 로그인이 완료된 후의 후처리가 필요함 Tip. 코드X,(access token+사용자 프로필 정보)
 
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
@@ -130,6 +142,7 @@ public class SecurityConfigure{
                                 .logoutSuccessUrl("/page/main")
                                 .invalidateHttpSession(true)
                         )
+
                 ;
             } catch (Exception e) {
                 throw new RuntimeException(e);

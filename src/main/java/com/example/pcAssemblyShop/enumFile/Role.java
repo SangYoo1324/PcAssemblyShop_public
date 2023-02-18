@@ -5,12 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 @Getter
-public enum Role implements GrantedAuthority {
+public enum Role {
 USER, ADMIN;
 
 
-    @Override
-    public String getAuthority() {
-        return name();
-    }
+
 }

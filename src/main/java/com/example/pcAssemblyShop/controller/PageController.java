@@ -5,6 +5,8 @@ import com.example.pcAssemblyShop.enumFile.Role;
 import com.example.pcAssemblyShop.repository.UsersRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,5 +71,10 @@ public class PageController {
         users.setCreateDate(new Timestamp(System.currentTimeMillis()));
         usersRepository.save(users);
         return "redirect:/page/login";
+    }
+//    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/page/info")
+    public String info(){
+        return "/page/info";
     }
 }

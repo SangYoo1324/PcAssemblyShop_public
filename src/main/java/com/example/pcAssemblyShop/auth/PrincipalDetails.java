@@ -11,17 +11,21 @@ package com.example.pcAssemblyShop.auth;
 //활용한다
 
 import com.example.pcAssemblyShop.entity.Users;
+import com.example.pcAssemblyShop.enumFile.Role;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
+import java.util.stream.Collectors;
+
 @Slf4j
 
 public class PrincipalDetails implements UserDetails {
 
     private Users users;
+    private Set<Role> roles = new HashSet<>();
 
 
     public PrincipalDetails(Users users){
@@ -30,12 +34,21 @@ public class PrincipalDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { // GrantedAuthority를 상속하는 객체여야 함
-        Collection<GrantedAuthority> collect = new ArrayList<>();
-        collect.add((GrantedAuthority) () -> {
-            log.info(users.getRole().name());
-            return users.getRole().name();
-        });
-        return collect;
+//        Collection<GrantedAuthority> collect = new ArrayList<>();
+//        collect.add((GrantedAuthority) () -> {
+//            log.info(users.getRole().name());
+//            return users.getRole().name();
+//        });
+//        return collect;
+        Role selectedUserRole = users.getRole();
+        Iterator it =roles.iterator();
+        while(it.hasNext()){
+            roles.add(selectedUserRole);
+            log.info(it.next().toString());
+        }
+
+        return roles.stream().map(role -> new SimpleGrantedAuthority("ROLE_ADMIN")
+        ).collect(Collectors.toList());
     }
 
     @Override
