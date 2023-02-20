@@ -54,7 +54,7 @@ header.pc-header{
     font-weight: bold;
 
 }
-.header__logo>hover{
+.header__logo>a:hover{
     color: white;
 
 }

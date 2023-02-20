@@ -1,0 +1,111 @@
+section{
+    background-color: #1e1f24;
+    padding-top: 100px;
+}
+.con{
+    padding: 20px 20px;
+    margin: 0 auto;
+    width: 800px;
+    background-color: black;
+    color:#757575;
+
+}
+
+
+.title_register{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+input:focus{
+    border: none;
+    border-bottom: 1px solid red;
+    outline: none;
+}
+
+form>input{
+    display: block;
+    border: none;
+    border-bottom: 1px solid white;
+    height: 40px;
+    background-color: black;
+    width: 45%;
+    transition: border-bottom-color 1s;
+}
+
+.password_wrap, .email_wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
+.password_wrap>*, .email_wrap>*{
+    flex-grow: 1;
+}
+
+.pw_wrap>input,.conf_pw_wrap>input{
+
+    display: block;
+    border: none;
+    border-bottom: 1px solid white;
+    height: 40px;
+    background-color: black;
+    width: 90%;
+    transition: border-bottom-color 1s;
+}
+
+.em_wrap>input,.conf_em_wrap>input{
+    display: block;
+    border: none;
+    border-bottom: 1px solid white;
+    height: 40px;
+    background-color: black;
+    width: 90%;
+    transition: border-bottom-color 1s;
+}
+
+.pw_wrap>input:focus,.conf_pw_wrap>input:focus,
+.em_wrap>input:focus,.conf_em_wrap>input:focus{
+    border: none;
+    border-bottom: 1px solid red;
+    outline: none;
+}
+
+.btn_wrap{
+    margin-top: 20px;
+    justify-content: space-around;
+}
+.btn_wrap>a{
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+.btn_wrap>a:hover{
+    color: #cc181e;
+}
+.join_create_account{
+    padding: 10px 30px;
+    background-color: #cc181e;
+    color: white;
+    transition: background-color 0.5s, color 0.5s;
+}
+.join_create_account:hover{
+    padding: 10px 30px;
+    background-color: white;
+    color: #cc181e;
+}
+
+
+/* ************************mediaQueries******************************  */
+
+/* when mobile mode */
+
+
+@media (max-width:413px){
+    .con{
+        width: 400px;
+    }
+.password_wrap, .email_wrap{
+    display: block;
+}
+
+}

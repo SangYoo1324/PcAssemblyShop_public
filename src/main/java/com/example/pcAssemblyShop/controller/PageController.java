@@ -67,6 +67,8 @@ public class PageController {
       return "page/login";
    }
 
+   @GetMapping("page/workstation")
+   public String workstation(){ return "page/workstation";}
     @GetMapping("page/loginProc")
     public String loginProc(){
         return "page/loginProc";

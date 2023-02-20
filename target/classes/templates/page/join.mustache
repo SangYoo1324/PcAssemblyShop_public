@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/specialOffersPage.css">
-
+    <link rel="stylesheet" href="/css/gamingPage.css">
+    <link rel="stylesheet" href="/css/join.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-system-task-16.png">
@@ -24,14 +24,14 @@
             <div class="header__logo grow"><i class="fa-solid fa-desktop text-[25px] p-[20px]
                pr-[10px] text-red-500"></i>
                 <!--                    http://localhost:8080/page/main -->
-                <a href="https://pcassemblystore.herokuapp.com/page/main" class="text-[18px] text-red-500 ">MAILO's PC</a>
+                <a href="/page/main" class="text-[18px] text-red-500 ">MAILO's PC</a>
             </div>
 
             <!-- nav-bars  -->
             <div class="header__menus w-[80%] ">
                 <ul class="flex w-[100%]">
                     <!--                    http://localhost:8080/page/gaming -->
-                    <li class="relative"><a href="https://pcassemblystore.herokuapp.com/page/gaming"> GAMING</a>
+                    <li class="relative"><a href="/page/gaming"> GAMING</a>
                         <ul class="header__menus-2nd">
                             <li><a href="#">Gaming Laptops</a></li>
                             <li><a href="#">Gaming PCs</a></li>
@@ -39,7 +39,7 @@
                             <li><a href="#">Geforce RTX Desktops</a></li>
                         </ul>
                     </li>
-                    <li class="relative"><a href="#"> WORKSTATIONS</a>
+                    <li class="relative"><a href="/page/workstation"> WORKSTATIONS</a>
                         <ul class="header__menus-2nd">
                             <li><a href="#">Workstation Laptops</a></li>
                             <li><a href="#">Workstation Laptops</a></li>
@@ -48,7 +48,7 @@
                     </li>
                     <li class="relative"><a href="#"> ACCESORIES</a></li>
                     <!--                    http://localhost:8080/page/specialOffers -->
-                    <li class="relative"><a href="https://pcassemblystore.herokuapp.com/page/gaming">SPECIAL OFFERS</a>
+                    <li class="relative"><a href="/page/gaming">SPECIAL OFFERS</a>
                         <ul class="header__menus-2nd">
                             <li><a href="#">Workstation Laptops</a></li>
                             <li><a href="#">Workstation Desktops</a></li>
@@ -63,7 +63,7 @@
         <div class="header__Icons flex items-center w-[15%]">
             <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
             <div class="sign-in text-white"><a href="/page/login"><i class="fa-solid fa-user"></i>
-                SIGN-IN
+                LOGIN
             </a>
             </div>
             <div class="cart-logo text-white"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
@@ -142,15 +142,48 @@
 
 <!-- mobile-side-bar  :end -->
 
-<!-- placeholder section Plz remove onnce contents updated  -->
-<section class="h-[1000px] w-[100%]">
-    <form class="pt-[100px]" action="/page/joinProc" method="POST">
-        <input type="text" name="username" placeholder="Username"> <br>
-        <input type="text" name="password" placeholder="Password"> <br>
-        <input type="email" name="email" placeholder="email"> <br>
-        <button>Sign up</button>
-    </form>
+<!-- Join form  -->
+<section class="h-[600px] w-[100%]">
+    <div class="con">
+        <div class="title_register">REGISTER</div>
+        <div class="input_wrap">
+            <form class="" action="/page/joinProc" method="POST">
+                <label class="username block" for="username">UserName</label>
+                <input type="text" name="username" placeholder="Username">
+
+                <div class="password_wrap">
+                    <div class="pw_wrap">
+                        <label class="password block" for="password">Password</label>
+                        <input type="text" name="password" placeholder="Password">
+                    </div>
+                    <div class="conf_pw_wrap">
+                        <label class="confirm_password block" for="confirm_password">Confirm Password</label>
+                        <input type="text" name="confirm_password" placeholder="confirm password">
+                    </div>
+                </div>
+                <div class="email_wrap">
+                    <div class="em_wrap">
+                        <label class="email block" for="email">Email Address</label>
+                        <input type="email" name="email" placeholder="email">
+                    </div>
+                    <div class="conf_em_wrap">
+                        <label class="conf_email block" for="confirm_email">Email Address</label>
+                        <input type="email" name="confirm_email" placeholder="confirm email">
+                    </div>
+                </div>
+
+                <div class="btn_wrap flex">
+                    <button class="join_create_account block">CREATE ACCOUNT</button>
+                    <a href="/oauth2/authorization/google">Create account Through google?</a>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
 </section>
+<!-- Join form  -->
 
 <!-- footer -->
 <footer class="footer-bar">

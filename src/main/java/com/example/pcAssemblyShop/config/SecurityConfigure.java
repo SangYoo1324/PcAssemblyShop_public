@@ -115,7 +115,7 @@ public class SecurityConfigure{
                                 form.loginPage("/page/login")
 //when you want to change username param  .usernameParameter("username2")
 
-                                     //   .successHandler(authenticationSuccessHandler())
+                                     //  .successHandler(authenticationSuccessHandler())
                                        //PrincipalDetailService가 실행되는 구간(login이 프로세스중일 때 entity 가공)
                                         .loginProcessingUrl("/page/loginProc")
                                         .usernameParameter("username")
@@ -152,16 +152,6 @@ public class SecurityConfigure{
 
         return http.build();
     }
-
-
-
-
-    // included in authorizeRequests methods with permitAll() method
-//    @Bean
-//   public WebSecurityCustomizer webSecurityCustomizer() {
-//        (web) -> web.ignoring().antMatchers(
-//                "/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico", "/oauth2");
-//    }
 
 
 }
