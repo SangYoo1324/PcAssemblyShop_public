@@ -722,7 +722,7 @@ section.certification{
     margin-left:auto;
     text-align: center;
     left: 60%;
-    animation: slide 1s ease-out;
+    /*animation: slide 1s ease-out;    js handles this*/
 }
 h2{
     padding-top: 30px;
@@ -765,6 +765,17 @@ p{
          left: 60%;
          opacity: 1;
      }
+}
+
+@keyframes slide-away {
+    from{
+        left:60%;
+        opacity:1;
+    }to{
+        left:-400px;
+        opacity: 0;
+         }
+
 }
 /* Certification  */
 

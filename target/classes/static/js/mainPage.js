@@ -8,6 +8,7 @@ pc_index = {
         this.PC_Laptops_animation();
         this.testimonial_slideShow_animation();
         this.event_carousel_slide_animation();
+        this.certification_animation_detector();
     },
 
     second_nav_bar_show: function(){
@@ -119,7 +120,24 @@ pc_index = {
             }
 
         });
+    },
+    certification_animation_detector: function(){
+        console.log("Yoffset Detector start");
+        let text_icon_tab = document.querySelector(".text_icon_tab");
+        window.addEventListener("scroll",function(){
+            let yOffset = window.scrollY;
+            console.log("yOffset",yOffset);
+
+
+            if(yOffset<4000){
+                text_icon_tab.style.animation='slide-away 1s ease-out';
+            }else{
+                text_icon_tab.style.animation='slide 1s ease-out';
+            }
+        })
+
     }
+
 }
 
 pc_index.init();
