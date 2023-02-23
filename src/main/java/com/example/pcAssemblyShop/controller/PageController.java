@@ -86,6 +86,11 @@ public class PageController {
     public  String join(){
         return "page/join";
     }
+
+    @GetMapping("/page/contact")
+    public String contact(){
+        return "/page/contact";
+    }
     @PostMapping("page/joinProc")
     public  String joinProc( Users users){
         System.out.println(users);

@@ -21,46 +21,30 @@
 <header class="pc-header h-[80px]">
     <div class="header-con bg-black h-full flex justify-between">
         <div class="header__menus-logo-wrap flex items-center w-[60%] justify-between">
-            <div class="header__logo grow"><i class="fa-solid fa-desktop text-[25px] p-[20px]
-               pr-[10px] text-red-500"></i>
+            <div class="header__logo w-[400px] ">
                 <!--                    http://localhost:8080/page/main -->
-                <a href="/page/main" class="text-[18px] text-red-500 ">Puget Sound Customs</a>
+                <a href="/page/main" class="text-[28px] text-red-500">&nbsp;Puget Sound Customs</a>
             </div>
 
             <!-- nav-bars  -->
             <div class="header__menus w-[80%] ">
-                <ul class="flex w-[100%]">
+                <ul class="flex w-[100%] ml-[50px]">
                     <!--                    http://localhost:8080/page/gaming -->
                     <li class="relative"><a href="/page/gaming"> GAMING</a>
-                        <ul class="header__menus-2nd">
-                            <li><a href="#">Gaming Laptops</a></li>
-                            <li><a href="#">Gaming PCs</a></li>
-                            <li><a href="#">Ready To ship Systems</a></li>
-                            <li><a href="#">Geforce RTX Desktops</a></li>
-                        </ul>
+
                     </li>
                     <li class="relative"><a href="/page/workstation"> WORKSTATIONS</a>
-                        <ul class="header__menus-2nd">
-                            <li><a href="#">Workstation Laptops</a></li>
-                            <li><a href="#">Workstation Laptops</a></li>
-                            <li><a href="#">Workstation Laptops</a></li>
-                        </ul>
+
                     </li>
-                    <li class="relative"><a href="#"> ACCESORIES</a></li>
+                    <li class="relative"><a href="/page/contact"> CONTACT</a></li>
                     <!--                    http://localhost:8080/page/specialOffers -->
-                    <li class="relative"><a href="/page/specialOffers">SPECIAL OFFERS</a>
-                        <ul class="header__menus-2nd">
-                            <li><a href="#">Workstation Laptops</a></li>
-                            <li><a href="#">Workstation Desktops</a></li>
-                            <li><a href="#">Government & Corporate</a></li>
-                        </ul>
-                    </li>
+
                 </ul>
             </div>
             <!-- nav-bars :end -->
         </div>
 
-        <div class="header__Icons flex items-center w-[15%]">
+        <div class="header__Icons flex items-center w-[15%] ">
             <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
             <div class="sign-in text-white"><a href="/page/login"><i class="fa-solid fa-user"></i>
                 LOGIN
@@ -73,7 +57,6 @@
     </div>
 </header>
 <!-- pc-header  :end-->
-
 <!-- mobile-header  -->
 <header class="mobile-header h-[80px] ">
     <div class="mobile-header-con bg-black flex h-full justify-between items-center">
@@ -142,20 +125,113 @@
 
 <!-- mobile-side-bar  :end -->
 
-<!-- placeholder section Plz remove onnce contents updated  -->
-<section class="h-[1000px] w-[100%]">
-
+<!-- Workstation PC listings  -->
+<section class="h-[1000px] w-[100%] listing">
+    <strong class="caption block">
+        Custom Workstation Desktops <br><br>
+    </strong>
+    <table class="computer">
+        <thead>
+        <tr>
+            <th class="header">
+                Gallery
+            </th>
+            <th colspan="2" class="header">
+                Specifications
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th rowspan="2">
+                <img src="/images/PC1_work.webp" alt="PC1" height="300px" width="400px">
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <ul class="specifications">
+                    <li>
+                        Price: $1200
+                    </li>
+                    <li>
+                        CPU: Ryzen 5 5600
+                    </li>
+                    <li>
+                        GPU: Aorus Geforce RTX 3060 12GB
+                    </li>
+                    <li>
+                        Motherboard: AsRock B550M-ITX/AC
+                    </li>
+                    <li>
+                        RAM: TeamGroup T-Force Xtreem 32GB (2X16GB) 3200MHz
+                    </li>
+                    <li>
+                        PSU: EVGA SuperNOVA 650 GM
+                    </li>
+                    <li>
+                        Storage: WD Blue SSD 500GB + WD Blue HDD 1TB
+                    </li>
+                    <li>
+                        Cooler: Noctua NH-L9A Chromax Black
+                    </li>
+                    <li>
+                        Case: Fractal Design Ridge Black
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th rowspan="2">
+                <img src="/images/PC2_work.png" alt="PC2" height="300px" width="400px">
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <ul class="specifications">
+                    <li>
+                        Price: $4000
+                    </li>
+                    <li>
+                        CPU: Intel Core i7 13700K
+                    </li>
+                    <li>
+                        GPU: Nvidia RTX 3080 Ti
+                    </li>
+                    <li>
+                        Motherboard: ASUS ROG Strix Z690-A GAMING WiFi
+                    </li>
+                    <li>
+                        RAM: G.Skill Trident Z5 64GB (4X16GB) 6000MHz
+                    </li>
+                    <li>
+                        PSU: Corsair RM850X (Modular/80+ Gold)
+                    </li>
+                    <li>
+                        Storage: Crucial P5 Plus SSD 2TB
+                    </li>
+                    <li>
+                        Cooler: Noctua NH-D15 Chromax Black
+                    </li>
+                    <li>
+                        Case: Lian Li O11 Air Mini Black
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </section>
+<!-- Workstation PC listings :end -->
 
 <!-- footer -->
 <footer class="footer-bar">
     <div class="footer-con h-full">
         <div class="footer__why-buy">
-            <h1>WHY BUY FROM MailoPC?</h1>
+            <h1>WHY BUY FROM Puget Sound Customs PC?</h1>
             <p>
                 If you’re searching for the cheapest Gaming PC made with inferior
                 products and questionable quality, you might as well leave
-                now. MailoPC only uses the highest quality performance
+                now. Puget Sound Customs PC only uses the highest quality performance
                 Gaming PC components available. Every single <b href="#" class="text-red-500">customized
                 Gaming PC</b>  and <b href="#" class="text-red-500">Gaming Laptop</b> is assembled right
                 here in the United States by highly trained and
@@ -169,73 +245,22 @@
                 Builders in the country.
             </p>
         </div>
-        <div class="footer__menus flex justify-between">
-            <div class="footer__menus-product">
-                <ul>
-                    <li class="text-[22px]"> <a href="#"></a><b>Gaming PCs</b></li>
-                    <li>Gaming Laptops</li>
-                    <li>Workstation Desktops</li>
-                    <li>Workstation Laptops</li>
-                    <li>Government& Corporate</li>
-                    <li>Gearshop</li>
-                    <li>VR</li>
-                    <li>4K Uncapped</li>
-                </ul>
-            </div>
-            <div class="footer__menus-company">
-                <ul>
-                    <li class="text-[22px]"><b>Company</b></li>
-                    <li>about</li>
-                    <li>Contact</li>
-                    <li>Careers</li>
-                    <li>T&C</li>
-                    <li>Disclaimer</li>
-                    <li>Privacy Policy</li>
-                    <li>Cookies Settings</li>
-                </ul>
-            </div>
-            <div class="footer__menus-reviews">
-                <ul>
-                    <li class="text-[22px]"><b>Reviews</b></li>
-                    <li>news</li>
-                    <li>Testimonials</li>
-                </ul>
-            </div>
 
-            <div class="footer__menus-support">
-                <ul>
-                    <li class="text-[22px]"><b>MailoPCFamily</b></li>
-                    <li>Blog</li>
-                    <li>Twitch Prime</li>
-                    <li>Affiliates</li>
-                </ul>
-            </div>
-            <div class="footer__menus-newsLetter">
-                <ul>
-                    <li class="text-[22px]"><b>Get access to exclusive offers!</b></li>
-                    <li><a class="subscribe-btn" href="#">SUBSCRIBE</a></li>
-
-                </ul>
-            </div>
-        </div>
 
     </div>
     <div class="footer__menus-useful-links flex items-center justify-between">
         <div class="footer__menus-useful-links__icons">
             <ul class="flex">
                 <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitch"></i></a></li>
                 <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitch"></i></a></li>
             </ul>
         </div>
-        <div class="corsair"><img class="h-[100px]" src="../images/CorsAir.png" alt="corsairLogo"></div>
+
         <div class="copyright">@ 2023 TINFO230 Group2. All rights Reserved? LMAO</div>
     </div>
 </footer>
 <!-- footer :end  -->
-
 
 <script src="/js/gamingPage.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
