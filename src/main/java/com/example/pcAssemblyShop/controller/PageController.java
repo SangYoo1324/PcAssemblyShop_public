@@ -89,7 +89,7 @@ public class PageController {
 
     @GetMapping("/page/contact")
     public String contact(){
-        return "/page/contact";
+        return "page/contact";
     }
     @PostMapping("page/joinProc")
     public  String joinProc( Users users){
