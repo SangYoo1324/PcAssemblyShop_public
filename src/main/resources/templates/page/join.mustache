@@ -70,7 +70,7 @@
 
         <div class="header__logo"><i class="fa-solid fa-desktop text-[25px]
             pr-[10px] text-red-500"></i>
-            <span class="text-[28px] text-red-500 ">ORIGIN</span>
+            <span class="text-[18px] text-red-500 "><b>Puget Sound Customs</b> </span>
         </div>
 
         <div class="menu-expansion-burger mr-[20px] cursor-pointer">
@@ -131,14 +131,14 @@
     <div class="con">
         <div class="title_register">REGISTER</div>
         <div class="input_wrap">
-            <form class="" action="/page/joinProc" method="POST">
+            <div class="join_form">
                 <label class="username block" for="username">UserName</label>
-                <input type="text" name="username" placeholder="Username">
+                <input id="join_username" type="text" name="username" placeholder="Username">
 
                 <div class="password_wrap">
                     <div class="pw_wrap">
                         <label class="password block" for="password">Password</label>
-                        <input type="text" name="password" placeholder="Password">
+                        <input id="join_password" type="text" name="password" placeholder="Password">
                     </div>
                     <div class="conf_pw_wrap">
                         <label class="confirm_password block" for="confirm_password">Confirm Password</label>
@@ -148,7 +148,7 @@
                 <div class="email_wrap">
                     <div class="em_wrap">
                         <label class="email block" for="email">Email Address</label>
-                        <input type="email" name="email" placeholder="email">
+                        <input id="join_email" type="email" name="email" placeholder="email">
                     </div>
                     <div class="conf_em_wrap">
                         <label class="conf_email block" for="confirm_email">Email Address</label>
@@ -161,7 +161,7 @@
                     <a href="/oauth2/authorization/google">Create account Through google?</a>
                 </div>
 
-            </form>
+            </div>
         </div>
 
     </div>
@@ -209,7 +209,7 @@
 <!-- footer :end  -->
 
 
-<script src="/js/specialOffersPage.js"></script>
+<script src="/js/loginPage.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
 </body>

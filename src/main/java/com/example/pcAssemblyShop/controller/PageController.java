@@ -57,10 +57,7 @@ public class PageController {
         return "page/gaming";
     }
 
-    @GetMapping("page/specialOffers")
-    public String specialOffers(){
-        return "page/specialOffers";
-    }
+
 
     @GetMapping("page/login")
    public String login(){
@@ -74,9 +71,9 @@ public class PageController {
         return "page/loginProc";
     }
 
-   @GetMapping("page/manager")
+   @GetMapping("page/user")
     public String manager(){
-        return "page/manager";
+        return "page/user";
    }
     @GetMapping("page/admin")
     public  String admin(){
@@ -102,9 +99,5 @@ public class PageController {
         usersRepository.save(users);
         return "redirect:/page/login";
     }
-//    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/page/info")
-    public String info(){
-        return "/page/info";
-    }
+
 }

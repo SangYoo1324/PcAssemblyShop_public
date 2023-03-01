@@ -70,7 +70,7 @@
 
         <div class="header__logo"><i class="fa-solid fa-desktop text-[25px]
             pr-[10px] text-red-500"></i>
-            <span class="text-[28px] text-red-500 ">ORIGIN</span>
+            <span class="text-[18px] text-red-500 "><b>Puget Sound Customs</b> </span>
         </div>
 
         <div class="menu-expansion-burger mr-[20px] cursor-pointer">
@@ -132,11 +132,26 @@
         <div class="login_header mb-[5px]">&nbsp;LOGIN</div>
         <div class="box_wrap">
             <div class="left">
-                <form class="login_form" action="/page/loginProc" method="POST">
+<!--                <form class="login_form" action="/page/loginProc" method="POST">-->
+<!--                    <label class="username block" for="username">Email Address</label>-->
+<!--                    <input id="username" type="text" name="username" placeholder="Username"> <br>-->
+<!--                    <label class="password block" for="password">Password</label>-->
+<!--                    <input id="password" type="text" name="password" placeholder="Password"> <br>-->
+<!--                    <input type="checkbox" id="rememberMe" value="isRememberMe"> <label for="rememberMe"></label>-->
+<!--                    <label class="remember_me_word" for="rememberMe">&nbsp; Remember me</label>-->
+<!--                    <div class="login_btn_wrap flex">-->
+<!--                        <button class="login_btn block ">Log In</button>-->
+<!--                        <a class="forget_password" href="#">-->
+<!--                            Forget Password?-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </form>-->
+
+                <div class="login_form">
                     <label class="username block" for="username">Email Address</label>
-                    <input id="username" type="text" name="username" placeholder="Username"> <br>
+                    <input id="login_username" type="text" name="username" placeholder="Username"> <br>
                     <label class="password block" for="password">Password</label>
-                    <input id="password" type="text" name="password" placeholder="Password"> <br>
+                    <input id="login_password" type="text" name="password" placeholder="Password"> <br>
                     <input type="checkbox" id="rememberMe" value="isRememberMe"> <label for="rememberMe"></label>
                     <label class="remember_me_word" for="rememberMe">&nbsp; Remember me</label>
                     <div class="login_btn_wrap flex">
@@ -145,9 +160,7 @@
                             Forget Password?
                         </a>
                     </div>
-
-
-                </form>
+                </div>
 
             </div>
             <div class="right">
@@ -207,7 +220,7 @@
 </footer>
 <!-- footer :end  -->
 
-
+<script src="/js/loginPage.js"></script>
 <script src="/js/mainPage.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>

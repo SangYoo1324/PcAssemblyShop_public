@@ -36,12 +36,12 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         String provider = userRequest.getClientRegistration().getClientId(); // Google
         String providerId = oAuth2User.getName();
         String email = oAuth2User.getAttribute("email");
-        // 크게 의미 없음
+        // 크게 의미 없음auth
 //        String password = bCryptPasswordEncoder.encode("googleAllPW");
         Role role = Role.USER;
 
         Users usersEntity = usersRepository.findByUsername(providerId+"_google");
-        log.info(usersEntity.getUsername());
+//        log.info(usersEntity.getUsername());
 
         if(usersEntity == null){
             usersEntity= new Users(null,providerId+"_google",null,email,role,null,provider,providerId);

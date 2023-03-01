@@ -23,7 +23,7 @@ input:focus{
     outline: none;
 }
 
-form>input{
+.join_form>input{
     display: block;
     border: none;
     border-bottom: 1px solid white;

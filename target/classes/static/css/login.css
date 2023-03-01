@@ -30,7 +30,7 @@
     padding: 40px 30px;
 }
 
-#username{
+#login_username{
     border: none;
     border-bottom: 1px solid white;
     height: 40px;
@@ -38,13 +38,13 @@
     background-color: black;
     width: 95%;
 }
-#username:focus, #password:focus{
+#login_username:focus, #login_password:focus{
     border: none;
     border-bottom: 1px solid red ;
     outline: none;
 
 }
-#password{
+#login_password{
     border: none;
     border-bottom: 1px solid white;
     height: 40px;

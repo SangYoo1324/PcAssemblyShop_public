@@ -129,10 +129,12 @@ pc_index = {
             console.log("yOffset",yOffset);
 
 
-            if(yOffset<4000){
+            if(yOffset<3100){
                 text_icon_tab.style.animation='slide-away 1s ease-out';
+                console.log("slideAway from the screen");
             }else{
                 text_icon_tab.style.animation='slide 1s ease-out';
+                console.log("slideIn to the screen");
             }
         })
 

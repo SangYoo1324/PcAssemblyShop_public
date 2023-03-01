@@ -16,6 +16,7 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
@@ -54,16 +55,9 @@ public class SecurityConfigure{
     private PrincipalOauth2UserService principalOauth2UserService;
 
     @Bean
-    public AuthenticationFailureHandler authenticationFailureHandler() {
-        return new CustomAuthenticationFailureHandler();
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
-//
-    @Bean
-    public AuthenticationSuccessHandler authenticationSuccessHandler() {
-        return new CustomAuthenticationSuccessHandler();
-    }
-//
-
 
     //Encrypts Google registration & Normal registration password
 
@@ -106,49 +100,27 @@ public class SecurityConfigure{
                         .requestMatchers("/page/admin/**").hasRole("ADMIN")
                         .requestMatchers("/page/info/**").hasRole("ADMIN")
                         .anyRequest().permitAll()
+                        .and()
+                        .oauth2Login()
+                        .loginPage("/page/login").defaultSuccessUrl("/page/main")
+                        .userInfoEndpoint()
+                        .userService(principalOauth2UserService);
 
                         //accepts entrance except for those 3 cases above
                         //when access denied, below code execute and lead user to login page
-                        .and().formLogin(form->
-                        {
-                            try {
-                                form.loginPage("/page/login")
-//when you want to change username param  .usernameParameter("username2")
 
-                                     //  .successHandler(authenticationSuccessHandler())
-                                       //PrincipalDetailService가 실행되는 구간(login이 프로세스중일 때 entity 가공)
-                                        .loginProcessingUrl("/page/loginProc")
-                                        .usernameParameter("username")
-                                        .passwordParameter("password")
 
-//                                        .successHandler(authenticationSuccessHandler())
-                                        .failureHandler(authenticationFailureHandler())
-                                        .defaultSuccessUrl("/page/main")
-                                        .and()
-                                        .oauth2Login()
-                                        .loginPage("/page/login").defaultSuccessUrl("/page/main")
-                                        .userInfoEndpoint()
-                                        .userService(principalOauth2UserService)
-                                        ;
-                                // 구글 로그인이 완료된 후의 후처리가 필요함 Tip. 코드X,(access token+사용자 프로필 정보)
 
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
 
-                        )
-                        .logout(logout-> logout
-                                .logoutUrl("/page/logout")
-                                .logoutSuccessUrl("/page/main")
-                                .invalidateHttpSession(true)
-                        )
-
-                ;
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-        });
+        })
+                .logout(logout-> logout
+                .logoutUrl("/page/logout")
+                .logoutSuccessUrl("/page/main")
+                .invalidateHttpSession(true)
+        );
 
         return http.build();
     }
