@@ -88,6 +88,11 @@ public class PageController {
     public String contact(){
         return "page/contact";
     }
+
+    @GetMapping("/page/accessories")
+    public String accessories(){
+        return "page/accessories";
+    }
     @PostMapping("page/joinProc")
     public  String joinProc( Users users){
         System.out.println(users);
