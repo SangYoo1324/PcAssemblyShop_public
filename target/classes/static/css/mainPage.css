@@ -84,6 +84,9 @@ header.pc-header{
     height: 0;
     transition: height 0.5s;
 }
+.header__menus-2nd>li>a:hover{
+    color: #cc181e;
+}
 
 .header__menus-2nd.active{
     height:150px;
@@ -218,7 +221,7 @@ header.pc-header{
 
 /* mobile-side-bar :end */
 
-/* footer  */
+/* desktop footer  */
 .footer-bar{
     width:100%;
     background-color: black;
@@ -248,12 +251,15 @@ header.pc-header{
 .sitemap_wrap{
     padding-left: 20px;
     padding-top: 20px;
+    margin-right: 50px;
 }
 .sitemap_wrap>li{
     font-size: 23px;
     margin-bottom: 5px;
 }
-
+.sitemap_wrap>li>a:hover{
+color: #cc181e;
+}
 .direction{
     padding-right: 50px;
 }
@@ -266,7 +272,7 @@ header.pc-header{
 
 iframe{
     width: 400px;
-    height: 300px;
+    height: 200px;
     padding: 30px;
 }
 

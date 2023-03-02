@@ -101,6 +101,12 @@ public class PageController {
     public String aboutus(){
         return "page/aboutus";
     }
+
+    @GetMapping("/page/cart")
+    public String cart(){
+        return "page/cart";
+    }
+
     @PostMapping("page/joinProc")
     public  String joinProc( Users users){
         System.out.println(users);
@@ -112,5 +118,6 @@ public class PageController {
         usersRepository.save(users);
         return "redirect:/page/login";
     }
+
 
 }
