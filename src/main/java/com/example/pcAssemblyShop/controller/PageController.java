@@ -93,6 +93,14 @@ public class PageController {
     public String accessories(){
         return "page/accessories";
     }
+    @GetMapping("/page/contributors")
+    public String contributors(){
+        return "page/contributors";
+    }
+    @GetMapping("/page/aboutus")
+    public String aboutus(){
+        return "page/aboutus";
+    }
     @PostMapping("page/joinProc")
     public  String joinProc( Users users){
         System.out.println(users);

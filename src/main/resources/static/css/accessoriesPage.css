@@ -1,6 +1,7 @@
 section.accessories_contents{
     background-color: #1e1f24;
     color: white;
+    padding-bottom: 150px;
 }
 
 .bg_accessories{
@@ -64,7 +65,7 @@ section.accessories_contents{
 
     margin: 15px 2%;
     width:25%;
-    height: 350px;
+    height: 450px;
     background-color: black;
 }
 

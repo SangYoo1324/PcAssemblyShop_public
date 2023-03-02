@@ -86,7 +86,7 @@ header.pc-header{
 }
 
 .header__menus-2nd.active{
-    height:200px;
+    height:150px;
 }
 
 
@@ -230,40 +230,44 @@ header.pc-header{
     color: white;
 }
 
-.footer__why-buy{
-    color: white;
-    padding: 30px 30px;
+.footer-con{
+    display: flex;
+    justify-content: space-between;
 }
 
-.footer__why-buy>h1{
-    font-size: 25px;
-    margin-bottom: 10px;
+.footer_Sitemap{
+    padding-left: 50px;
 }
-
-.footer__why-buy>p{
-    font-size: 20px;
-}
-
-.footer__menus>*{
-    font-size: 22px;
-    margin-bottom: 5px;
-}.footer__menus>*>ul>li:nth-child(1){
-     margin-bottom: 10px;
- }
-
-.footer__menus-newsLetter>ul>li:nth-child(2){
-    margin-top: 20px;
-    background-color: red;
-    padding: 20px;
-}
-
-.footer__menus-newsLetter>ul>li:nth-child(2)>a{
-
-    width:40%;
-    display: block;
-    margin: 0 auto;
-    font-size: 20px;
+.footer_Sitemap>h1{
     font-weight: bold;
+    font-size: 28px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.sitemap_wrap{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.sitemap_wrap>li{
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.direction{
+    padding-right: 50px;
+}
+.direction>h1{
+    font-weight: bold;
+    font-size: 28px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+iframe{
+    width: 400px;
+    height: 300px;
+    padding: 30px;
 }
 
 .footer__menus-useful-links{
@@ -848,11 +852,14 @@ p{
     }
     .footer-bar>.footer-con {
         max-width:412px;
-        height:900px;
-    }
-    .footer__menus{
+        height:500px;
         flex-direction: column;
     }
+    /*.footer__menus{*/
+    /*    flex-direction: column;*/
+    /*}*/
+
+
     /* Mobile: PC-Laptops  */
 
     /* Mobile: footer  */

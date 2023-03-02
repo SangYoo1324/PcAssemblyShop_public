@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/workstation.css">
+    <link rel="stylesheet" href="/css/mainPage.css">
 
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
@@ -17,113 +18,7 @@
     <title>Puget Sound Customs</title>
 </head>
 <body>
-<!-- pc-header  -->
-<header class="pc-header h-[80px]">
-    <div class="header-con bg-black h-full flex justify-between">
-        <div class="header__menus-logo-wrap flex items-center w-[60%] justify-between">
-            <div class="header__logo w-[400px] ">
-                <!--                    http://localhost:8080/page/main -->
-                <a href="/page/main" class="text-[28px] text-red-500">&nbsp;Puget Sound Customs</a>
-            </div>
-
-            <!-- nav-bars  -->
-            <div class="header__menus w-[80%] ">
-                <ul class="flex w-[100%] ml-[50px]">
-                    <!--                    http://localhost:8080/page/gaming -->
-                    <li class="relative"><a href="/page/gaming"> GAMING</a>
-
-                    </li>
-                    <li class="relative"><a href="/page/workstation"> WORKSTATIONS</a>
-
-                    </li>
-                    <li class="relative"><a href="/page/contact"> CONTACT</a></li>
-                    <!--                    http://localhost:8080/page/specialOffers -->
-
-                </ul>
-            </div>
-            <!-- nav-bars :end -->
-        </div>
-
-        <div class="header__Icons flex items-center w-[15%] ">
-            <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
-            <div class="sign-in text-white"><a href="/page/login"><i class="fa-solid fa-user"></i>
-                LOGIN
-            </a>
-            </div>
-            <div class="cart-logo text-white"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
-        </div>
-
-        <div class="horizontal-underline"></div>
-    </div>
-</header>
-<!-- pc-header  :end-->
-<!-- mobile-header  -->
-<header class="mobile-header h-[80px] ">
-    <div class="mobile-header-con bg-black flex h-full justify-between items-center">
-        <div class="header__Icons flex items-center w-[20%] ml-[20px]">
-            <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
-            <div class="sign-in text-white"><a href="#"><i class="fa-solid fa-user"></i></a>
-            </div>
-            <div class="cart-logo text-white"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
-        </div>
-
-        <div class="header__logo"><i class="fa-solid fa-desktop text-[25px]
-            pr-[10px] text-red-500"></i>
-            <span class="text-[18px] text-red-500 "><b>Puget Sound Customs</b> </span>
-        </div>
-
-        <div class="menu-expansion-burger mr-[20px] cursor-pointer">
-            <i class="fa-solid fa-bars bg-white text-[20px] h-full"></i>
-        </div>
-    </div>
-
-</header>
-<!-- mobile-header  :end-->
-
-<!-- mobile-side-bar (activated)  -->
-<div class="mobile-side-bar inset-0">
-    <div class="mobile-side-bar__contents bg-white w-80 h-full ml-auto flex flex-column">
-        <div class="mobile-side-bar__head bg-black pt-[15px]">
-            <div class="mobile-side-bar__btn-close border-2 cursor-pointer
-            border-black w-[30px] h-[30px] ml-auto relative pt-[10px]">
-                <div class="absolute bg-white inset-x-0 h-1/5"></div>
-                <div class="absolute bg-white inset-x-0 h-1/5"></div>
-            </div>
-        </div>
-
-        <div class="mobile-side-bar__body bg-black h-20 flex-grow">
-            <div class="mobile-side-bar__body__menu-box-1">
-                <ul>
-                    <li class="relative"><a  href="#"> GAMING</a>
-                        <ul class="mobile-side-bar__menus-2nd">
-                            <li><a href="#"> Gaming Laptops</a></li>
-                            <li>Gaming PCs<a href="#"> Gaming Laptops</a></li>
-                            <li><a href="#">Ready To ship Systems</a></li>
-                            <li><a href="#">Geforce RTX Desktops</a></li>
-                        </ul>
-                    </li>
-                    <li class="relative"><a class="" href="#"> WORKSTATIONS</a>
-                        <ul class="mobile-side-bar__menus-2nd">
-                            <li><a href="#">Workstation Laptops</a></li>
-                            <li><a href="#">Workstation Desktops</a></li>
-                            <li><a href="#">Government & Corporate</a></li>
-                        </ul>
-                    </li>
-                    <li class="relative"><a class="" href="#"> ACCESORIES</a></li>
-                    <li class="relative"><a class="" href="#">SPECIAL OFFERS</a>
-                        <ul class="mobile-side-bar__menus-2nd">
-                            <li><a href="#">Geforce RTX Desktops</a></li>
-                            <li><a href="#">Geforce RTX Desktops</a></li>
-                            <li><a href="#">Geforce RTX Desktops</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- mobile-side-bar  :end -->
+{{>parts/header}}
 
 <!-- Workstation PC listings  -->
 <section class="h-[1000px] w-[100%] listing">
@@ -223,39 +118,7 @@
 </section>
 <!-- Workstation PC listings :end -->
 
-<!-- footer -->
-<footer class="footer-bar">
-    <div class="footer-con h-full">
-        <div class="footer__why-buy">
-            <h1>Why buy from Puget Sound Customs?</h1>
-            <p>
-                As a computer enthusiast, I am passionate about building high-quality,
-                reliable systems that meet the specific needs of my customers. I carefully
-                select each component to ensure compatibility, performance, and longevity,
-                using only the best components from trusted brands. Additionally, I pay close
-                attention to detail during the build process, making sure that every connection
-                is secure and that cable management is neat and tidy. The result is a custom-built
-                computer that not only looks great but also performs exceptionally well and is built
-                to last. With my dedication to quality and attention to detail, customers can trust
-                that they are getting a custom computer that will meet their needs and exceed their expectations.
-            </p>
-        </div>
-
-
-    </div>
-    <div class="footer__menus-useful-links flex items-center justify-between">
-        <div class="footer__menus-useful-links__icons">
-            <ul class="flex">
-                <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/mailobaca/"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="https://www.youtube.com/channel/UC1ox_31VlY8uwI4lWnsnHzQ"><i class="fa-brands fa-youtube"></i></a></li>
-            </ul>
-        </div>
-
-        <div class="copyright">@ 2023 TINFO230 Group2. All rights Reserved? LMAO</div>
-    </div>
-</footer>
-<!-- footer :end  -->
+{{>parts/footer}}
 
 <script src="/js/mainPage.js"></script>
 <script src="/js/gamingPage.js"></script>

@@ -1,0 +1,128 @@
+/*title section */
+section.title_section{
+    padding-top: 100px;
+    background-image:linear-gradient(to right, rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    url("../images/accessoriesBg.jpg");
+    width: 100%;
+    height:350px;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+
+.title_section>.text_wrap_title{
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.text_wrap_title>h1{
+    font-size: 40px;
+    text-align: center;
+    animation: AboutUs 2s ease-in-out;
+
+}
+
+.text_wrap_title>p{
+    margin-top: 20px;
+    text-align: center;
+    animation: bottomAboutUs 1s ease-in-out;
+
+}
+
+@keyframes AboutUs {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+         }
+
+}
+@keyframes bottomAboutUs {
+    from{
+        transform: translateY(100px);
+        opacity: 0;
+    }to{
+         transform: translateY(0);
+        opacity: 1;
+     }
+
+}
+
+@keyframes about_bar_ani {
+    from{
+        width:0;
+    }to{
+            width:240px;
+     }
+
+}
+
+.about_bar{
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    width: 240px;
+    height:3px;
+    animation: about_bar_ani 1.5s ease-in-out;
+
+}
+.text_wrap>p{
+    margin-top: 20px;
+}
+
+
+.con{
+    padding: 20px 20px;
+    background-color: #1e1f24;
+    color: white;
+}
+
+/*member section */
+
+.con>*{
+    display: flex;
+    padding: 30px 10px;
+}
+
+.con>*> img{
+    display: block;
+    height: 243px;
+    width: 243px;
+    background-size: cover;
+    margin-right: 20px;
+    border-radius: 50px;
+}
+
+.text_slot>h1{
+padding-bottom: 15px;
+    font-size: 30px;
+}
+.text_slot>h3{
+    padding-bottom: 15px;
+
+}
+
+/*tools_wrap*/
+.tools_wrap{
+    display: block;
+}
+.tools_wrap>h1 {
+    text-align: center;
+ margin-bottom: 30px;
+    font-size: 40px;
+}
+.img_wrap>img{
+    height: 200px;
+    width:200px;
+    border-radius: 70px;
+}
+
+.img_wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
