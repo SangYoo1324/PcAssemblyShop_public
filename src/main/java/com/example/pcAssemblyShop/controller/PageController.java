@@ -10,10 +10,12 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,7 +50,13 @@ public class PageController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("page/main")
-    public String mainPage(){
+    public String mainPage(Model model){
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        PrincipalDetails principalDetails =(PrincipalDetails) authentication.getPrincipal();
+//       log.info("LogIn status::::::::::::"+principalDetails.toString());
+//        if(principalDetails.getAttributes()!=null)
+//        model.addAttribute("Principal",principalDetails);
+
         return "page/main";
     }
 
@@ -60,7 +68,8 @@ public class PageController {
 
 
     @GetMapping("page/login")
-   public String login(){
+   public String login(Model model){
+
       return "page/login";
    }
 

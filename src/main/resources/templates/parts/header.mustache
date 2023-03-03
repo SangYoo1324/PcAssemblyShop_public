@@ -31,10 +31,20 @@
 
         <div class="header__Icons flex items-center w-[15%] ">
             <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
-            <div class="sign-in text-white"><a href="/page/login"><i class="fa-solid fa-user"></i>
-                LOGIN
+{{#Principal}}
+            <div class="sign-in text-white"><a href="/page/login">HI! &nbsp;
+                {{attributes.name}}
             </a>
+                <a href="/page/logout">Log Out</a>
             </div>
+    {{/Principal}}
+            {{^Principal}}
+                <div class="sign-in text-white"><a href="/page/login"><i class="fa-solid fa-user"></i>
+                    LOGIN
+                </a>
+                </div>
+                {{/Principal}}
+
             <div class="cart-logo text-white"><a href="/page/cart"><i class="fa-solid fa-cart-shopping"></i></a></div>
         </div>
 
