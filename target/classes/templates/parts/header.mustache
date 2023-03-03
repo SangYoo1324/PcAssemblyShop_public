@@ -28,29 +28,37 @@
             </div>
             <!-- nav-bars :end -->
         </div>
+        {{#Principal}}
+        <div class="header__Icons flex items-center w-[25%] ">
 
-        <div class="header__Icons flex items-center w-[15%] ">
-            <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
-{{#Principal}}
-            <div class="sign-in text-white"><a href="/page/login">HI! &nbsp;
-                {{attributes.name}}
+            <div class="cart-logo text-white text-[20px]"><a href="/page/cart"><i class="fa-solid fa-cart-shopping"></i></a></div>
+            <div class="search-icon text-white text-[20px]"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
+            <div class="sign-in text-white w-[200px]"><a href="/page/user">
+                <p class="p-0 text-center">Hello!</p>
+                <p class="p-0 text-center">{{attributes.name}}</p>
             </a>
-                <a href="/page/logout">Log Out</a>
+
             </div>
-    {{/Principal}}
-            {{^Principal}}
-                <div class="sign-in text-white"><a href="/page/login"><i class="fa-solid fa-user"></i>
-                    LOGIN
-                </a>
-                </div>
-                {{/Principal}}
+            <div class="search-icon text-white"><a href="/page/logout">LogOut</a></div>
 
-            <div class="cart-logo text-white"><a href="/page/cart"><i class="fa-solid fa-cart-shopping"></i></a></div>
         </div>
+{{/Principal}}
+        {{^Principal}}
+            <div class="header__Icons flex items-center w-[15%] ">
+                <div class="search-icon text-white"><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>
 
-        <div class="horizontal-underline"></div>
+                <div class="sign-in text-white "><a href="/page/login"> &nbsp;
+                  Log In
+                </a>
+
+                </div>
+                <div class="cart-logo text-white"><a href="/page/cart"><i class="fa-solid fa-cart-shopping"></i></a></div>
+            </div>
+        {{/Principal}}
     </div>
 </header>
+
+
 <!-- pc-header  :end-->
 
 <!-- mobile-header  -->

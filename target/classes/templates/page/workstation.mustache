@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/workstation.css">
     <link rel="stylesheet" href="/css/mainPage.css">
-
+    <link rel="stylesheet" href="/css/shoppingContents.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-system-task-16.png">
@@ -20,103 +19,18 @@
 <body>
 {{>parts/header}}
 
-<!-- Workstation PC listings  -->
-<section class="h-[1000px] w-[100%] listing">
-    <strong class="caption block">
-        Custom Workstation Desktops <br><br>
-    </strong>
-    <table class="computer">
-        <thead>
-        <tr>
-            <th class="header">
-                Gallery
-            </th>
-            <th colspan="2" class="header">
-                Specifications
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th rowspan="2">
-                <img src="/images/PC1_work.webp" alt="PC1" height="300px" width="400px">
-            </th>
-        </tr>
-        <tr>
-            <td>
-                <ul class="specifications">
-                    <li>
-                        Price: $1200
-                    </li>
-                    <li>
-                        CPU: Ryzen 5 5600
-                    </li>
-                    <li>
-                        GPU: Aorus Geforce RTX 3060 12GB
-                    </li>
-                    <li>
-                        Motherboard: AsRock B550M-ITX/AC
-                    </li>
-                    <li>
-                        RAM: TeamGroup T-Force Xtreem 32GB (2X16GB) 3200MHz
-                    </li>
-                    <li>
-                        PSU: EVGA SuperNOVA 650 GM
-                    </li>
-                    <li>
-                        Storage: WD Blue SSD 500GB + WD Blue HDD 1TB
-                    </li>
-                    <li>
-                        Cooler: Noctua NH-L9A Chromax Black
-                    </li>
-                    <li>
-                        Case: Fractal Design Ridge Black
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th rowspan="2">
-                <img src="/images/PC2_work.png" alt="PC2" height="300px" width="400px">
-            </th>
-        </tr>
-        <tr>
-            <td>
-                <ul class="specifications">
-                    <li>
-                        Price: $4000
-                    </li>
-                    <li>
-                        CPU: Intel Core i7 13700K
-                    </li>
-                    <li>
-                        GPU: Nvidia RTX 3080 Ti
-                    </li>
-                    <li>
-                        Motherboard: ASUS ROG Strix Z690-A GAMING WiFi
-                    </li>
-                    <li>
-                        RAM: G.Skill Trident Z5 64GB (4X16GB) 6000MHz
-                    </li>
-                    <li>
-                        PSU: Corsair RM850X (Modular/80+ Gold)
-                    </li>
-                    <li>
-                        Storage: Crucial P5 Plus SSD 2TB
-                    </li>
-                    <li>
-                        Cooler: Noctua NH-D15 Chromax Black
-                    </li>
-                    <li>
-                        Case: Lian Li O11 Air Mini Black
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<!--accessories banner -->
+<section class="bg_accessories">
+    <div class="con relative">
+        <div class="contents_wrap">
+            <h1>Workstation</h1>
+            <p>High-Quality Assembled with Excellent Customization</p>
+        </div>
+
+    </div>
 </section>
-<!-- Workstation PC listings :end -->
+<!--accessories banner :end -->
+{{>parts/shoppingContents}}
 
 {{>parts/footer}}
 

@@ -51,11 +51,13 @@ public class PageController {
 
     @GetMapping("page/main")
     public String mainPage(Model model){
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        PrincipalDetails principalDetails =(PrincipalDetails) authentication.getPrincipal();
-//       log.info("LogIn status::::::::::::"+principalDetails.toString());
-//        if(principalDetails.getAttributes()!=null)
-//        model.addAttribute("Principal",principalDetails);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object userDetails =  authentication.getPrincipal();
+        log.info("LogIn status::::::::::::"+userDetails.toString());
+        log.info("Is Authenticated::::::::::::::"+authentication.isAuthenticated());
+
+        if(userDetails.toString()!="anonymousUser")
+            model.addAttribute("Principal",userDetails);
 
         return "page/main";
     }

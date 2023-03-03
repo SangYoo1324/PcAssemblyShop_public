@@ -1,5 +1,7 @@
 package com.example.pcAssemblyShop.api;
 
+import com.example.pcAssemblyShop.auth.PrincipalDetails;
+import com.example.pcAssemblyShop.auth.PrincipalDetailsService;
 import com.example.pcAssemblyShop.entity.Users;
 import com.example.pcAssemblyShop.enumFile.Role;
 import com.example.pcAssemblyShop.repository.UsersRepository;
@@ -37,16 +39,27 @@ public class UsersApiController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private PrincipalDetailsService principalDetailsService;
+
     @PostMapping("/api/users/loginProc")
     public ResponseEntity<Users> login(@RequestBody Users users, HttpServletRequest request){
         log.info("UsersApiController: Login method");
 
         //manually authenticate from manual login(non-google)
+        PrincipalDetails principalDetails = (PrincipalDetails) principalDetailsService.loadUserByUsername(users.getUsername());
         Authentication authenticationToken =
-                new UsernamePasswordAuthenticationToken(users.getUsername(),users.getPassword());
+                new UsernamePasswordAuthenticationToken(users.getUsername(),users.getPassword(),principalDetails.getAuthorities());
         log.info("AuthenticationToken: "+authenticationToken.toString());
-    Authentication authentication = authenticationManager.authenticate(authenticationToken);
-         SecurityContextHolder.getContext().setAuthentication(authentication);
+        log.info(principalDetails.getAuthorities().toString());
+        Authentication authentication = authenticationManager.authenticate(authenticationToken);
+        log.info("Login Status: "+authentication.getPrincipal());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+
+        //Session 도 업데이트를 해줘야한다 or you will get isAuthenticated= true, But still anonymouse User access
+        HttpSession session = request.getSession(true);
+        session.setAttribute(SPRING_SECURITY_CONTEXT_KEY,SecurityContextHolder.getContext());
         //manually authenticate from manual login(non-google)
 
 
