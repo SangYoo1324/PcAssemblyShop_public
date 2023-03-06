@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/specialOffersPage.css">
-
+    <link rel="stylesheet" href="/css/mainPage.css">
+    <link rel="stylesheet" href="/css/cartPage.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-system-task-16.png">
@@ -19,19 +19,105 @@
 <body>
 {{>parts/header}}
 
-<!-- placeholder section Plz remove onnce contents updated  -->
-<section class="h-[1000px] w-[100%]">
-    <br><br><br><br><br><br>
-    ADMIN PAGE
+<section class="item_list pt-[150px] ">
+    <div class="cart_wrap">
+        <h1>CART</h1>
+        <div class="item">
+            <img class="block" src="../images/keyboard_accessories.jpg" alt="">
+            <div class="info_wrap">
+                <h4 class="itme_title">NT-14</h4>
+                <div class="remove_btn"></div>
+                <div class="config">Configuration &nbsp;<i class="fa-solid fa-caret-down"></i></div>
+            </div>
+            <div class="quantity">
+                <h1 class="text-center text-[25px]">Quantity</h1>
+                <select class="quantity_chk block" name="quantity_chk">
+                    <option value="1" selected="selected">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="price">
+                <p>2</p>  <p>&nbsp;$</p>
+            </div>
+        </div>
+    </div>
+    <div class="invoice">
+        <div class="details">
+            <h1 class="label">select-Country:</h1>
+            <span id="country">US</span>
+            <h1 for="promo">Promo Code</h1>
+            <div class="promo_wrap">
+                <input class="mb-[10px]" type="text" name="promo">
+                <button>APPLY</button>
+            </div>
+            <h1>SubTotal</h1>
+            <span class="subtotal">2</span>$
+            <h1>Discount</h1>
+            <span class="discount">1</span>$
+            <h1>Taxes</h1>
+            <span class="tax">0</span>$
 
-    <button class="btn_enable_admin">Enable Admin Mode</button>
+            <h1>TOTAL</h1>
+            <span class="total">1</span>$
+
+        </div>
+        <div id="paypal-button-container"></div>
+    </div>
+
 </section>
+
+<section class="checkout">
+
+</section>
+
+<!--accessories banner :end -->
 
 {{>parts/footer}}
 
-
-<script src="/js/specialOffersPage.js"></script>
+<script src="/js/mainPage.js"></script>
+<script src="/js/cartPage.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

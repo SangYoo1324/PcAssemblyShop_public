@@ -104,18 +104,11 @@ public class PageController {
         return "page/aboutus";
     }
 
-
-    @PostMapping("page/joinProc")
-    public  String joinProc( Users users){
-        System.out.println(users);
-        users.setRole(Role.ADMIN);
-        String rawPassword = users.getPassword();
-        String encPassword = bCryptPasswordEncoder.encode(rawPassword);
-        users.setPassword(encPassword);
-        users.setCreateDate(new Timestamp(System.currentTimeMillis()));
-        usersRepository.save(users);
-        return "redirect:/page/login";
+    @GetMapping("page/receipt")
+    public String receipt(){
+        return "page/receipt";
     }
+
 
 
 
