@@ -117,11 +117,8 @@ public class PageController {
         return "redirect:/page/login";
     }
 
-
     @GetMapping("/page/checkout")
-    public String cart(){
-
-
+    public String checkout(){
         return "/page/checkout";
     }
 
