@@ -81,48 +81,6 @@
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AZX15KyBkRKjl7xZRvxUTl2abO4jICbmMoUT0zfDZg9wJaid0yHvliclpdO4oUWRhe75hFGtXZsyaBEw"></script>
-<script>
-    paypal.Buttons({
-        createOrder: function(data,actions){
-            return actions.order.create({
-                payer:{
-                    address:{
-                        address_line_1: "1111 S 235th pl",
-                        address_line_2: "apt",
-                        admin_area_2: "Federalway",
-                        admin_area_1: "WA",
-                        postal_code: "98198",
-                        country_code: "US"
-                    }
-                },
-                purchase_units:[{
-                    amount:{
-                        value: '1.99'
-                    }
-                }]
-            })
-        },
-        onApprove: function(data,actions){
-            return actions.order.capture().then(function(orderData){
-                console.log(JSON.stringify(orderData,null,2));
-
-                $.ajax({
-                    type: 'POST',
-                    dataType: "json",
-                    contentType: 'application/json',
-                    data: JSON.stringify(orderData,null,2),
-                    url: "/api/paypal/process"
-                }).done(function(rest){
-                    location.href="/page/redirectPage/receipt"
-                }).fail(function(error){
-                    alert("Process failed. Payment didn't process")
-                })
-            })
-        }
-    }).render('#paypal-button-container');
-
-</script>
 </body>
 </html>
 
