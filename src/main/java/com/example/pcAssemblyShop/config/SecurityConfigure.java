@@ -92,14 +92,10 @@ public class SecurityConfigure{
                         // permits css,js is important to accept css,js files
                         .requestMatchers("/css/**","/images/**","/js/**","/page/main/**","/page/join/**",
                                 "/bootstrapCSS_v5/**","/bootstrapJS_v5/**", "/page/joinProc/**",
-                                "/page/gaming/**","/page/gaming/**","/page/login/**","/page/loginProc/**","/page/cart/**").permitAll()
+                                "/page/gaming/**","/page/gaming/**","/page/login/**","/page/loginProc/**","/page/**").permitAll()
                         //여기 주소들은 웹 주소임. physical address (x)
                         .requestMatchers("/page/user/**","/page/manager/**","/page/admin/**","/page/info/**")
                         .authenticated()// 여기에 admin도 안넣어주면 admin hasRole 있어도 작동 안한다
-                        .requestMatchers("/page/manager/**").hasRole("ADMIN") //해당 role 이 있어야 한다는뜻
-                        .requestMatchers("/page/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/page/info/**").hasRole("ADMIN")
-                        .anyRequest().permitAll()
                         .and()
                         .oauth2Login()
                         .loginPage("/page/login").defaultSuccessUrl("/page/main")
