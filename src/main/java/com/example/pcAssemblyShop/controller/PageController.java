@@ -122,11 +122,11 @@ public class PageController {
     }
 
 
-    @GetMapping("/page/cart")
+    @GetMapping("/page/checkout")
     public String cart(){
 
 
-        return "/page/cart";
+        return "/page/checkout";
     }
 
     @GetMapping("/page/redirectPage/receipt")
