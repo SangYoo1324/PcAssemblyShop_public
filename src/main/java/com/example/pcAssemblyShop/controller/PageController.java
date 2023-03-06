@@ -72,10 +72,6 @@ public class PageController {
 
    @GetMapping("page/workstation")
    public String workstation(){ return "page/workstation";}
-    @GetMapping("page/loginProc")
-    public String loginProc(){
-        return "page/loginProc";
-    }
 
    @GetMapping("page/user")
     public String manager(){
@@ -129,11 +125,5 @@ public class PageController {
         return "/page/checkout";
     }
 
-    @GetMapping("/page/redirectPage/receipt")
-    public String receipt(){
-
-
-        return "/page/redirectPage/receipt";
-    }
 
 }
