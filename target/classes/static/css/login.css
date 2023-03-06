@@ -146,8 +146,7 @@ input[type=checkbox]:checked + label::after{
 
 .btn_wrap>.google_login{
     text-align: center;
-    font-weight: bold;
-    background-color: white;
+    font-weight: bold;-color: white;
     color: black;
     padding: 10px 30px;
     border-radius: 5px;
@@ -169,9 +168,21 @@ background-color: #cc181e;
 
 /* when mobile mode */
 @media (max-width:413px){
-    .box_wrap{
-        display: block;
+    .login_header{
+        text-align: center;
     }
 
+    .box_wrap{
+        width:100%;
+        display: block;
+    }
+    .left{
+
+        padding: 0 0;
+        margin-bottom: 40px;
+    }
+    .login_form{
+        padding: 10px 20px;
+    }
 }
 /* when mobile mode */

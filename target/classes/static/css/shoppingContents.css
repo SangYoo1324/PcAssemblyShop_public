@@ -122,6 +122,9 @@ section.accessories_contents{
         padding-bottom: 5px;
         font-size: 30px;
     }
+    .contents_wrap>p{
+        font-size: 17px;
+    }
 
     .items_wrap > .rows{
         display: block;
