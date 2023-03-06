@@ -115,5 +115,20 @@ section.accessories_contents{
      }
 }
 
+@media (max-width:413px){
 
+    .contents_wrap>h1{
+        padding-top: 50px;
+        padding-bottom: 5px;
+        font-size: 30px;
+    }
+
+    .items_wrap > .rows{
+        display: block;
+    }
+    .rows>*{
+        width: 90%;
+        margin-left: 5%;
+    }
+}
 

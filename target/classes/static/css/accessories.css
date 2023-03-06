@@ -1,0 +1,13 @@
+/*accessories mobile  media queries*/
+
+@media (max-width:413px){
+    .bg_accessories{
+        padding-top: 150px;
+    }
+
+    .contents_wrap>h1{
+
+        font-size: 30px;
+    }
+
+}

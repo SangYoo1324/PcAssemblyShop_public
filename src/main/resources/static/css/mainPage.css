@@ -173,7 +173,7 @@ header.pc-header{
     transform: rotate(45deg);
 }
 
-.mobile-side-bar__body__menu-box-1 > ul > li>a{
+.mobile-side-bar__body__menu-box-1 > ul > li>*{
     display: block;
     padding: 18px;
     font-weight: bold;
@@ -197,15 +197,16 @@ header.pc-header{
 
 .mobile-side-bar__menus-2nd{
     display:block;
-    background-color: #1e1f24;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    background-color: black;
     /* cursor: pointer; */
 }
 
 .mobile-side-bar__body__menu-box-1 > ul > li.active > .mobile-side-bar__menus-2nd{
     max-height: 500px;
+    background-color: #1e1f24;
 }
 
 
@@ -859,7 +860,7 @@ p{
     }
     .footer-bar>.footer-con {
         max-width:412px;
-        height:500px;
+        height:400px;
         flex-direction: column;
     }
     /*.footer__menus{*/

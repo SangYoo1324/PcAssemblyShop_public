@@ -98,6 +98,7 @@ section.Who_We_Are{
     font-size: 28px;
     transform: translateX(10%);
     animation: slide-from-right 1.5s ease-in;
+    width: 80%;
 
 }
 
@@ -138,4 +139,36 @@ section.why_buy>p{
     font-size: 23px;
     font-weight: bold;
     animation: slide-from-left 2s ease-in-out;
+    width: 80%;
+}
+
+
+/*Contact mobile  media queries*/
+@media (max-width:413px){
+    .text_wrap_title>h1{
+        font-size: 30px;
+    }
+
+    .about_bar{
+    top: 20%;
+    }
+    .text_wrap_title>p{
+        font-size: 15px;
+    }
+
+
+    .who_title{
+        font-size: 30px;
+    }
+    .Who_We_Are>p{
+      font-size:   20px;
+    }
+
+    .why_title{
+        font-size: 30px;
+    }
+    section.why_buy>p{
+        font-size: 15px;
+    }
+
 }
