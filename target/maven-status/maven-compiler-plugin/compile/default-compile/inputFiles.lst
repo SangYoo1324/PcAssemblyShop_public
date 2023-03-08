@@ -5,7 +5,9 @@ C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemb
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\api\PaypalApiController.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\api\UsersApiController.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\enumFile\Role.java
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\aop\PerformanceAspect.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\WebMvcConfig.java
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\annotation\RunningTime.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\auth\PrincipalDetailsService.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\handler\CustomAuthProvider.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\PcAssemblyShopApplication.java
@@ -13,3 +15,4 @@ C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemb
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\SecurityConfigure.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\auth\PrincipalDetails.java
 C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\config\handler\CustomAuthenticationSuccessHandler.java
+C:\Users\samue\IdeaProjects\pcAssemblyShop_v2\src\main\java\com\example\pcAssemblyShop\aop\AuthAspect.java

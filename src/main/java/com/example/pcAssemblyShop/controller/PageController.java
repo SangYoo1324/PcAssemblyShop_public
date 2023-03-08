@@ -33,11 +33,6 @@ public class PageController {
         return "/page/test";
     }
 
-    @GetMapping("/users")
-    public  String users(Authentication authentication, @AuthenticationPrincipal PrincipalDetails principalDetails){
-        log.info("principalDetails: "+principalDetails.getUsers());
-        return "/page/test";
-    }
 
     @Autowired
    private UsersRepository usersRepository;
@@ -46,19 +41,13 @@ public class PageController {
 
     @GetMapping("page/main")
     public String mainPage(Model model){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Object userDetails =  authentication.getPrincipal();
-        log.info("LogIn status::::::::::::"+userDetails.toString());
-        log.info("Is Authenticated::::::::::::::"+authentication.isAuthenticated());
-
-        if(userDetails.toString()!="anonymousUser")
-            model.addAttribute("Principal",userDetails);
-
+        isLoggedIn(model);
         return "page/main";
     }
 
     @GetMapping("page/gaming")
-    public String gaming(){
+    public String gaming(Model model){
+        isLoggedIn(model);
         return "page/gaming";
     }
 
@@ -66,19 +55,25 @@ public class PageController {
 
     @GetMapping("page/login")
    public String login(Model model){
-
+        isLoggedIn(model);
       return "page/login";
    }
 
    @GetMapping("page/workstation")
-   public String workstation(){ return "page/workstation";}
+   public String workstation(Model model){
+       isLoggedIn(model);
+        return "page/workstation";}
 
    @GetMapping("page/checkout")
-    public String manager(){
+    public String manager(Model model){
+
+       isLoggedIn(model);
         return "page/checkout";
    }
     @GetMapping("page/admin")
-    public  String admin(){
+    public  String admin(Model model){
+
+        isLoggedIn(model);
         return "page/admin";
     }
     @GetMapping("page/join")
@@ -87,20 +82,27 @@ public class PageController {
     }
 
     @GetMapping("/page/contact")
-    public String contact(){
+    public String contact(Model model){
+        isLoggedIn(model);
         return "page/contact";
     }
 
     @GetMapping("/page/accessories")
-    public String accessories(){
+    public String accessories(Model model){
+
+        isLoggedIn(model);
         return "page/accessories";
     }
     @GetMapping("/page/contributors")
-    public String contributors(){
+    public String contributors(Model model){
+
+        isLoggedIn(model);
         return "page/contributors";
     }
     @GetMapping("/page/aboutus")
-    public String aboutus(){
+    public String aboutus(Model model){
+
+        isLoggedIn(model);
         return "page/aboutus";
     }
 
@@ -112,4 +114,14 @@ public class PageController {
 
 
 
+
+    public void isLoggedIn(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object userDetails =  authentication.getPrincipal();
+        log.info("LogIn status::::::::::::"+userDetails.toString());
+        log.info("Is Authenticated::::::::::::::"+authentication.isAuthenticated());
+
+        if(userDetails.toString()!="anonymousUser")
+            model.addAttribute("Principal",userDetails);
+    }
 }

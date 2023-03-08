@@ -146,7 +146,8 @@ input[type=checkbox]:checked + label::after{
 
 .btn_wrap>.google_login{
     text-align: center;
-    font-weight: bold;-color: white;
+    font-weight: bold;
+    background-color: white;
     color: black;
     padding: 10px 30px;
     border-radius: 5px;
