@@ -20,7 +20,7 @@ public class ImageService {
     @Autowired
     ImageRepository fileRepository;
 
-    public final Path rootLocation = Paths.get("C:\\Users\\samue\\IdeaProjects\\pcAssemblyShop_v2\\src\\main\\resources\\static\\images\\dbImages");
+    public final Path rootLocation = Paths.get("C:\\Users\\samue\\Downloads\\screenshot");
 
 
     public void deleteFile(){
