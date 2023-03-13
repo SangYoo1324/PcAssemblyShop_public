@@ -168,6 +168,9 @@ public class PageController {
        itemModel.addAttribute("shoppingcart", shoppingCart);
 
 
+
+
+
         return "page/checkout";
    }
     @GetMapping("page/admin")

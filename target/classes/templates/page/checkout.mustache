@@ -38,7 +38,7 @@
             </div>
             <div class="quantity">
                 <h1 class="text-center text-[25px]">Quantity</h1>
-                <select class="quantity_chk block" name="quantity_chk">
+                <select onchange="totalPrice()" class="quantity_chk block" name="quantity_chk">
                     <option value="1" selected="selected">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -46,7 +46,7 @@
                 </select>
             </div>
             <div class="price">
-                <p>{{item.price}}</p> <p>&nbsp;$</p>
+                <p class="item_price">{{item.price}}</p> <p>&nbsp;$</p>
             </div>
         </div>
     {{/shoppingcart}}
@@ -69,19 +69,19 @@
             </div>
             <div class="row_wrap flex justify-content-between">
                 <h1>SubTotal</h1>
-                <span class="subtotal">2$</span>
+                <span class="subtotal"></span>
             </div>
             <div class="row_wrap flex justify-content-between">
                 <h1>Discount</h1>
-                <span class="discount">1$</span>
+                <span class="discount"></span>
             </div>
             <div class="row_wrap flex justify-content-between">
                 <h1>Taxes</h1>
-                <span class="tax">0$</span>
+                <span class="tax"></span>
             </div>
             <div class="row_wrap flex justify-content-between">
                 <h1>TOTAL</h1>
-                <span class="total">1$</span>
+                <span class="total"></span>
             </div>
 
         </div>
@@ -103,7 +103,9 @@
             return actions.order.create({
                 purchase_units:[{
                     amount:{
-                        value: '10'
+                        value: `${ document.querySelector('.total').textContent.substr(0,
+                                document.querySelector('.total').textContent.length-1
+                        )}`
                     }
                 }]
             });
@@ -129,6 +131,29 @@
         }
 
     }).render('#paypal-button-container');
+
+    function totalPrice(){
+        let total = 0;
+        let price = document.querySelectorAll('.item_price');
+        let quantity = document.querySelectorAll('.quantity_chk');
+
+        for(let i=0; i<price.length; i++){
+            console.log(price[i].textContent);
+            console.log(quantity[i].value);
+            total += price[i].textContent*quantity[i].value;
+            console.log(`total : ${total}`);
+        }
+
+
+        document.querySelector('.subtotal').textContent = total+"$";
+        document.querySelector('.tax').textContent = total/10+"$";
+        document.querySelector('.total').textContent = total*1.1+"$";
+        console.log( document.querySelector('.total').textContent.substr(0,
+                document.querySelector('.total').textContent.length-1));
+
+    }
+
+    totalPrice();
 
 </script>
 </body>
