@@ -9,38 +9,18 @@
         <div class="contents_wrap">
             <div class="title_wrap">
                 <h1>new Arrivals</h1>
-                <p>5 items</p>
+                <p>{{listSize}} items</p>
             </div>
             <div class="items_wrap">
                 <div class="rows">
-                    <div class="items"><img src="../images/keyboard_accessories.jpg" alt="">
+                    {{#item}}
+                    <div class="items"><img src="/api/{{image.id}}" alt="">
                         <p>K100 RGB Mechanical Gaming Keyboard — CHERRY® MX Speed — Black</p>
                         <h4>$ 150</h4>
-                        <a href="#">Add Cart</a>
+                        <a class= "add_cart_btn" data-item-id="{{id}}" href="#">Add Cart</a>
                     </div>
-                    <div class="items"><img src="../images/keyboard_accessories.jpg" alt="">
-                        <p>K100 RGB Mechanical Gaming Keyboard — CHERRY® MX Speed — Black</p>
-                        <h4>$ 150</h4>
-                        <a href="#">Add Cart</a>
-                    </div>
-                    <div class="items"><img src="../images/keyboard_accessories.jpg" alt="">
-                        <p>K100 RGB Mechanical Gaming Keyboard — CHERRY® MX Speed — Black</p>
-                        <h4>$ 150</h4>
-                        <a href="#">Add Cart</a>
-                    </div>
+              {{/item}}
                 </div>
-
-                <div class="rows">
-                    <div class="items"><img src="../images/keyboard_accessories.jpg" alt="">
-                        <p>K100 RGB Mechanical Gaming Keyboard — CHERRY® MX Speed — Black</p>
-                        <h4>$ 150</h4>
-                        <a href="#">Add Cart</a>
-                    </div>
-                    <div class="items"><img src="../images/keyboard_accessories.jpg" alt="">
-                        <p>K100 RGB Mechanical Gaming Keyboard — CHERRY® MX Speed — Black</p>
-                        <h4>$ 150</h4>
-                        <a href="#">Add Cart</a>
-                    </div>
 
                 </div>
 

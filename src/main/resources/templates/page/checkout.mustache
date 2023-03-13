@@ -22,12 +22,15 @@
 {{>parts/header}}
 
 <section class="item_list pt-[150px] ">
+    <!--    shopping list  :end-->
+
     <div class="cart_wrap">
         <h1>CART</h1>
+     {{#shoppingcart}}
         <div class="item">
-            <img class="block" src="../images/keyboard_accessories.jpg" alt="">
+            <img class="block" src="/api/{{item.image.id}}" alt="">
             <div class="info_wrap">
-                <h4 class="itme_title">NT-14</h4>
+                <h4 class="itme_title">{{item.name}}</h4>
                 <div class="remove_btn"></div>
                 <div class="config">Configuration &nbsp;<i class="fa-solid fa-caret-down"></i></div>
             </div>
@@ -41,40 +44,50 @@
                 </select>
             </div>
             <div class="price">
-                <p>2</p>  <p>&nbsp;$</p>
+                <p>{{item.price}}</p> <p>&nbsp;$</p>
             </div>
         </div>
+    {{/shoppingcart}}
     </div>
+<!--    shopping list  :end-->
+
+<!--    checkout & Paypal -->
     <div class="invoice">
         <div class="details">
-            <h1 class="label">select-Country:</h1>
-            <span id="country">US</span>
-            <h1 for="promo">Promo Code</h1>
-            <div class="promo_wrap">
-                <input class="mb-[10px]" type="text" name="promo">
-                <button>APPLY</button>
+            <div class="row_wrap flex justify-content-between">
+                <h1 class="label">select-Country:</h1>
+                <span id="country">US</span>
             </div>
-            <h1>SubTotal</h1>
-            <span class="subtotal">2</span>$
-            <h1>Discount</h1>
-            <span class="discount">1</span>$
-            <h1>Taxes</h1>
-            <span class="tax">0</span>$
-
-            <h1>TOTAL</h1>
-            <span class="total">1</span>$
+            <div class="row_wrap flex justify-content-between">
+                <h1 for="promo">Promo Code</h1>
+                <div class="promo_wrap">
+                    <input class="mb-[10px]" type="text" name="promo">
+                    <button>APPLY</button>
+                </div>
+            </div>
+            <div class="row_wrap flex justify-content-between">
+                <h1>SubTotal</h1>
+                <span class="subtotal">2$</span>
+            </div>
+            <div class="row_wrap flex justify-content-between">
+                <h1>Discount</h1>
+                <span class="discount">1$</span>
+            </div>
+            <div class="row_wrap flex justify-content-between">
+                <h1>Taxes</h1>
+                <span class="tax">0$</span>
+            </div>
+            <div class="row_wrap flex justify-content-between">
+                <h1>TOTAL</h1>
+                <span class="total">1$</span>
+            </div>
 
         </div>
         <div id="paypal-button-container"></div>
     </div>
 
 </section>
-
-<section class="checkout">
-
-</section>
-
-<!--accessories banner :end -->
+<!--    checkout & Paypal :end-->
 
 {{>parts/footer}}
 
@@ -106,8 +119,8 @@
                 }).done(function(resp){
                     console.log(resp);
                     location.href="/page/receipt";
-                }).fail(function(resp){
-                    console.log(resp);
+                }).fail(function(error){
+                   alert(error);
                     alert("data cannot be transfered to backend db");
                 });
             });

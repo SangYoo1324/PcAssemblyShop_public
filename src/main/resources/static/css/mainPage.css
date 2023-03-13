@@ -1,7 +1,9 @@
 /* Global settings  */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
-
+body{
+    width: 100%;
+}
 *{
     margin: 0;
     padding: 0;
@@ -799,9 +801,7 @@ p{
 
 /* when mobile mode */
 @media (max-width:413px){
-    html,body{
-        width:412px;
-    }
+
 
     .pc-header{
         display: none;

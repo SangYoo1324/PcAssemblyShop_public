@@ -23,14 +23,73 @@
 <section class="h-[1000px] w-[100%]">
     <br><br><br><br><br><br>
     ADMIN PAGE
+    <label for="">Image</label>
+    <input id="file" type="file" name="file" >
+
+    <br>
+    <label for="">Category</label>
+    <select class="category block" name="category">
+        <option value="1" selected="selected">gamingPc</option>
+        <option value="2">workstationPc</option>
+        <option value="3">accessory</option>
+    </select>
+    <label for="">Name</label>
+    <input id="name" type="text" name="name">
+    <label for="">Company</label>
+    <input id="company" type="text" name="category">
+    <label for="">price</label>
+    <input id="price" type="text" name="price">
+    <label for="">stock</label>
+    <input id="stock" type="text" name="stock">
+    <label for="">featuredEnv</label>
+    <input id="featured_env" type="text" name="featured_env">
+    <button class="submit-btn">submit</button>
+
+
 
     <button class="btn_enable_admin">Enable Admin Mode</button>
 </section>
 
 {{>parts/footer}}
 
+<script>
+    //Image Confirm Button
+    $('.submit-btn').on('click',function() {
+        imgSender("itemInfo");
+    });
 
-<script src="/js/specialOffersPage.js"></script>
+
+    function imgSender(target){
+        var file = $('#file')[0]  // html DOM id=file 자체
+                .files[0];  // input DOM에 저장된 file들 중 첫번째꺼( 어차피 한개밖에 선택 못함)
+        console.log(file);
+        let form_data = new FormData();
+        form_data.append("file", file);
+        form_data.append("category", $('.category').val());
+        form_data.append("name",$('#name').val());
+        form_data.append("company",$('#company').val());
+        form_data.append("price",$('#price').val());
+        form_data.append("stock",$('#stock').val());
+        form_data.append("featured_env",$('#featured_env').val());
+        $.ajax({
+            data: form_data,
+            type: "POST",
+            url: "/api/"+target,
+            cache: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            success: function (url) {
+                alert("Success sending file to :::::" + url);
+                window.location.reload();
+            },
+            error: function (err) {
+                alert(err);
+            }
+        });
+    }
+</script>
+<script src="/js/mainPage.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
 </body>

@@ -56,11 +56,11 @@ section.accessories_contents{
 
 .items_wrap > .rows{
     display: flex;
-
+    flex-wrap: wrap;
 }
-.rows>*:first-child{
-    margin-left: 8%;
-}
+/*.rows>*:first-child{*/
+/*    margin-left: 8%;*/
+/*}*/
 .rows>*{
 
     margin: 15px 2%;
