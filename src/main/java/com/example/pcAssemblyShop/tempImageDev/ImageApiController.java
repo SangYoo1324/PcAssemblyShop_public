@@ -41,17 +41,23 @@ public class ImageApiController {
 
     @GetMapping("/api/{targetId}")
     public ResponseEntity<?> serveFile(@PathVariable Long targetId){
+        Image image = imageService.load(targetId);
+        Resource resource = resourceLoader.getResource(image.getCloudinaryUrl());
 
-        try{
-            Image image = imageService.load(targetId);
-            log.info(image.getFilePath());
-            // "file" <= absolute path notations  // classpath: 도 있음
-            Resource resource = resourceLoader.getResource("file:"+image.getFilePath());
+        return ResponseEntity.status(HttpStatus.OK).body(resource);
 
+//        getting image from local path
+//        try{
+//            Image image = imageService.load(targetId);
+//            log.info(image.getFilePath());
+//            // "file" <= absolute path notations  // classpath: 도 있음
+//            Resource resource = resourceLoader.getResource("file:"+image.getFilePath());
+//
+//
+//            return ResponseEntity.status(HttpStatus.OK).body(resource);
+//        }catch (Exception e){
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+//        }
 
-            return ResponseEntity.status(HttpStatus.OK).body(resource);
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
     }
 }

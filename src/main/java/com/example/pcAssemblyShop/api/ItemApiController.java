@@ -1,5 +1,7 @@
 package com.example.pcAssemblyShop.api;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.example.pcAssemblyShop.auth.PrincipalDetails;
 import com.example.pcAssemblyShop.entity.*;
 import com.example.pcAssemblyShop.repository.ItemRepository;
@@ -21,8 +23,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Slf4j
@@ -50,9 +57,9 @@ public class ItemApiController {
                                            @RequestParam("price") Long price,
                                            @RequestParam("stock") int stock,
                                            @RequestParam("featured_env") String featured_env
-    ) {
+    )  {
 
-        // save img
+        // save img locally & store db with local path
         Image saveFile;
         log.info(file.getOriginalFilename());
         try {
@@ -60,6 +67,27 @@ public class ItemApiController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
+
+        //save img through cloudinary
+        Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+                "cloud_name", "hanbfrtij",
+                "api_key", "823367694169484",
+                "api_secret", "TOpnr0bVx9XAOxcRHbJu3eea3dg",
+                "secure", true));
+
+        File targetFile = convert(file);
+
+        try {
+       Map uploadResult = cloudinary.uploader().upload(targetFile, ObjectUtils.emptyMap());
+       log.info("**********cloudinary related***********"+uploadResult.entrySet().toString());
+       saveFile.setCloudinaryUrl((String) uploadResult.get("secure_url"));
+
+
+        }catch(IOException e){
+            e.getMessage();
+            log.info("Cloudinary Related");
+        }
+
 
         // Getting saved Img id to store image into Item Entity
         Long image_id = imageRepository.findBySaveFileName(saveFile.getSaveFileName()).get().getId();
@@ -144,6 +172,22 @@ public class ItemApiController {
 
 
         return ResponseEntity.status(HttpStatus.OK).body(id);
+    }
+
+    // converting Multifile type to file
+    //generating empty file with original name of multifile
+    public File convert(MultipartFile file) {
+        File convFile = new File(file.getOriginalFilename());
+        try {
+            convFile.createNewFile();
+            FileOutputStream fos = new FileOutputStream(convFile);
+            fos.write(file.getBytes());
+            fos.close(); //IOUtils.closeQuietly(fos);
+        } catch (IOException e) {
+            convFile = null;
+        }
+
+        return convFile;
     }
 }
 

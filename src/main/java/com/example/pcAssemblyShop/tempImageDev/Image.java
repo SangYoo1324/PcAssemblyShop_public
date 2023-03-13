@@ -20,6 +20,8 @@ public class Image {
     @Column
     private String filePath;
     @Column
+    private String cloudinaryUrl;
+    @Column
     private String contentType;
     @Column
     private Long size;

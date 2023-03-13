@@ -16,11 +16,11 @@ import java.util.UUID;
 @Service
 @Slf4j
 public class ImageService {
-    public static Long targetImageId;
+
     @Autowired
     ImageRepository fileRepository;
 
-    public final Path rootLocation = Paths.get("C:\\Users\\samue\\Downloads\\screenshot");
+    public final Path rootLocation = Paths.get("C:\\Users\\samue\\Downloads\\screenshot\\pcassembly");
 
 
     public void deleteFile(){
@@ -44,9 +44,6 @@ public class ImageService {
                 saveFile.setFilePath(rootLocation.toString()+"\\"+saveFileName);
                 fileRepository.save(saveFile);
 
-                //getting saved file ID
-                Image targetImg =fileRepository.findBySaveFileName(saveFileName).orElse(null);
-                targetImageId = targetImg.getId();
                 return saveFile;
 
             }
@@ -68,6 +65,8 @@ public class ImageService {
             // only Name & path assigned  !!! no Content!!!
             File saveFile = new File(rootLocation.toString(),saveFileName);
             FileCopyUtils.copy(image.getBytes(),saveFile);  // contents injection
+
+
 
         return saveFileName;
     }
