@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/specialOffersPage.css">
-
+    <link rel="stylesheet" href="/css/mainPage.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-system-task-16.png">
@@ -18,39 +18,236 @@
 </head>
 <body>
 {{>parts/header}}
-
-<!-- placeholder section Plz remove onnce contents updated  -->
-<section class="h-[1000px] w-[100%]">
-    <br><br><br><br><br><br>
-    ADMIN PAGE
-    <label for="">Image</label>
-    <input id="file" type="file" name="file" >
-
-    <br>
-    <label for="">Category</label>
-    <select class="category block" name="category">
-        <option value="1" selected="selected">gamingPc</option>
-        <option value="2">workstationPc</option>
-        <option value="3">accessory</option>
-    </select>
-    <label for="">Name</label>
-    <input id="name" type="text" name="name">
-    <label for="">Company</label>
-    <input id="company" type="text" name="category">
-    <label for="">price</label>
-    <input id="price" type="text" name="price">
-    <label for="">stock</label>
-    <input id="stock" type="text" name="stock">
-    <label for="">featuredEnv</label>
-    <input id="featured_env" type="text" name="featured_env">
-    <button class="submit-btn">submit</button>
-
-
-
-    <button class="btn_enable_admin">Enable Admin Mode</button>
+<section class="main w-[100%] pt-[100px]">
+    <h1>ADMIN PANEL</h1>
+    <li>
+        <ul>Only Admin account can access this page. Illegal access are prohibited.</ul>
+        <ul>You can add, update, delete inventories by category from this section</ul>
+    </li>
 </section>
 
+
+<!--add item panel -->
+<section class="update_panel w-[100%]">
+    <h1>CREATE INVENTORY</h1>
+    <div class="con flex">
+        <br>
+        <div class="input_wrap">
+            <label for="">Image</label>
+            <input id="file" type="file" name="file" >
+            <label class="block" for="">Category</label>
+            <select class="category block" name="category">
+                <option value="1" selected="selected">gamingPc</option>
+                <option value="2">workstationPc</option>
+                <option value="3">accessory</option>
+            </select>
+            <label class="block" for="">Name</label>
+            <input id="name" type="text" name="name">
+            <label class="block" for="">Company</label>
+            <input id="company" type="text" name="company">
+        </div>
+
+        <div class="input_wrap">
+            <label class="block" for="">price</label>
+            <input id="price" type="text" name="price">
+            <label class="block" for="">stock</label>
+            <input id="stock" type="text" name="stock">
+            <label class="block" for="">featuredEnv</label>
+            <input id="featured_env" type="text" name="featured_env">
+            <button class="submit-btn block">submit</button>
+
+        </div>
+    </div>
+</section>
+<!--add item panel :end-->
+
+<!--GamingPC list table-->
+<section class="item_list_panel w-[100%] h-[500px]">
+    <h1>GamingPC Inventory Manager</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">STOCK</th>
+            <th scope="col">NAME</th>
+            <th scope="col">COMPANY</th>
+            <th scope="col">OPTIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#gaming}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{stock}}</td>
+            <td>{{stock}}</td>
+            <td>{{name}}</td>
+            <td>{{company}}</td>
+            <td>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        class="update_btn btn btn-secondary">Update</button>
+                <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
+            </td>
+        </tr>
+        {{/gaming}}
+        </tbody>
+    </table>
+</section>
+<!--GamingPC list table : end-->
+
+<!--WorkstationPC list table-->
+<section class="item_list_panel w-[100%] h-[500px]">
+    <h1>WorkstationPC Inventory Manager</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">STOCK</th>
+            <th scope="col">NAME</th>
+            <th scope="col">COMPANY</th>
+            <th scope="col">OPTIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#workstation}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{price}}</td>
+                <td>{{stock}}</td>
+                <td>{{name}}</td>
+                <td>{{company}}</td>
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            class="btn btn-secondary">Update</button>
+                    <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
+                </td>
+            </tr>
+        {{/workstation}}
+        </tbody>
+    </table>
+</section>
+<!--WorkstationPC list table: end-->
+
+<!--Accessory list table-->
+<section class="item_list_panel w-[100%] h-[500px]">
+    <h1>Accessory Inventory Manager</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">STOCK</th>
+            <th scope="col">NAME</th>
+            <th scope="col">COMPANY</th>
+            <th scope="col">OPTIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#accessory}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{price}}</td>
+                <td>{{stock}}</td>
+                <td>{{name}}</td>
+                <td>{{company}}</td>
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            class="btn btn-secondary">Update</button>
+                    <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
+                </td>
+            </tr>
+        {{/accessory}}
+        </tbody>
+    </table>
+</section>
+<!--Accessory list table : end-->
+
+<!--Transaction list table-->
+<section class="item_list_panel w-[100%] h-[500px]">
+    <h1>Transaction Inventory Manager</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">STOCK</th>
+            <th scope="col">NAME</th>
+            <th scope="col">COMPANY</th>
+            <th scope="col">OPTIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#accessory}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{price}}</td>
+                <td>{{stock}}</td>
+                <td>{{name}}</td>
+                <td>{{company}}</td>
+                <td>
+                    <button type="button" class="btn btn-secondary">Update</button>
+                    <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
+                </td>
+            </tr>
+        {{/accessory}}
+        </tbody>
+    </table>
+</section>
+<!--Transaction list table : end-->
+<!--list table : end-->
 {{>parts/footer}}
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-black text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Panel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="con">
+                    <br>
+                    <div class="input_wrap">
+                        <label for="">Image</label>
+                        <input id="file" type="file" name="file" >
+                        <label class="block" for="">Category</label>
+                        <select class="category block" name="category">
+                            <option value="1" selected="selected">gamingPc</option>
+                            <option value="2">workstationPc</option>
+                            <option value="3">accessory</option>
+                        </select>
+                        <label class="block" for="">Name</label>
+                        <input id="name" type="text" name="name">
+                        <label class="block" for="">Company</label>
+                        <input id="company" type="text" name="company">
+                    </div>
+
+                    <div class="input_wrap">
+                        <label class="block" for="">price</label>
+                        <input id="price" type="text" name="price">
+                        <label class="block" for="">stock</label>
+                        <input id="stock" type="text" name="stock">
+                        <label class="block" for="">featuredEnv</label>
+                        <input id="featured_env" type="text" name="featured_env">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     //Image Confirm Button
@@ -89,6 +286,7 @@
         });
     }
 </script>
+<script src="/js/admin.js"></script>
 <script src="/js/mainPage.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>

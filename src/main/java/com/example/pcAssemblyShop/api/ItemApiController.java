@@ -3,6 +3,7 @@ package com.example.pcAssemblyShop.api;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.example.pcAssemblyShop.auth.PrincipalDetails;
+import com.example.pcAssemblyShop.dto.ItemDto;
 import com.example.pcAssemblyShop.entity.*;
 import com.example.pcAssemblyShop.repository.ItemRepository;
 import com.example.pcAssemblyShop.repository.ShoppingCartRepository;
@@ -28,8 +29,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
@@ -189,25 +192,61 @@ public class ItemApiController {
 
         return convFile;
     }
+
+    @PatchMapping("/api/item")
+    public ResponseEntity<?> updateItem(@RequestBody ItemDto itemDto){
+
+        return null;
+    }
+
+    @DeleteMapping("/api/item")
+    public ResponseEntity<?> deleteItem(@RequestBody ItemDto itemDto){
+        String target_name = itemDto.getName();
+        String target_company = itemDto.getCompany();
+        log.info("target_name::::"+target_name+"//////////"+"target_company::::::"+target_company);
+
+
+        //find by name from Item DB
+        List<Item> possible_items = itemRepository.findByName(target_name).orElse(null);
+//        possible_items.stream().filter((item -> item.getCompany()==target_name)).collect(Collectors.toList());
+        if(possible_items==null){
+            log.info("Cannot get possible items list****************************");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+        //List for items filtered by company name
+        List<Item> imshi = new ArrayList<>();
+
+        Iterator it = possible_items.iterator();
+        while(it.hasNext()){
+            Item item = (Item) it.next();
+            if(item.getCompany().equals(target_company)){
+                log.info("company matching:::::::"+item.toString());
+                imshi.add(item);
+            }
+        }
+
+        // checking only one search result shown
+        if(imshi.size()==1){
+          Item target_item = possible_items.get(0);
+            log.info(String.valueOf(target_item));
+            //delete specified item from db
+            itemRepository.delete(target_item);
+            log.info("delete success********************************");
+            return ResponseEntity.status(HttpStatus.OK).body("Success deletion");
+        }else{
+            //if multiple choice given, fail the process
+            log.info("delete fail********************************");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+
+
+
+    }
+
+
 }
 
 
 
-
-@Data
-class ItemDTO{
-
-    @SerializedName("category")
-    private int category;
-    @SerializedName("name")
-    private String name;
-    @SerializedName("company")
-    private String company;
-    @SerializedName("price")
-    private Long price;
-    @SerializedName("stock")
-    private int stock;
-    @SerializedName("featured_env")
-    private String featured;
-
-}

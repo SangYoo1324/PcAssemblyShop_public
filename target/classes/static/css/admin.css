@@ -1,0 +1,68 @@
+section:nth-child(2n-1){
+    background-color: #1e1f24;
+    color: white;
+
+}
+section:nth-child(2n){
+    background-color:#2a2b32;
+    color: white;
+}
+
+section{
+    padding: 30px 40px;
+}
+
+th, td{
+    color: white;
+}
+
+/*board */
+section.main>h1{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+section>h1{
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+/*add item panel*/
+select{
+    width: 200px;
+    padding: .8em .5em;
+    border: 1px solid #999;
+    font-family: inherit;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #757575;
+
+}
+
+.input_wrap{
+    flex-grow: 1;
+}
+
+input{
+    display: block;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: #1e1f24;
+    width: 300px;
+}
+label{
+    padding: 10px 3px;
+}
+
+.submit-btn{
+    margin-top: 25px;
+    margin-left: 45%;
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+

@@ -177,8 +177,31 @@ public class PageController {
     public  String admin(Model model){
         //Logics  hiding admin page with illegal access  need to be embedded later
 
+        List<GamingPc> gamingPCs = new ArrayList<>();
+        List<WorkStationPc> workstationPCs = new ArrayList<>();
+        List<Accessory> accessories = new ArrayList<>();
 
+        List<Item> itemsList = itemRepository.findAll();
+        log.info("Inventory size:::::::::::::"+String.valueOf(itemsList.size()));
+        model.addAttribute("items",itemsList);
 
+        Iterator it = itemsList.iterator();
+        while(it.hasNext()){
+           Item item = (Item) it.next();
+            if( item instanceof GamingPc){
+                gamingPCs.add((GamingPc) item);
+            }
+            else if( item instanceof WorkStationPc){
+                workstationPCs.add((WorkStationPc) item);
+            }
+            else{
+                accessories.add((Accessory) item);
+            }
+        }
+
+        model.addAttribute("gaming",gamingPCs);
+        model.addAttribute("workstation",workstationPCs);
+        model.addAttribute("accessory",accessories);
 
 
         log.info("*****************Your on Admin mode********");

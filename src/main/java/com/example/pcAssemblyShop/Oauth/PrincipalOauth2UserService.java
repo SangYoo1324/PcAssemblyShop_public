@@ -40,19 +40,13 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 //        String password = bCryptPasswordEncoder.encode("googleAllPW");
         Role role = Role.USER;
 
-        Users usersEntity = usersRepository.findByUsername(providerId+"_google");
-//        log.info(usersEntity.getUsername());
+        Users usersEntity = usersRepository.findByUsername(userame);
+        log.info("Confirm right username Entered*************"+usersEntity.getUsername());
 
         if(usersEntity == null){
             usersEntity= new Users(null,userame,null,email,role,null,provider,providerId);
 
-//                    Users.builder()
-//                    .username(providerId+"_google")
-//                    .password(password)
-//                    .email(email)
-//                    .provider(provider)
-//                    .provider_id(providerId)
-//                    .build();
+
             usersRepository.save(usersEntity);
 
             log.info(email+" has been successfully stored on users repository");
