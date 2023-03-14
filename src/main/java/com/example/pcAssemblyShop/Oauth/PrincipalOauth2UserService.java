@@ -41,7 +41,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         Role role = Role.USER;
 
         Users usersEntity = usersRepository.findByUsername(userame);
-        log.info("Confirm right username Entered*************"+usersEntity.getUsername());
 
         if(usersEntity == null){
             usersEntity= new Users(null,userame,null,email,role,null,provider,providerId);
@@ -51,7 +50,8 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
             log.info(email+" has been successfully stored on users repository");
         }else{
-        log.info("This google Id is already registered no action needed");
+            log.info("Confirm right username Entered*************"+usersEntity.getUsername());
+            log.info("This google Id is already registered no action needed");
         }
 
         return new PrincipalDetails(usersEntity,oAuth2User.getAttributes());
