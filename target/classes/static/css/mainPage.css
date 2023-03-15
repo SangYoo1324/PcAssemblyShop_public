@@ -807,7 +807,7 @@ p{
         display: none;
     }
     .mobile-header{
-        width:412px;
+        width:100%;
     }
 
     .header__logo{
