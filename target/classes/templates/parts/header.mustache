@@ -111,6 +111,12 @@
                             <li class=""><a href="/page/contact"> Contact</a></li>
                         </ul>
                     </li>
+                    {{#Principal}}
+                        <li class="relative"><a class="" href="/page/logout">Logout</a></li>
+                    {{/Principal}}
+{{^Principal}}
+                    <li class="relative"><a class="" href="/page/login">Login</a></li>
+    {{/Principal}}
                 </ul>
             </div>
         </div>
