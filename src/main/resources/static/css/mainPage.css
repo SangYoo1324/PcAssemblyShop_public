@@ -881,6 +881,9 @@ p{
     .footer__menus>*>ul>li{
         text-align: center;
     }
+    iframe{
+        width: 300px;
+    }
     /* Mobile: footer  */
 
     /* Mobile: testimonials  */
