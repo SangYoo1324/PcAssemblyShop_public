@@ -150,11 +150,12 @@ section.why_buy>p{
     font-weight: bold;
     /*animation: slide-from-left 2s ease-in-out;*/
     width: 100%;
+    text-align: center;
 }
 
 
 /*Contact mobile  media queries*/
-@media (max-width:413px){
+@media (max-width:1280px){
     .text_wrap_title>h1{
         font-size: 30px;
     }

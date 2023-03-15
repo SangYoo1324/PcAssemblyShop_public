@@ -234,6 +234,7 @@ header.pc-header{
     max-width:1310px;
     margin: 0 auto;
     color: white;
+    overflow: hidden;
 }
 
 .footer-con{
@@ -604,6 +605,9 @@ section.testimonials>*.active{
     margin: 20px 30px;
 
 }
+.event_carousel__text_wrap>p{
+    width: 90%;
+}
 
 .event_carousel_slide_1{
     background-image: url("../images/five-years-of-amd-2.jpg");
@@ -623,7 +627,7 @@ section.testimonials>*.active{
 }
 
 .event_carousel__text_wrap{
-    width:100%;
+    width:70%;
     height:100%;
     margin-left: 15%;
     margin-top: 5%;
@@ -733,12 +737,12 @@ section.certification{
 .text_icon_tab{
     position: absolute;
     font-size: 30px;
-    width: 400px;
+    width: 80%;
     color: white;
     padding-top: 5%;
     margin-left:auto;
     text-align: center;
-    left: 60%;
+    left: 10%;
     /*animation: slide 1s ease-out;    js handles this*/
 }
 h2{
@@ -748,6 +752,8 @@ h3{
     color: #cc181e;
 }
 p{
+
+    width: 100%;
     font-size: 20px;
     padding: 20px 10px;
 }
@@ -779,7 +785,7 @@ p{
         left: -400px;
         opacity: 0;
     }to{
-         left: 60%;
+         left: 10%;
          opacity: 1;
      }
 }
@@ -814,7 +820,9 @@ p{
         padding-right: 0px;
         padding-left: 50px;
     }
-
+    .header__logo>a{
+        font-size: 15px;
+    }
 
 
     /* Mobile: slide  */
@@ -852,14 +860,14 @@ p{
 
     }
     .PC_Laptops>.con>*>.img-info-box{
-        width:412px;
+        width:100%;
         height:412px;
     }
     .PC_Laptops>.con>*{
-        width:412px;
+        width:100%;
     }
     .footer-bar>.footer-con {
-        max-width:412px;
+        max-width:100%;
         height:400px;
         flex-direction: column;
     }
@@ -971,6 +979,10 @@ p{
     /*Mobile: event_carousel  */
 
     /*Mobile: deals */
+    section.deals{
+        width: 100%;
+
+    }
     .deals>.con{
         display: flex;
         flex-direction: column;
@@ -981,16 +993,13 @@ p{
     }
 
     .deals>.con>*{
-        width: 412px;
+        width: 100%;
         border-right: none;
 
     }
     /*Mobile: deals : End */
 
     /*Mobile: Certification  */
-    section.certification{
-                width: 412px;
-    }
 
     .text_icon_tab{
         position: absolute;
@@ -1026,11 +1035,13 @@ p{
 /* when mobile mode : End */
 
 /* when small mode:  */
-@media (max-width:1310px) and (min-width:414px) {
+@media (max-width:1280px) and (min-width:414px) {
     .pc-header{
         display: none;
     }
-
+    .mobile-header{
+        display: block;
+    }
 
     /*small mode: PC-Laptops  */
     .PC_Laptops{
@@ -1050,15 +1061,39 @@ p{
         width:100%;
     }
 
-    /* small mode: section: PC-Laptops  */
+    /* small: footer  */
 
-    /*small mode: testimonials  */
-    .testimonials{
+    .footer-bar>.footer-con *{
+        font-size: 12px;
+    }
+
+    .footer-bar img{
+        display: none;
+    }
+    .footer__menus>*>ul>li{
+        text-align: center;
+    }
+    iframe{
+        width: 300px;
+    }
+    /* small: footer  */
+
+    /* small: testimonials  */
+    section.testimonials{
+        height:1100px;
+        position:relative;
+    }
+
+    .testimonials>*:not(:last-child){
         flex-direction: column;
     }
-    .testimonials>.testimonials_left, .testimonials>.testimonials_right {
+
+
+    .testimonials_slide_1>*,.testimonials_slide_2>*,
+    .testimonials_slide_3>*, .testimonials_slide_4>* {
         width: 100%;
     }
+
 
     .more_reviews_btn{
         padding-right: 0;
@@ -1066,30 +1101,51 @@ p{
     .testimonials_right{
         padding-right:0;
     }
+    .review-wrap__btn_group{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
     .testimonials__slide_dot{
-        right:500px;
+        top: 1050px;
+        right:150px;
     }
-    /*small mode: testimonials  */
+    /* small: testimonials  */
 
 
-    /*small mode: footer  */
-    .footer-bar>.footer-con *{
-        font-size: 15px;
+
+    /*small: deals */
+    section.deals{
+        width: 100%;
+
+    }
+    .deals>.con{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin: 50px auto;
 
     }
 
-    .footer-bar img{
-        display: none;
-    }
+    .deals>.con>*{
+        width: 100%;
+        border-right: none;
 
-    /* footer  */
+    }
+    /*small: deals : End */
 
 }
 
 
 
-/* when small mode  */
+/* when small mode :end */
 
+/*Ipad mode */
+
+
+/*Ipad mode : end */
 
 /* when  pc-wide mode  */
 @media (min-width:1310px){

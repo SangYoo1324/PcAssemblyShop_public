@@ -157,3 +157,36 @@ padding-bottom: 15px;
         margin: 20px 20px;
     }
 }
+
+
+@media (max-width:1280px){
+
+    .text_wrap_title>h1{
+        font-size: 35px;
+
+    }
+    .about_bar{
+        top: 18%;
+    }
+    .text_wrap_title>p{
+        font-size: 15px;
+    }
+
+    .tools_wrap>h1{
+        font-size: 30px;
+    }
+
+    .con>*{
+        display: block;
+    }
+
+    .img_wrap{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .img_wrap>img{
+        width:100px;
+        height: 100px;
+        margin: 20px 20px;
+    }
+}

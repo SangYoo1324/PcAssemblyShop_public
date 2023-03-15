@@ -186,4 +186,23 @@ background-color: #cc181e;
         padding: 10px 20px;
     }
 }
+
+@media (max-width:1280px) and (min-width: 414px){
+    .login_header{
+        text-align: center;
+    }
+
+    .box_wrap{
+        width:100%;
+        display: block;
+    }
+    .left{
+
+        padding: 0 0;
+        margin-bottom: 40px;
+    }
+    .login_form{
+        padding: 10px 20px;
+    }
+}
 /* when mobile mode */
