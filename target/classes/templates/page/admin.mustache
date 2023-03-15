@@ -30,7 +30,7 @@
 <!--add item panel -->
 <section class="update_panel w-[100%]">
     <h1>CREATE INVENTORY</h1>
-    <div class="con flex">
+    <div class="con">
         <br>
         <div class="input_wrap">
             <label for="">Image</label>
@@ -61,145 +61,157 @@
 </section>
 <!--add item panel :end-->
 
-<!--GamingPC list table-->
-<section class="item_list_panel w-[100%] h-[500px]">
-    <h1>GamingPC Inventory Manager</h1>
+<!--table for desktop -->
+<section class="table_group_desktop">
+    <!--GamingPC list table-->
+    <section class="item_list_panel w-[100%] h-[500px]">
+        <h1>GamingPC Inventory Manager</h1>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">PRICE</th>
-            <th scope="col">STOCK</th>
-            <th scope="col">NAME</th>
-            <th scope="col">COMPANY</th>
-            <th scope="col">OPTIONS</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#gaming}}
-        <tr>
-            <th scope="row">{{id}}</th>
-            <td>{{stock}}</td>
-            <td>{{stock}}</td>
-            <td>{{name}}</td>
-            <td>{{company}}</td>
-            <td>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        class="update_btn btn btn-secondary">Update</button>
-                <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
-            </td>
-        </tr>
-        {{/gaming}}
-        </tbody>
-    </table>
-</section>
-<!--GamingPC list table : end-->
-
-<!--WorkstationPC list table-->
-<section class="item_list_panel w-[100%] h-[500px]">
-    <h1>WorkstationPC Inventory Manager</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">PRICE</th>
-            <th scope="col">STOCK</th>
-            <th scope="col">NAME</th>
-            <th scope="col">COMPANY</th>
-            <th scope="col">OPTIONS</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#workstation}}
+        <table class="table">
+            <thead>
             <tr>
-                <th scope="row">{{id}}</th>
-                <td>{{price}}</td>
-                <td>{{stock}}</td>
-                <td>{{name}}</td>
-                <td>{{company}}</td>
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            class="btn btn-secondary">Update</button>
-                    <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
-                </td>
+                <th scope="col">ID</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">STOCK</th>
+                <th scope="col">NAME</th>
+                <th scope="col">COMPANY</th>
+                <th scope="col">OPTIONS</th>
             </tr>
-        {{/workstation}}
-        </tbody>
-    </table>
-</section>
-<!--WorkstationPC list table: end-->
+            </thead>
+            <tbody>
+            {{#gaming}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{stock}}</td>
+                    <td>{{stock}}</td>
+                    <td>{{name}}</td>
+                    <td>{{company}}</td>
+                    <td>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                class="update_btn ">Update</button>
+                        <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn">DELETE</button>
+                    </td>
+                </tr>
+            {{/gaming}}
+            </tbody>
+        </table>
+    </section>
+    <!--GamingPC list table : end-->
 
-<!--Accessory list table-->
-<section class="item_list_panel w-[100%] h-[500px]">
-    <h1>Accessory Inventory Manager</h1>
+    <!--WorkstationPC list table-->
+    <section class="item_list_panel w-[100%] h-[500px]">
+        <h1>WorkstationPC Inventory Manager</h1>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">PRICE</th>
-            <th scope="col">STOCK</th>
-            <th scope="col">NAME</th>
-            <th scope="col">COMPANY</th>
-            <th scope="col">OPTIONS</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#accessory}}
+        <table class="table">
+            <thead>
             <tr>
-                <th scope="row">{{id}}</th>
-                <td>{{price}}</td>
-                <td>{{stock}}</td>
-                <td>{{name}}</td>
-                <td>{{company}}</td>
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            class="btn btn-secondary">Update</button>
-                    <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
-                </td>
+                <th scope="col">ID</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">STOCK</th>
+                <th scope="col">NAME</th>
+                <th scope="col">COMPANY</th>
+                <th scope="col">OPTIONS</th>
             </tr>
-        {{/accessory}}
-        </tbody>
-    </table>
-</section>
-<!--Accessory list table : end-->
+            </thead>
+            <tbody>
+            {{#workstation}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{price}}</td>
+                    <td>{{stock}}</td>
+                    <td>{{name}}</td>
+                    <td>{{company}}</td>
+                    <td>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                class="update_btn">Update</button>
+                        <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn ">DELETE</button>
+                    </td>
+                </tr>
+            {{/workstation}}
+            </tbody>
+        </table>
+    </section>
+    <!--WorkstationPC list table: end-->
 
-<!--Transaction list table-->
-<section class="item_list_panel w-[100%] h-[500px]">
-    <h1>Transaction Inventory Manager</h1>
+    <!--Accessory list table-->
+    <section class="item_list_panel w-[100%] h-[500px]">
+        <h1>Accessory Inventory Manager</h1>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">PRICE</th>
-            <th scope="col">STOCK</th>
-            <th scope="col">NAME</th>
-            <th scope="col">COMPANY</th>
-            <th scope="col">OPTIONS</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#accessory}}
+        <table class="table">
+            <thead>
             <tr>
-                <th scope="row">{{id}}</th>
-                <td>{{price}}</td>
-                <td>{{stock}}</td>
-                <td>{{name}}</td>
-                <td>{{company}}</td>
-                <td>
-                    <button type="button" class="btn btn-secondary">Update</button>
-                    <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn btn btn-danger">DELETE</button>
-                </td>
+                <th scope="col">ID</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">STOCK</th>
+                <th scope="col">NAME</th>
+                <th scope="col">COMPANY</th>
+                <th scope="col">OPTIONS</th>
             </tr>
-        {{/accessory}}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {{#accessory}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{price}}</td>
+                    <td>{{stock}}</td>
+                    <td>{{name}}</td>
+                    <td>{{company}}</td>
+                    <td>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                class="update_btn">Update</button>
+                        <button type="button" data-name="{{name}}" data-company="{{company}}" class="delete_btn">DELETE</button>
+                    </td>
+                </tr>
+            {{/accessory}}
+            </tbody>
+        </table>
+    </section>
+    <!--Accessory list table : end-->
+
+    <!--Transaction list table-->
+    <section class="item_list_panel w-[100%] h-[500px]">
+        <h1>Transaction Inventory Manager</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">STOCK</th>
+                <th scope="col">NAME</th>
+                <th scope="col">COMPANY</th>
+                <th scope="col">OPTIONS</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#accessory}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{price}}</td>
+                    <td>{{stock}}</td>
+                    <td>{{name}}</td>
+                    <td>{{company}}</td>
+                    <td>
+                        <button type="button" class="update_btn">Update</button>
+                        <button type="button" data-name="{{name}}" data-company="{{company}}" class=" delete_btn">DELETE</button>
+                    </td>
+                </tr>
+            {{/accessory}}
+            </tbody>
+        </table>
+    </section>
 </section>
+
 <!--Transaction list table : end-->
 <!--list table : end-->
+<!--table for desktop :end-->
+
+
+
+
+<!--table for mobile -->
+<!--table for mobile :end-->
+
 {{>parts/footer}}
 
 

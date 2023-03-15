@@ -8,13 +8,20 @@ section:nth-child(2n){
     color: white;
 }
 
+.con{
+    display: flex;
+}
+
 section{
     padding: 30px 40px;
 }
 
 th, td{
     color: white;
+    max-width: 2rem;
+    overflow: hidden;
 }
+
 
 /*board */
 section.main>h1{
@@ -62,6 +69,42 @@ label{
     padding: 10px 15px;
     border: 1px solid white;
     border-radius: 10px;
+}
+
+.delete_btn{
+    padding: 10px 10px;
+    font-size: 10px;
+    border:  1px solid red;
+    border-radius: 5px;
+    margin: 3px 3px;
+}
+.update_btn{
+    padding: 10px 10px;
+    font-size: 10px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    margin: 3px 3px;
+}
+
+@media (max-width:413px){
+    .con{
+        display: block;
+    }
+ td{
+     padding: 0.1rem 0.1rem;
+ }
+ section{
+     padding: 5px 5px;
+ }
+
+
+
+ tr>th:nth-child(5){
+     display: none;
+ }
+    tr>td:nth-child(5){
+        display: none;
+    }
 }
 
 
