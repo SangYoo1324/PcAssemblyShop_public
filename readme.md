@@ -44,6 +44,10 @@ Sangbeom Yoo    [@SangYoo1324](https://sangbeomyooportfoliosite.netlify.app/)
 ## Version History
 
 * 0.2
+    * Responsive Design CSS upgrade
+    * Remove item from cart functionality added
+
+* 0.2
     * Various bug fixes and optimizations
     * Google-Login function updated
 * 0.1
