@@ -51,6 +51,8 @@ public class ItemApiController {
     ImageService imageService;
 
 
+
+
     // getting item details & Item Image
     @PostMapping("/api/itemInfo")
     public ResponseEntity<?> postItemImage(@RequestPart(value="file") MultipartFile file,
@@ -83,6 +85,7 @@ public class ItemApiController {
         try {
        Map uploadResult = cloudinary.uploader().upload(targetFile, ObjectUtils.emptyMap());
        log.info("**********cloudinary related***********"+uploadResult.entrySet().toString());
+       //setCloudinaryUrl on Image Entity
        saveFile.setCloudinaryUrl((String) uploadResult.get("secure_url"));
 
 
@@ -193,10 +196,98 @@ public class ItemApiController {
         return convFile;
     }
 
-    @PatchMapping("/api/item")
-    public ResponseEntity<?> updateItem(@RequestBody ItemDto itemDto){
+    @PostMapping("/api/itemUpdate")
+    public ResponseEntity<?> updateItem(@RequestPart(value="file") MultipartFile file,
+                                        @RequestParam("id") Long id,
+                                        @RequestParam("category") String category,
+                                        @RequestParam("name") String name,
+                                        @RequestParam("company") String company,
+                                        @RequestParam("price") Long price,
+                                        @RequestParam("stock") int stock,
+                                        @RequestParam("featured_env") String featured_env){
 
-        return null;
+            log.info("category: "+category);
+            log.info("name: "+name);
+            log.info("company: "+company);
+            log.info("featured_env:"+featured_env);
+             log.info("price:::"+price);
+        // save img locally & store db with local path
+        Image saveFile;
+        log.info(file.getOriginalFilename());
+        try {
+            saveFile = imageService.store(file);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+        //save img through cloudinary
+        Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+                "cloud_name", "hanbfrtij",
+                "api_key", "823367694169484",
+                "api_secret", "TOpnr0bVx9XAOxcRHbJu3eea3dg",
+                "secure", true));
+
+        File targetFile = convert(file);
+        try {
+            Map uploadResult = cloudinary.uploader().upload(targetFile, ObjectUtils.emptyMap());
+            log.info("**********cloudinary related***********"+uploadResult.entrySet().toString());
+            //setCloudinaryUrl on Image Entity
+            saveFile.setCloudinaryUrl((String) uploadResult.get("secure_url"));
+        }catch(IOException e){
+            e.getMessage();
+            log.info("Cloudinary Related problem");
+        }
+
+        // Getting saved Img id to store image into Item Entity
+        Long image_id = imageRepository.findBySaveFileName(saveFile.getSaveFileName()).get().getId();
+
+
+        // save Item entity
+        log.info("category::::::::::::::"+category);
+        switch(category){
+            case "1":
+                log.info("case1 path");
+                GamingPc gamingPc =  GamingPc.builder().name(name)
+                        .id(id)
+                        .company(company)
+                        .price(price)
+                        .stock(stock)
+                        .featured_game(featured_env)
+                        .image(saveFile)
+                        .build();
+                itemRepository.save(gamingPc);
+                log.info(gamingPc.getName()+"saved to DB with image(gamingPC)");
+
+                break;
+            case "2":
+                log.info("case2 path");
+                WorkStationPc workStationPc =  WorkStationPc.builder().name(name)
+                        .company(company)
+                        .price(price)
+                        .stock(stock)
+                        .featured_env(featured_env)
+                        .image(saveFile)
+                        .build();
+                itemRepository.save(workStationPc);
+                log.info(workStationPc.getName()+"saved to DB with image(workstationPC)");
+                break;
+            case "3":
+                log.info("case3 path");
+                Accessory accessory =  Accessory.builder().name(name)
+                        .company(company)
+                        .price(price)
+                        .stock(stock)
+                        .category(featured_env)
+                        .image(saveFile)
+                        .build();
+                itemRepository.save(accessory);
+                log.info(accessory.getName()+"saved to DB with image(workstationPC)");
+            default: break;
+        }
+
+
+        log.info(image_id+ "");
+        return ResponseEntity.status(HttpStatus.OK).body(image_id);
     }
 
     @DeleteMapping("/api/item")
@@ -240,9 +331,27 @@ public class ItemApiController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
 
+    }
+
+    @DeleteMapping("/api/cart")
+    public ResponseEntity<?> deleteCart(@RequestBody String id){
+        //only bring number from json object
+
+    Long target_id = Long.parseLong(id.replaceAll("[^0-9]",""));
+        log.info("target cart item to delete::::::::::"+target_id);
+        ShoppingCart targetShoppingCart = shoppingCartRepository.findById(target_id).orElse(null);
+
+
+        if(targetShoppingCart!=null)
+        shoppingCartRepository.delete(targetShoppingCart);
+        else {
+            log.info("cannot find the shoppingcart data");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("cannot find the shoppingcart data");
+        }
 
 
 
+        return ResponseEntity.status(HttpStatus.OK).body(id);
     }
 
 

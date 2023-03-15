@@ -28,26 +28,31 @@
         <h1>CART</h1>
      {{#shoppingcart}}
         <div class="item">
-<!--            https://pcassemblystore.herokuapp.com/api/{{item.image.id}}-->
-<!--            /api/{{item.image.id}}-->
-            <img class="block" src="/api/{{item.image.id}}" alt="">
-            <div class="info_wrap">
-                <h4 class="itme_title">{{item.name}}</h4>
-                <div class="remove_btn"></div>
-                <div class="config">Configuration &nbsp;<i class="fa-solid fa-caret-down"></i></div>
+            <div class="img_info_wrap flex justify-content-around">
+                <input class="cart-id hidden" type="text" data-cart-id="{{id}}">
+                <img class="block" src="/api/{{item.image.id}}" alt="">
+                <div class="info_wrap">
+                    <h4 class="itme_title">{{item.name}}</h4>
+                    <div class="remove_btn bg-red-500 ">Remove</div>
+                    <div class="config">Configuration &nbsp;<i class="fa-solid fa-caret-down"></i></div>
+                </div>
             </div>
-            <div class="quantity">
-                <h1 class="text-center text-[25px]">Quantity</h1>
-                <select onchange="totalPrice()" class="quantity_chk block" name="quantity_chk">
-                    <option value="1" selected="selected">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
+
+            <div class="wrap flex justify-between h-[100px]">
+                <div class="quantity">
+                    <h1 class="text-center text-[25px]">Quantity</h1>
+                    <select onchange="totalPrice()" class="quantity_chk block" name="quantity_chk">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="price">
+                    <p class="item_price">{{item.price}}</p> <p>&nbsp;$</p>
+                </div>
             </div>
-            <div class="price">
-                <p class="item_price">{{item.price}}</p> <p>&nbsp;$</p>
-            </div>
+
         </div>
     {{/shoppingcart}}
     </div>
@@ -154,6 +159,27 @@
     }
 
     totalPrice();
+
+
+    $('.remove_btn').on('click',function(){
+       console.log("remove btn trigger");
+
+
+        $.ajax({
+            type: "DELETE",
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({id: $('.cart-id').attr("data-cart-id")}),
+            url: "/api/cart"
+        }).done(function(resp){
+            console.log(resp);
+            alert("Item has been successfully removed from the cart");
+            window.location.reload();
+        }).fail(function(error){
+            alert(error);
+            alert("data cannot be transfered to backend db");
+        });
+    });
 
 </script>
 </body>
