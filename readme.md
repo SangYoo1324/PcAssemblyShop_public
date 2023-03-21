@@ -42,8 +42,11 @@ command to run if program contains helper info
 Sangbeom Yoo    [@SangYoo1324](https://sangbeomyooportfoliosite.netlify.app/)
 
 ## Version History
+*0.4
+   * After transaction complete, receipt page shows up
+   * All transactions will be stored in DB as Receipt
 
-* 0.2
+* 0.3
     * Responsive Design CSS upgrade
     * Remove item from cart functionality added
 
