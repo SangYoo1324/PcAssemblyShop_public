@@ -1,5 +1,8 @@
 console.log("adminPage");
 
+//class variable
+let upload_image = false;
+
 
 //Delete Btn
 $('.delete_btn').on("click",function(e){
@@ -64,31 +67,43 @@ $('.update_btn').on('click', function (e){
 
 });
 
+// generates formdata for the 2 update functions (with_image && without_image)
+function updateFormDataGenerator(){
+   let form_data = new FormData();
+//putting info into formdata
+   form_data.append("category",$('.update_category').val());
+   console.log($('.update_category').val());
+   form_data.append("id", $('#update_id').val());
+   form_data.append("price",  $('#update_price').val());
+   form_data.append("stock",$('#update_stock').val());
+   form_data.append("name",$('#update_name').val() );
+   form_data.append("company",$('#update_company').val());
+   form_data.append("featured_env",$('#update_featured_env').val());
+   return form_data;
+}
+
+
+
+
 
 //save update btn
 $('.save_update').on('click',function(){
    console.log("save update button click");
-   // Getting image info
+
+   //generating form_data
+   let form_data_with_pic= updateFormDataGenerator();
+
+   // Getting image info & put it into form data
 var file = $('#update_file')[0].files[0];
+   form_data_with_pic.append("file",file);
 console.log(file);
-let form_data = new FormData();
 
-//putting info into formdata
-form_data.append("file",file);
-form_data.append("category",$('.update_category').val());
-console.log($('.update_category').val());
-form_data.append("id", $('#update_id').val());
-form_data.append("price",  $('#update_price').val());
-form_data.append("stock",$('#update_stock').val());
-form_data.append("name",$('#update_name').val() );
-form_data.append("company",$('#update_company').val());
-form_data.append("featured_env",$('#update_featured_env').val());
-//just confirming all data are on the formdata
-form_data.forEach((a)=>console.log(a));
+// confirming all data inputs valid
+   form_data_with_pic.forEach((a)=>console.log(a));
 
-
+if(upload_image){
    $.ajax({
-      data: form_data,
+      data: form_data_with_pic,
       type: "POST",
       url: "/api/itemUpdate",
       cache: false,
@@ -100,12 +115,59 @@ form_data.forEach((a)=>console.log(a));
          window.location.reload();
       },
       error: function (err) {
+         alert("error occured. Please check if you uploaded the pic or pushed no image button");
+      }
+   });
+}else{
+   let form_data_without_pick = updateFormDataGenerator();
+
+   $.ajax({
+      data: form_data_without_pick,
+      type: "PATCH",
+      url: "/api/itemUpdate/noImage",
+      cache: false,
+      contentType: false,
+      enctype: 'multipart/form-data',
+      processData: false,
+      success: function (url) {
+         alert("Success updated file without Image :::::" );
+         window.location.reload();
+      },
+      error: function (err) {
          alert(err);
       }
    });
+   no_image= false;
+}
+
 
 
 });
+
+//save update without changing picture
+// $('.keep_image').on('click',function(){
+//    console.log("keep image click");
+//
+//    no_image= !no_image;
+//    if(no_image){
+//       alert("You don't need to add Image. Keeping former Image");
+//
+//    }else{
+//       alert("Image update enabled. You need to upload Image to process update.");
+//    }
+
+
+// });
+$('#switch').change(function(){
+   if($(this).prop("checked")){
+      upload_image=true;
+      alert("upload Image enabled.");
+   }else{
+      upload_image= false;
+      alert(`uploadImage=${upload_image}`);
+   }
+});
+
 
 
 //Creating Item btn
@@ -123,7 +185,7 @@ function imgSender(target,method){
    console.log(file);
    let form_data = new FormData();
    form_data.append("file", file);
-   form_data.append("category", $('.category').val());
+   form_data.append("category", $('.update_category').val());
    form_data.append("name",$('#name').val());
    form_data.append("company",$('#company').val());
    form_data.append("price",$('#price').val());

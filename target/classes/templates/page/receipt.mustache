@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/specialOffersPage.css">
-
+    <link rel="stylesheet" href="/css/mainPage.css">
+    <link rel="stylesheet" href="/css/receiptPage.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
     <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-system-task-16.png">
@@ -20,17 +20,83 @@
 {{>parts/header}}
 
 <!-- placeholder section Plz remove onnce contents updated  -->
-<section class="h-[1000px] w-[100%]">
+<section class="h-[1500px] w-[100%]">
     <br><br><br><br><br><br>
-    ADMIN PAGE
+    <h1>Thank you for your Purchase!</h1>
 
-    <button class="btn_enable_admin">Enable Admin Mode</button>
+<div class="receipt_box">
+    <h2>Receipt Info</h2>
+<div class="receipt_wrap">
+    {{#receipt}}
+        <div class="username">
+            <p>Account Username : </p>
+            <p>{{shop_user.username}}</p>
+        </div>
+        <div class="paypal_invoice_id">
+            <p>Invoice ID :</p>
+            <p>{{invoice_id}}</p></div>
+        <div class="paypal_account_addr">
+            <p>Address Provided : </p>
+            <p>{{paypal_addr}}</p>
+            </div>
+        <div class="paypal_email">
+            <p>Paypal Email Address :</p>
+            <p> {{paypal_email}}</p>
+           </div>
+        <div class="subItem_wrap block">
+            <h4 class="mb-[10px]">Order Details :</h4>
+            {{#subItems}}
+            <div class="subItem">
+                    <div class="name flex">
+                        <p>Item Name</p>
+                        <p>{{item.name}}</p>
+                        </div>
+                    <div class="price flex">
+                        <p>Price : </p>
+                        <p>{{item.price}} USD</p>
+                        </div>
+                    <div class="quantity flex">
+                        <p>Quantity : </p>
+                        <p>{{quantity}}</p>
+                        </div>
+            </div>
+            {{/subItems}}
+        </div>
+        <div class="taxTotal ">
+            <p>Tax Total</p>
+            <p>{{tax_total}} USD</p>
+            </div>
+        <div class="item_total">
+            <p>Gross Total</p>
+            <p>{{item_total}} USD</p>
+            </div>
+    </div>
+        <div class="btn_wrap flex justify-content-around mt-[25px]">
+            <a class="go_to_main" href="/page/main">Go to Main Screen</a>
+            <a class="copy_receipt cursor-pointer">copy Receipt Page Address</a>
+        </div>
+
+    {{/receipt}}
+</div>
+
 </section>
 
 {{>parts/footer}}
+<script>
+    $('.copy_receipt').on("click",function(){
+       let url="";
+       let textArea = document.createElement("textarea");
+       document.body.appendChild(textArea);
+       url= "https://pcassemblystore.herokuapp.com/page/receipt/{{invoice_id}}"
+        textArea.value= url;
+       textArea.select();
+       document.execCommand("copy");
+       document.body.removeChild(textArea);
+       alert("Copied link. You can also check your invoice whenever you can on user page");
+    });
+</script>
 
-
-<script src="/js/specialOffersPage.js"></script>
+<script src="/js/mainPage.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
 </body>

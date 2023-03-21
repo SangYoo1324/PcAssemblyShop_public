@@ -24,6 +24,17 @@ public class ShoppingCart {
     @ManyToOne
     @JoinColumn(name="Item_id",referencedColumnName = "id")
     private Item item;
+
+    @ManyToOne
+    @JoinColumn(name="receipt_id", referencedColumnName = "id")
+    private Receipt receipt;
+
+    @Column
+    private Long quantity;
+
+    @Column
+    private Boolean isProceeded;
+
 }
 
 

@@ -1,15 +1,14 @@
 package com.example.pcAssemblyShop.entity.gson;
 
-import com.example.pcAssemblyShop.entity.gson.Payer;
-import com.example.pcAssemblyShop.entity.gson.PurchaseUnit;
+import com.example.pcAssemblyShop.entity.gson.paypalJson.Payer;
+import com.example.pcAssemblyShop.entity.gson.paypalJson.PurchaseUnit;
 import com.google.gson.annotations.SerializedName;
 import com.paypal.api.payments.Links;
-import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
 
-//
+// Main Object connected to all paypal sub mapping DTOs
 @Data
 public class Invoice {
 

@@ -20,12 +20,18 @@ public class Accessory extends Item{
     private String category;
 
     @Builder
-    public Accessory(Long id, String name, String company, Long price, int stock, Image image, ItemConfig itemConfig, String category) {
+    public Accessory(Long id, String name, String company, Float price, int stock, Image image, ItemConfig itemConfig, String category) {
         super(id, name, company, price, stock,image, itemConfig);
         this.category = category;
     }
 
     public Accessory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        //Ascending Order
+        return (int) (getId()-o.getId());
     }
 }

@@ -5,6 +5,7 @@ import com.example.pcAssemblyShop.entity.*;
 import com.example.pcAssemblyShop.enumFile.Role;
 import com.example.pcAssemblyShop.repository.ItemRepository;
 import com.example.pcAssemblyShop.repository.ShoppingCartRepository;
+import com.example.pcAssemblyShop.repository.TransactionsRepository;
 import com.example.pcAssemblyShop.repository.UsersRepository;
 
 import com.example.pcAssemblyShop.tempImageDev.ImageRepository;
@@ -18,10 +19,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,6 +41,9 @@ public class PageController {
 
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
+
+    @Autowired
+    private TransactionsRepository transactionsRepository;
 
 
     // principalDetails implements Userdetail, so we can use principalDetails object for userDetail type
@@ -85,6 +91,9 @@ public class PageController {
         log.info("How many itmes?????"+String.valueOf(listSize));
 //        gamingPcList.stream().filter((i)->(i instanceof  GamingPc)).collect(Collectors.toList());
 //        log.info("How many itmes?????"+String.valueOf(gamingPcList.size()));
+        //sorting to Ascending order
+        Collections.sort(gamingPcList);
+        gamingPcList.stream().forEach(s->log.info(s.getName()));
 
         model.addAttribute("item", gamingPcList);
         model.addAttribute("listSize", listSize);
@@ -108,6 +117,8 @@ public class PageController {
        }
        int listSize = workstationPcList.size();
        log.info("How many itmes?????"+String.valueOf(listSize));
+       //sorting to Ascending order
+       Collections.sort(workstationPcList);
 
 //       workstationPcList.stream().filter((i)->(i instanceof  WorkStationPc)).collect(Collectors.toList());
 //       log.info("How many itmes?????"+String.valueOf(workstationPcList.size()));
@@ -136,6 +147,8 @@ public class PageController {
         }
         int listSize = accessoryList.size();
         log.info("How many itmes?????"+String.valueOf(listSize));
+        //sorting to Ascending order
+        Collections.sort(accessoryList);
 
         model.addAttribute("item", accessoryList);
         model.addAttribute("listSize", listSize);
@@ -160,7 +173,10 @@ public class PageController {
        // find user entity by username
        Users specified_user =   usersRepository.findByUsername(specified_username);
       // using userEntity found, retrieve cart contents only with specified user_id
-       List<ShoppingCart> shoppingCart = shoppingCartRepository.findByUserId(specified_user.getId());
+       List<ShoppingCart> shoppingCart = shoppingCartRepository.findByUserId(specified_user.getId()).stream()
+               // fileter only not proceeded items
+               .filter((s)->!s.getIsProceeded())
+               .collect(Collectors.toList());
        for(ShoppingCart s : shoppingCart){
 
            log.info("shoppingcart list is as follows :::::::::::::::"+s.getItem().getName());
@@ -239,8 +255,21 @@ public class PageController {
         return "page/aboutus";
     }
 
-    @GetMapping("page/receipt")
-    public String receipt(){
+    @GetMapping("page/receipt/{invoice_id}")
+    public String receipt(Model model, @PathVariable String invoice_id){
+        // getting receipt info by invoice_id provided by path variable
+        Receipt receipt = transactionsRepository.findByInvoiceId(invoice_id).orElse(null);
+        //put receipt info on model
+        model.addAttribute("receipt",receipt);
+
+        // getting the item details of purchase
+      List<ShoppingCart> shoppingCartList= shoppingCartRepository.findAll()
+              .stream().filter((s)-> s.getReceipt().getInvoice_id().equals(receipt.getInvoice_id()) ?true:false).collect(Collectors.toList());
+        log.info("shoppingCartList with same invoice ID::::::::"+shoppingCartList.toString());
+
+        model.addAttribute("subItems",shoppingCartList);
+
+        isLoggedIn(model);
         return "page/receipt";
     }
 

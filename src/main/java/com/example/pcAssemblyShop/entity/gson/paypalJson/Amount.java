@@ -1,4 +1,4 @@
-package com.example.pcAssemblyShop.entity.gson.buildingEntity;
+package com.example.pcAssemblyShop.entity.gson.paypalJson;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
@@ -9,4 +9,7 @@ public class Amount {
     private String currencyCode;
     @SerializedName("value")
     private String value;
+    @SerializedName("breakdown")
+    private BreakDown breakdown;
+
 }

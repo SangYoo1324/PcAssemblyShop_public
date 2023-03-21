@@ -1,4 +1,4 @@
-package com.example.pcAssemblyShop.entity.gson.buildingEntity;
+package com.example.pcAssemblyShop.entity.gson.paypalJson;
 
 import com.google.gson.annotations.SerializedName;
 import com.paypal.payments.Capture;

@@ -1,0 +1,52 @@
+section{
+    background-color: #1e1f24;
+    color: white;
+}
+section>h1{
+    font-size: 40px;
+    text-align: center;
+}
+.receipt_box{
+    margin: 30px auto;
+    background-color: #1e2125;
+    width: 50%;
+    padding: 3% 3%;
+
+}
+.receipt_box>h2{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.receipt_wrap>*{
+    display: flex;
+}
+
+
+.subItem_wrap{
+    padding: 20px 20px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.subItem{
+    opacity: 0.7;
+    background-color: #842029;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+
+}
+
+.subItem_wrap>h4{
+    font-size: 25px;
+}
+
+.go_to_main, .copy_receipt{
+font-size: 20px;
+
+}
+.go_to_main:hover, .copy_receipt:hover{
+    font-size: 20px;
+    color: #cc181e;
+}

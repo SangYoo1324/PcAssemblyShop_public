@@ -36,6 +36,7 @@
             <div class="sign-in text-white w-[200px]"><a href="/page/user">
                 <p class="p-0 text-center">Hello!</p>
                 <p class="p-0 text-center">{{users.username}}</p>
+                <p class="user_id hidden">{{users.id}}</p>
             </a>
 
             </div>
@@ -113,6 +114,7 @@
                     </li>
                     {{#Principal}}
                         <li class="relative"><a class="" href="/page/logout">Logout</a></li>
+                        <p class="user_id hidden">{{users.id}}</p>
                     {{/Principal}}
 {{^Principal}}
                     <li class="relative"><a class="" href="/page/login">Login</a></li>

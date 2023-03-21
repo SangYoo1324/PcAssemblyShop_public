@@ -103,15 +103,34 @@
 <script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
 <script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
 <script>
+
     paypal.Buttons({
         createOrder: function(data,actions){
             return actions.order.create({
                 purchase_units:[{
                     amount:{
-                        value: `${ document.querySelector('.total').textContent.substr(0,
-                                document.querySelector('.total').textContent.length-1
-                        )}`
-                    }
+                        value:
+                            `${ document.querySelector('.total').textContent.substr(0, document.querySelector('.total').textContent.length-1)}`,
+                        breakdown:{
+                            item_total: {
+                                currency_code: "USD",
+                                value:
+                                       itemTotal(),
+                            },
+                            tax_total: {
+                                currency_code: "USD",
+                                value: itemTotal()*.1
+
+                            }
+                            // ,                shipping_discount: {
+                            //     currency_code: "USD",
+                            //     value: "10"
+                            // }
+
+                        }
+                    },
+                items:
+                        itemObjectArrayGenerator()
                 }]
             });
         },
@@ -124,10 +143,10 @@
                    dataType: "json",
                    contentType: 'application/json',
                    data: JSON.stringify(orderData,null,2),
-                   url: "/api/checkout"
+                   url: "/api/checkout/"+$('.user_id').html()
                 }).done(function(resp){
-                    console.log(resp);
-                    location.href="/page/receipt";
+                    alert("purchase complete please check invoice");
+                    location.href="/page/receipt/"+orderData.id;
                 }).fail(function(error){
                    alert(error);
                     alert("data cannot be transfered to backend db");
@@ -137,6 +156,50 @@
 
     }).render('#paypal-button-container');
 
+    //itemObjectArrayGenerator
+    function itemObjectArrayGenerator(){
+        let items=[];
+        let length =   $('.item_price').length;
+
+        for(let i=0; i<length; i++){
+            // $('.item_price').eq(i).html()
+            let item =  new Item($('.itme_title').eq(i).html(),"description",new Unit_amount("USD",$('.item_price').eq(i).html()),$('.quantity_chk').eq(i).val(),
+                    new Unit_amount("USD",1));// name, description, unit_amount,quantity, tax
+            items.push(item);
+        }
+        return items;
+
+    }
+
+
+    // item total calc
+    function itemTotal(){
+        let total = 0;
+        let length =   $('.item_price').length;
+        for(i=0; i<length;i++){
+           total+= $('.item_price').eq(i).html()*$('.quantity_chk').eq(i).val();
+        }
+        console.log("item_total::::::::"+total);
+
+        return total;
+    }
+
+
+    // item object constructor
+    function Item(name, description,unit_amount,quantity, tax){
+        this.name = name;
+        this.description = description;
+        this.unit_amount = unit_amount;
+        this.quantity = quantity;
+        this.tax = tax;
+    }
+    function Unit_amount(currency_code,value){
+        this.currency_code= currency_code;
+        this.value = value;
+    }
+
+
+    // ttl price calc for the checkout panel
     function totalPrice(){
         let total = 0;
         let price = document.querySelectorAll('.item_price');
@@ -151,7 +214,7 @@
 
 
         document.querySelector('.subtotal').textContent = total+"$";
-        document.querySelector('.tax').textContent = total/10+"$";
+        document.querySelector('.tax').textContent = total*.1+"$";
         document.querySelector('.total').textContent = total*1.1+"$";
         console.log( document.querySelector('.total').textContent.substr(0,
                 document.querySelector('.total').textContent.length-1));
@@ -160,7 +223,7 @@
 
     totalPrice();
 
-
+// remove from cart btn
     $('.remove_btn').on('click',function(){
        console.log("remove btn trigger");
 

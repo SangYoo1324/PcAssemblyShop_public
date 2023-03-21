@@ -59,10 +59,12 @@ public class ItemApiController {
                                            @RequestParam("category") String category,
                                            @RequestParam("name") String name,
                                            @RequestParam("company") String company,
-                                           @RequestParam("price") Long price,
+                                           @RequestParam("price") Float price,
                                            @RequestParam("stock") int stock,
                                            @RequestParam("featured_env") String featured_env
-    )  {
+    ) throws Exception {
+
+        log.info("Category:  "+category);
 
         // save img locally & store db with local path
         Image saveFile;
@@ -143,8 +145,10 @@ public class ItemApiController {
                         .image(saveFile)
                         .build();
                 itemRepository.save(accessory);
-                log.info(accessory.getName()+"saved to DB with image(workstationPC)");
-            default: break;
+                log.info(accessory.getName()+"saved to DB with image(Accessory)");
+            default:
+                log.info("Item couldn't be saved error out");
+//                throw new Exception("stop!");
         }
 
 
@@ -171,7 +175,7 @@ public class ItemApiController {
       Users specified_user =   usersRepository.findByUsername(specified_username);
 
       // Generate Shopping cart with User & Item
-        ShoppingCart shoppingCart_item = new ShoppingCart(null,specified_user,targetItem);
+        ShoppingCart shoppingCart_item = new ShoppingCart(null,specified_user,targetItem,null,1L,false);
         log.info(shoppingCart_item.toString());
         log.info("{} has been successfully added to shoppingcart",shoppingCart_item.getItem().getName());
         shoppingCartRepository.save(shoppingCart_item);
@@ -202,9 +206,9 @@ public class ItemApiController {
                                         @RequestParam("category") String category,
                                         @RequestParam("name") String name,
                                         @RequestParam("company") String company,
-                                        @RequestParam("price") Long price,
+                                        @RequestParam("price") Float price,
                                         @RequestParam("stock") int stock,
-                                        @RequestParam("featured_env") String featured_env){
+                                        @RequestParam("featured_env") String featured_env) throws Exception {
 
             log.info("category: "+category);
             log.info("name: "+name);
@@ -282,12 +286,75 @@ public class ItemApiController {
                         .build();
                 itemRepository.save(accessory);
                 log.info(accessory.getName()+"saved to DB with image(workstationPC)");
-            default: break;
+            default:
+                log.info("Item couldn't be saved error out");
+                throw new Exception("stop!");
+
         }
 
 
         log.info(image_id+ "");
         return ResponseEntity.status(HttpStatus.OK).body(image_id);
+    }
+
+    @PatchMapping("/api/itemUpdate/noImage")
+    public ResponseEntity<?> updateWithoutImage(@RequestParam("id") Long id,
+                                                @RequestParam("category") String category,
+                                                @RequestParam("name") String name,
+                                                @RequestParam("company") String company,
+                                                @RequestParam("price") Float price,
+                                                @RequestParam("stock") int stock,
+                                                @RequestParam("featured_env") String featured_env){
+        log.info("category: "+category);
+        log.info("name: "+name);
+        log.info("company: "+company);
+        log.info("featured_env:"+featured_env);
+        log.info("price:::"+price);
+        // save Item entity
+        log.info("category::::::::::::::"+category);
+        switch(category){
+            case "1":
+                log.info("case1 path");
+                GamingPc gamingPc =  GamingPc.builder().name(name)
+                        .id(id)
+                        .company(company)
+                        .price(price)
+                        .stock(stock)
+                        .featured_game(featured_env)
+                        .build();
+                itemRepository.save(gamingPc);
+                log.info(gamingPc.getName()+"saved to DB without image(gamingPC)");
+
+                break;
+            case "2":
+                log.info("case2 path");
+                WorkStationPc workStationPc =  WorkStationPc.builder().name(name)
+                        .company(company)
+                        .price(price)
+                        .stock(stock)
+                        .featured_env(featured_env)
+                        .build();
+                itemRepository.save(workStationPc);
+                log.info(workStationPc.getName()+"saved to DB without image(workstationPC)");
+                break;
+            case "3":
+                log.info("case3 path");
+                Accessory accessory =  Accessory.builder().name(name)
+                        .company(company)
+                        .price(price)
+                        .stock(stock)
+                        .category(featured_env)
+                        .build();
+                itemRepository.save(accessory);
+                log.info(accessory.getName()+"saved to DB without image(workstationPC)");
+            default: break;
+        }
+
+
+
+        return ResponseEntity.status(HttpStatus.OK).body("successfully uploaded");
+
+
     }
 
     @DeleteMapping("/api/item")
@@ -335,8 +402,7 @@ public class ItemApiController {
 
     @DeleteMapping("/api/cart")
     public ResponseEntity<?> deleteCart(@RequestBody String id){
-        //only bring number from json object
-
+        //only bring number from json object    json object looks like {"id": "1"}
     Long target_id = Long.parseLong(id.replaceAll("[^0-9]",""));
         log.info("target cart item to delete::::::::::"+target_id);
         ShoppingCart targetShoppingCart = shoppingCartRepository.findById(target_id).orElse(null);

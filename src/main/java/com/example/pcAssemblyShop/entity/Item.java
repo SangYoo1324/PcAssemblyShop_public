@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Comparator;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "ITEM_CATEGORY", discriminatorType =DiscriminatorType.STRING )
@@ -14,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public abstract class Item {
+public abstract class Item implements Comparable<Item> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
@@ -25,7 +27,7 @@ public abstract class Item {
     @Column
     protected String company;
     @Column
-    protected Long price;
+    protected Float price;
     @Column
     protected int stock;
     @ManyToOne
@@ -34,7 +36,6 @@ public abstract class Item {
     @OneToOne
     @JoinColumn(name= "itemConfig_id", referencedColumnName = "id")
     private ItemConfig itemConfig;
-
 
 
 

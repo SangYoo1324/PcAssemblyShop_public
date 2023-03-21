@@ -11,8 +11,9 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@DiscriminatorValue("workstation_indicator") // 부모 abstract class dtype 에 value로 저장될 String - pk: id
+@DiscriminatorValue("workstation_indicator") // 부모 abstract class dtype 에 value로 저장될 String
 public class WorkStationPc extends Item {
+    //- pk, fk both (Item의 )id
 
 //    @Column
 //    private String workstation_indicator;
@@ -26,8 +27,13 @@ public class WorkStationPc extends Item {
     }
 
     @Builder
-    public WorkStationPc(Long id, String name, String company, Long price, int stock, Image image, ItemConfig itemConfig, String featured_env) {
+    public WorkStationPc(Long id, String name, String company, Float price, int stock, Image image, ItemConfig itemConfig, String featured_env) {
         super(id, name, company, price, stock,image, itemConfig);
         this.featured_env = featured_env;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return (int) (getId()-o.getId());
     }
 }
