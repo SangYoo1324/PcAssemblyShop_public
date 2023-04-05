@@ -3,10 +3,7 @@ package com.example.pcAssemblyShop.controller;
 import com.example.pcAssemblyShop.auth.PrincipalDetails;
 import com.example.pcAssemblyShop.entity.*;
 import com.example.pcAssemblyShop.enumFile.Role;
-import com.example.pcAssemblyShop.repository.ItemRepository;
-import com.example.pcAssemblyShop.repository.ShoppingCartRepository;
-import com.example.pcAssemblyShop.repository.TransactionsRepository;
-import com.example.pcAssemblyShop.repository.UsersRepository;
+import com.example.pcAssemblyShop.repository.*;
 
 import com.example.pcAssemblyShop.tempImageDev.ImageRepository;
 import com.example.pcAssemblyShop.tempImageDev.ImageService;
@@ -45,6 +42,8 @@ public class PageController {
     @Autowired
     private TransactionsRepository transactionsRepository;
 
+    @Autowired
+    private ArticleRepository articleRepository;
 
     // principalDetails implements Userdetail, so we can use principalDetails object for userDetail type
     // Authentication 객체는 ->   Userdetail type / OAuth2User type
@@ -193,6 +192,7 @@ public class PageController {
     public  String admin(Model model){
         //Logics  hiding admin page with illegal access  need to be embedded later
 
+        // making list for 3 categories: gaming/workstation/accessories
         List<GamingPc> gamingPCs = new ArrayList<>();
         List<WorkStationPc> workstationPCs = new ArrayList<>();
         List<Accessory> accessories = new ArrayList<>();
@@ -201,6 +201,7 @@ public class PageController {
         log.info("Inventory size:::::::::::::"+String.valueOf(itemsList.size()));
         model.addAttribute("items",itemsList);
 
+        // determine category while iterating throgh itemList
         Iterator it = itemsList.iterator();
         while(it.hasNext()){
            Item item = (Item) it.next();
@@ -219,6 +220,9 @@ public class PageController {
         model.addAttribute("workstation",workstationPCs);
         model.addAttribute("accessory",accessories);
 
+        //Transaction section
+       List<Receipt> receipt = transactionsRepository.findAll();
+        model.addAttribute("receipt",receipt);
 
         log.info("*****************Your on Admin mode********");
         isLoggedIn(model);
@@ -255,7 +259,7 @@ public class PageController {
         return "page/aboutus";
     }
 
-    @GetMapping("page/receipt/{invoice_id}")
+    @GetMapping("/page/receipt/{invoice_id}")
     public String receipt(Model model, @PathVariable String invoice_id){
         // getting receipt info by invoice_id provided by path variable
         Receipt receipt = transactionsRepository.findByInvoiceId(invoice_id).orElse(null);
@@ -273,7 +277,16 @@ public class PageController {
         return "page/receipt";
     }
 
+    @GetMapping("/page/dashboard")
+    public String dashboard(Model model){
+        isLoggedIn(model);
 
+        List<Article> articles = articleRepository.findAll();
+        if(articles!=null)
+        model.addAttribute("article",articles);
+
+        return "page/dashboard";
+    }
 
 
 // log-in determiner  for all the mappings
@@ -286,4 +299,6 @@ public class PageController {
         if(userDetails.toString()!="anonymousUser")
             model.addAttribute("Principal",userDetails);
     }
+
+
 }

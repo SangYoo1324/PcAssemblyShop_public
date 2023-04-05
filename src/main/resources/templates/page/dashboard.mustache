@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/mainPage.css">
+    <link rel="stylesheet" href="/css/aboutUs.css">
+    <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrapCSS_v5/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-system-task-16.png">
+    <script src="https://kit.fontawesome.com/edff7358ca.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+
+<!--            ckeditor 5 -->
+        <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 400px;
+            width: 50%;
+            color: black;
+        }
+        .ck-toolbar_grouping{
+            margin: 0 auto;
+            width: 50%;
+            max-width: 50%;
+        }
+        .ck.ck-reset, .ck.ck-reset_all, .ck.ck-reset_all *{
+            margin: 0 auto;
+        }
+        .ck.ck-editor__main>.ck-editor__editable{
+            margin: 0 auto;
+            overflow: scroll;
+            max-height: 500px;
+        }
+
+        .title_wrap{
+            width: 50%;
+            margin: 15px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .post_title{
+            display: block;
+            border: 1px solid gray;
+            height: 30px;
+            border-radius: 8px;
+            width: 90%;
+            color: black;
+            padding: 5px 10px;
+        }
+
+        .dashboard_btn_wrap{
+            width: 50%;
+            margin: 10px auto;
+        }
+        .submit-btn{
+            display: block;
+            padding: 10px 20px;
+            bordder: 1px solid white;
+            border-radius: 10px;
+
+        }
+
+        h1{
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .title{
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px auto;
+            width: 50%;
+            padding: 15px 15px;
+            background-color: #4f5050;
+            border-radius: 20px;
+        }
+
+        .post{
+            border-radius: 20px;
+            padding: 30px 30px;
+            background-color: #4f5050;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px){
+            .title_wrap{ width:100%;}
+            .ck-toolbar_grouping{
+                margin: 0 auto;
+                width: 100%;
+                max-width: 100%;
+            }
+            .ck-editor__editable_inline {
+                width: 100%;
+                color: black;
+            }
+            .dashboard_btn_wrap{
+                width: 100%;
+            }
+
+            .title, .post{
+                padding: 5% 2%;
+                width: 100%;
+            }
+
+            iframe{
+                padding: 0;
+            }
+        }
+    </style>
+    <title>Puget Sound Customs</title>
+</head>
+<body>
+{{>components/header}}
+
+
+<section class="">
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class="con">
+        <div class="title_wrap">
+            <label for="post_title" class="font-bold mr-[2%]">TITLE </label>
+            <input class="post_title" type="text">
+        </div>
+
+        <div id="writeEditor" class="w-[50%]"></div>
+        <div class="dashboard_btn_wrap">
+            <button class="submit-btn">Submit</button>
+        </div>
+
+    </div>
+
+
+
+</section>
+
+
+{{#article}}
+    <section class="display_wrap">
+        <div class="con">
+            <h1 class="text-[40px] mb-[30px]">POSTS</h1>
+            <div class="wrap">
+                <div class="title">
+                    {{title}}
+                </div>
+                <div class="post">
+                    {{{body}}}
+                </div>
+            </div>
+
+        </div>
+    </section>
+    {{/article}}
+{{^article}}
+    <section class="display_wrap">
+        <div class="con">
+            <h1 class="text-[40px] mb-[30px]">POSTS</h1>
+            <h1 class="mb-[50px] text-[50px] text-white">NO Articles posted Please post </h1>
+        </div>
+
+    </section>
+{{/article}}
+
+{{>components/footer}}
+
+
+
+<script src="/js/dashboard.js"></script>
+<script src="/js/mainPage.js"></script>
+<script src="/js/gamingPage.js"></script>
+<script src="/bootstrapJS_v5/bootstrap.bundle.js"></script>
+<script src="/bootstrapJS_v5/bootstrap.bundle.min.js"></script>
+</body>
+</html>

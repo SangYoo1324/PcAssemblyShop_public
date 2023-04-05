@@ -17,7 +17,7 @@
     <title>Puget Sound Customs</title>
 </head>
 <body>
-{{>parts/header}}
+{{>components/header}}
 <section class="main w-[100%] pt-[100px]">
     <h1>ADMIN PANEL</h1>
     <li>
@@ -188,27 +188,26 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">PRICE</th>
-                <th scope="col">STOCK</th>
-                <th scope="col">NAME</th>
-                <th scope="col">COMPANY</th>
-                <th scope="col">OPTIONS</th>
+                <th scope="col">Username</th>
+                <th scope="col">Tracking #</th>
+                <th scope="col">Tax Total</th>
+                <th scope="col">Item Total</th>
+                <th scope="col">Details</th>
             </tr>
             </thead>
             <tbody>
-            {{#accessory}}
+            {{#receipt}}
                 <tr>
                     <th scope="row">{{id}}</th>
-                    <td>{{price}}</td>
-                    <td>{{stock}}</td>
-                    <td>{{name}}</td>
-                    <td>{{company}}</td>
+                    <td>{{shop_user.username}}</td>
+                    <td>{{invoice_id}}</td>
+                    <td>{{tax_total}}</td>
+                    <td>{{item_total}}</td>
                     <td>
-                        <button type="button" class="update_btn">Update</button>
-                        <button type="button" data-name="{{name}}" data-company="{{company}}" class=" delete_btn">DELETE</button>
+                        <button type="button" data-name="" data-company="" class=" delete_btn">Details</button>
                     </td>
                 </tr>
-            {{/accessory}}
+            {{/receipt}}
             </tbody>
         </table>
     </section>
@@ -224,7 +223,7 @@
 <!--table for mobile -->
 <!--table for mobile :end-->
 
-{{>parts/footer}}
+{{>components/footer}}
 
 
 
