@@ -6,14 +6,12 @@ import lombok.*;
 
 @Entity
 @NoArgsConstructor
-
 @Getter
 @Setter
 @DiscriminatorValue("gamingpc_indicator")
 public class GamingPc extends Item {
 
-//    @Column
-//    private String gamingpc_indicator;
+
     @Column
     private String featured_game;
 

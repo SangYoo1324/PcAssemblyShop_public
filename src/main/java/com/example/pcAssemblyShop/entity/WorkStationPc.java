@@ -1,10 +1,7 @@
 package com.example.pcAssemblyShop.entity;
 
 import com.example.pcAssemblyShop.tempImageDev.Image;
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -12,6 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @DiscriminatorValue("workstation_indicator") // 부모 abstract class dtype 에 value로 저장될 String
+@Table(name="workstationpc")
 public class WorkStationPc extends Item {
     //- pk, fk both (Item의 )id
 

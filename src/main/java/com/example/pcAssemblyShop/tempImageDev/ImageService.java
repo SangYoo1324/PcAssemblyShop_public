@@ -1,5 +1,6 @@
 package com.example.pcAssemblyShop.tempImageDev;
 
+import com.example.pcAssemblyShop.entity.Item;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ import java.util.UUID;
 public class ImageService {
 
     @Autowired
-    ImageRepository fileRepository;
+    ImageRepository imageRepository;
 
     public final Path rootLocation = Paths.get("C:\\Users\\samue\\Downloads\\screenshot\\pcassembly");
 
@@ -27,7 +28,7 @@ public class ImageService {
 
     }
 
-    public Image store(MultipartFile image) throws Exception{
+    public ItemImage store(MultipartFile image) throws Exception{
         log.info(image.getOriginalFilename());
         try{
             if(image.isEmpty()){
@@ -35,14 +36,17 @@ public class ImageService {
             }else{
 
                 String saveFileName = fileSave(rootLocation.toString(),image); // contents injection + get name of the file
-                Image saveFile = new Image();
+                ItemImage saveFile = new ItemImage();
                 saveFile.setFileName(image.getOriginalFilename());
                 saveFile.setSaveFileName(saveFileName);
                 saveFile.setContentType(saveFile.getContentType());
                 saveFile.setSize(image.getResource().contentLength());
                 saveFile.setRegisterDate(LocalDateTime.now());
                 saveFile.setFilePath(rootLocation.toString()+"\\"+saveFileName);
-                fileRepository.save(saveFile);
+                saveFile.setDetail("dummy");
+
+
+                imageRepository.save(saveFile);
 
                 return saveFile;
 
@@ -54,6 +58,38 @@ public class ImageService {
         }
         return null;
     }
+
+    public ArticleImage storeArticleImage(MultipartFile image) throws Exception {
+        log.info(image.getOriginalFilename());
+        try{
+            if(image.isEmpty()){
+                log.info("File is Empty??????**********");
+            }else{
+
+                String saveFileName = fileSave(rootLocation.toString(),image); // contents injection + get name of the file
+                ArticleImage saveFile = new ArticleImage();
+                saveFile.setFileName(image.getOriginalFilename());
+                saveFile.setSaveFileName(saveFileName);
+                saveFile.setContentType(saveFile.getContentType());
+                saveFile.setSize(image.getResource().contentLength());
+                saveFile.setRegisterDate(LocalDateTime.now());
+                saveFile.setFilePath(rootLocation.toString()+"\\"+saveFileName);
+
+
+
+                imageRepository.save(saveFile);
+
+                return saveFile;
+
+            }
+
+        }catch(Exception e){
+            log.info("Prob final Path info wrong**********************************************");
+            throw new Exception(e);
+        }
+        return null;
+    }
+
 
     private String fileSave(String toString, MultipartFile image) throws IOException{
         File uploadDirection = new File(rootLocation.toString()); // 폴더까지의 경로
@@ -73,7 +109,7 @@ public class ImageService {
 
 
     public Image load(Long targetId) {
-        return fileRepository.findById(targetId).orElse(null);
+        return imageRepository.findById(targetId).orElse(null);
     }
 }
 

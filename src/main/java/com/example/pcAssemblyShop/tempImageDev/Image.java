@@ -2,30 +2,47 @@ package com.example.pcAssemblyShop.tempImageDev;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name="image_category",discriminatorType = DiscriminatorType.STRING)
 @Data
-public class Image {
+@NoArgsConstructor
+public abstract class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
     @Column
-    private String fileName;
+    protected String fileName;
     @Column
-    private String saveFileName;
+    protected String saveFileName;
     @Column
-    private String filePath;
+    protected String filePath;
     @Column
-    private String cloudinaryUrl;
+    protected String cloudinaryUrl;
     @Column
-    private String contentType;
+    protected String contentType;
     @Column
-    private Long size;
+    protected Long size;
     @Column
-    private LocalDateTime registerDate;
+    protected LocalDateTime registerDate;
 
+
+    public Image(Long id, String fileName, String saveFileName, String filePath, String cloudinaryUrl, String contentType, Long size, LocalDateTime registerDate) {
+        this.id = id;
+        this.fileName = fileName;
+        this.saveFileName = saveFileName;
+        this.filePath = filePath;
+        this.cloudinaryUrl = cloudinaryUrl;
+        this.contentType = contentType;
+        this.size = size;
+        this.registerDate = registerDate;
+    }
 }

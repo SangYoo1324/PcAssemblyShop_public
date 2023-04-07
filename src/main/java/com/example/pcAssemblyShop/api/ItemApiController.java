@@ -8,9 +8,7 @@ import com.example.pcAssemblyShop.entity.*;
 import com.example.pcAssemblyShop.repository.ItemRepository;
 import com.example.pcAssemblyShop.repository.ShoppingCartRepository;
 import com.example.pcAssemblyShop.repository.UsersRepository;
-import com.example.pcAssemblyShop.tempImageDev.Image;
-import com.example.pcAssemblyShop.tempImageDev.ImageRepository;
-import com.example.pcAssemblyShop.tempImageDev.ImageService;
+import com.example.pcAssemblyShop.tempImageDev.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
@@ -50,6 +48,8 @@ public class ItemApiController {
     @Autowired
     ImageService imageService;
 
+    @Autowired
+    ImageCustomRepository imageCustomRepository;
 
 
 
@@ -67,7 +67,7 @@ public class ItemApiController {
         log.info("Category:  "+category);
 
         // save img locally & store db with local path
-        Image saveFile;
+        ItemImage saveFile;
         log.info(file.getOriginalFilename());
         try {
             saveFile = imageService.store(file);
@@ -98,8 +98,9 @@ public class ItemApiController {
 
 
         // Getting saved Img id to store image into Item Entity
-        Long image_id = imageRepository.findBySaveFileName(saveFile.getSaveFileName()).get().getId();
-
+        log.info(imageRepository.findBySaveFileName(saveFile.getSaveFileName()).toString());
+     ItemImage itemImage = (ItemImage)imageRepository.findBySaveFileName(saveFile.getSaveFileName());
+        Long image_id= itemImage.getId();
 
         // save Item entity
         log.info("category::::::::::::::"+category);
@@ -243,7 +244,8 @@ public class ItemApiController {
         }
 
         // Getting saved Img id to store image into Item Entity
-        Long image_id = imageRepository.findBySaveFileName(saveFile.getSaveFileName()).get().getId();
+        ItemImage itemImage = (ItemImage)imageRepository.findBySaveFileName(saveFile.getSaveFileName());
+        Long image_id = itemImage.getId();
 
 
         // save Item entity

@@ -1,0 +1,80 @@
+server:
+port: ${PORT:8080}
+
+
+
+
+spring:
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+
+  profiles:
+    include: oauth
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+
+  #for testing
+#  datasource:
+#    username: postgres
+#    password: Qwdf3696!
+#    url: jdbc:postgresql://localhost:5432/PcAssemblyTesting
+
+  #for deploying
+  datasource:
+    username: tsyrpmyskxtgqg
+    password: 2baf254de9a41c49e06cf760cef4da880d5aac01683487faf86e6b599b53a960
+    url: jdbc:postgresql://ec2-18-215-96-22.compute-1.amazonaws.com/d5lmfvjbh0j3nv
+
+  #for email
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: samuel13241@gmail.com
+    password: nengvxhiedgzzfaw
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+
+#google Oauth setting
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 822814304752-798t4us6dbodv7d0gve0g3maat7nlb6g.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile, email
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+
+
+      #for Deploying
+      #spring.datasource.url= jdbc:postgresql://ec2-18-215-96-22.compute-1.amazonaws.com/d5lmfvjbh0j3nv
+      #spring.datasource.username= tsyrpmyskxtgqg
+      #spring.datasource.password=2baf254de9a41c49e06cf760cef4da880d5aac01683487faf86e6b599b53a960
+
+      #for Testing
+      #spring.datasource.url= jdbc:postgresql://localhost:5432/PcAssemblyTesting
+      #spring.datasource.username= postgres
+      #spring.datasource.password=Qwdf3696!
+
+      #h2 db setting
+      #spring.h2.console.enabled= true
+      #spring.jpa.defer-datasource-initialization= true
+      #spring.datasource.url=jdbc:h2:mem:testdb
+

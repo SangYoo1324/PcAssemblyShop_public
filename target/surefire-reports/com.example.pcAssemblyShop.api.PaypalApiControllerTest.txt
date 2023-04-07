@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.pcAssemblyShop.api.PaypalApiControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.942 s - in com.example.pcAssemblyShop.api.PaypalApiControllerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.841 s - in com.example.pcAssemblyShop.api.PaypalApiControllerTest

@@ -17,6 +17,10 @@ import java.util.Comparator;
 @Getter
 @Setter
 public abstract class Item implements Comparable<Item> {
+
+    //    @Column
+//    private String gamingpc_indicator;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
