@@ -1,6 +1,6 @@
 # Project Title
 
-
+### PC Assembly Store
 
 ## Description
 
@@ -42,7 +42,19 @@ command to run if program contains helper info
 Sangbeom Yoo    [@SangYoo1324](https://sangbeomyooportfoliosite.netlify.app/)
 
 ## Version History
-*0.4
+* 0.7
+  * email method added(need more time to fully functional)
+
+* 0.6
+  * Dashboard page added(currently only url access)
+  * can post article with text-editor
+  * Dummy-image erasing method embedded
+
+* 0.5
+  * Image entity divided to article Image, Item image
+  * minor responsive bug fix
+
+* 0.4
    * After transaction complete, receipt page shows up
    * All transactions will be stored in DB as Receipt
 
