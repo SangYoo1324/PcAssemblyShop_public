@@ -30,7 +30,7 @@ $('.delete_btn').on("click",function(e){
 
 });
 
-//Update modal trigger Btn
+//Update modal trigger Btn(just showing former data already inside db)
 $('.update_btn').on('click', function (e){
 
       let data = {
@@ -119,10 +119,10 @@ if(upload_image){
       }
    });
 }else{
-   let form_data_without_pick = updateFormDataGenerator();
+   let form_data_without_pic = updateFormDataGenerator();
 
    $.ajax({
-      data: form_data_without_pick,
+      data: form_data_without_pic,
       type: "PATCH",
       url: "/api/itemUpdate/noImage",
       cache: false,
@@ -137,7 +137,6 @@ if(upload_image){
          alert(err);
       }
    });
-   no_image= false;
 }
 
 
@@ -208,3 +207,92 @@ function imgSender(target,method){
       }
    });
 }
+
+
+//email sender
+// CKEditor
+let editor;
+ClassicEditor
+    .create( document.querySelector( '#writeEditor' ) , {
+       mediaEmbed: {
+          previewsInData:true
+       },
+
+       fontSize: {
+          options: [
+             'default',
+             9,
+             11,
+             13,
+             '17px',
+             19,
+             21
+          ]
+       },
+       // toolbar: {
+       //     items:[
+       //         'undo', 'redo',
+       //         '|', 'heading',
+       //         '|', 'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor',
+       //         '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
+       //         '|', 'link', 'uploadImage', 'blockQuote', 'codeBlock', 'mediaEmbed',
+       //         '|', 'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent'
+       //     ]
+       // },
+
+
+
+
+       ckfinder: {
+          uploadUrl: '/api/dashboard/image'
+       }
+
+    } )
+    .then( newEditor => {
+       editor = newEditor;
+    } )
+
+    .then( editor => {
+       window.editor = editor;
+
+    } )
+    .catch( error => {
+       console.error( 'Oops, something went wrong!' );
+       console.warn( 'Build id: g64ljk55ssvc-goqlohse75uw' );
+       console.error( error );
+    } );
+
+// sending data to eamil controller
+
+$('.email_submit-btn').on("click",function(){
+
+   console.log($('.post_title').val());
+   console.log(editor.getData());
+
+   var file = $('#attachment')[0]  // html DOM id=file 자체
+       .files[0];  // input DOM에 저장된 file들 중 첫번째꺼( 어차피 한개밖에 선택 못함)
+   console.log(file);
+   let form_data = new FormData();
+   form_data.append("file", file);
+   form_data.append("subject",$('.post_title').val());
+   form_data.append("message",editor.getData());
+
+   console.log(form_data.get("file").toString());
+
+   $.ajax({
+      data: form_data,
+      type: "POST",
+      url: "/api/send",
+      cache: false,
+      contentType: false,
+      enctype: 'multipart/form-data',
+      processData: false,
+   }).done(function(resp){
+      alert(`${form_data.get("subject")} successfully sent`);
+      window.location.reload();
+   }).fail(function(err){
+      alert("oops something went wrong");
+      window.location.reload();
+   });
+
+});

@@ -1,0 +1,22 @@
+{
+  "name": "pcassemblyshop_v2",
+  "version": "1.0.0",
+  "description": "Imported PcAssemblyShop project(School project) which is front-end only, and upgrade it into a web-project with back-end framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SangYoo1324/pcAssemblyShop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SangYoo1324/pcAssemblyShop/issues"
+  },
+  "homepage": "https://github.com/SangYoo1324/pcAssemblyShop#readme",
+  "dependencies": {
+    "@ckeditor/ckeditor5-font": "^37.0.1"
+  }
+}

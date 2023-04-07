@@ -107,6 +107,7 @@
     paypal.Buttons({
         createOrder: function(data,actions){
             return actions.order.create({
+                env: 'sandbox',
                 purchase_units:[{
                     amount:{
                         value:

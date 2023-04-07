@@ -177,3 +177,116 @@ label{
    display: block;
 
 }
+
+
+
+/*Text editor section */
+
+.ck-editor__editable_inline {
+     min-height: 400px;
+     width: 50%;
+     color: black;
+ }
+.ck-sticky-panel__content>.ck-toolbar_grouping{
+    margin-left: 20%;
+    width: 50%;
+    max-width: 50%;
+}
+.ck.ck-reset, .ck.ck-reset_all, .ck.ck-reset_all *{
+    margin: 0 auto;
+}
+.ck.ck-editor__main>.ck-editor__editable{
+    margin: 0 auto;
+    overflow: scroll;
+    max-height: 500px;
+}
+
+.title_wrap{
+    width: 50%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.post_title{
+    background-color: white;
+    display: block;
+    border: 1px solid gray;
+    height: 30px;
+    border-radius: 8px;
+    width: 90%;
+    color: black;
+    padding: 5px 10px;
+}
+
+.dashboard_btn_wrap{
+    width: 50%;
+    margin: 10px auto;
+}
+.submit-btn{
+    display: block;
+    padding: 10px 20px;
+    bordder: 1px solid white;
+    border-radius: 10px;
+
+}
+
+h1{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px auto;
+    width: 50%;
+    padding: 15px 15px;
+    background-color: #4f5050;
+    border-radius: 20px;
+}
+
+.post{
+    border-radius: 20px;
+    padding: 30px 30px;
+    background-color: #4f5050;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#paypal-donate-button-container{
+    width: 100%;
+    height: 500px;
+}
+
+label,#attachment{
+
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px){
+    .title_wrap{ width:100%;}
+    .ck-toolbar_grouping{
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .ck-editor__editable_inline {
+        width: 100%;
+        color: black;
+    }
+    .dashboard_btn_wrap{
+        width: 100%;
+    }
+
+    .title, .post{
+        padding: 5% 2%;
+        width: 100%;
+    }
+
+    iframe{
+        padding: 0;
+    }
+}
+/*Text editor section:end */

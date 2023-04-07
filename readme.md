@@ -43,7 +43,9 @@ Sangbeom Yoo    [@SangYoo1324](https://sangbeomyooportfoliosite.netlify.app/)
 
 ## Version History
 * 0.7
-  * email method added(need more time to fully functional)
+  * email method added
+  * CKEDITOR config for toolbar(font related) updated.
+    Now, you can adjust font related settings(color,size,family)
 
 * 0.6
   * Dashboard page added(currently only url access)
