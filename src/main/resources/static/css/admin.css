@@ -259,7 +259,7 @@ h1{
     height: 500px;
 }
 
-label,#attachment{
+label#attachment_label, #attachment{
 
     width: 50%;
     margin: 0 auto;

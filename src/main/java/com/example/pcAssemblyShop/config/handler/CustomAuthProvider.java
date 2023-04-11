@@ -1,5 +1,6 @@
 package com.example.pcAssemblyShop.config.handler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
@@ -10,11 +11,15 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+@Slf4j
 public class CustomAuthProvider extends DaoAuthenticationProvider {
 
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+
+        log.info("CustomAuthProvider 실행됨");
+
         String name =authentication.getName();
         String password = authentication.getCredentials().toString();
 

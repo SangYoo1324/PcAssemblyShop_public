@@ -204,7 +204,7 @@ public class DashboardApiController {
               imageRepository.save(articleImage);
           }catch(NullPointerException e){
               e.printStackTrace();
-              throw new NullPointerException("cannot find the article");
+//              throw new NullPointerException("cannot find the article");
           }
 
         }
