@@ -35,17 +35,7 @@ spring:
 #    password: 2baf254de9a41c49e06cf760cef4da880d5aac01683487faf86e6b599b53a960
 #    url: jdbc:postgresql://ec2-18-215-96-22.compute-1.amazonaws.com/d5lmfvjbh0j3nv
 
-  #for email
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: samuel13241@gmail.com
-    password: nengvxhiedgzzfaw
-    properties:
-      mail:
-        smtp:
-          starttls:
-            enable: true
+
 
 #google Oauth setting
   security:

@@ -38,7 +38,7 @@ public class MailService {
                         mimeMessageHelper.addAttachment(multipartFile.getOriginalFilename(),multipartFile);
                  //   }
                 }
-                javaMailSender.send(mimeMessage);
+//                javaMailSender.send(mimeMessage);
                 log.info("Email successfully sent to "+mimeMessage.getReplyTo());
             }catch(MessagingException e){
                 log.info("fail to send email");
