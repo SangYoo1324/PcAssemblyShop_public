@@ -2,7 +2,7 @@ package com.example.pcAssemblyShop.api;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.example.pcAssemblyShop.email.MailComponents;
+//import com.example.pcAssemblyShop.email.MailComponents;
 import com.example.pcAssemblyShop.entity.Article;
 import com.example.pcAssemblyShop.repository.ArticleRepository;
 import com.example.pcAssemblyShop.tempImageDev.*;
@@ -152,7 +152,7 @@ public class DashboardApiController {
     }
 
     // components are not recommended to be autowired(only bean), but use @requiredArgConstructor for instantiating
-    private final MailComponents mailComponents;
+//    private final MailComponents mailComponents;
     @PostMapping("/api/dashboard/body")
     public ResponseEntity<Article> post(@RequestBody Article article){
 
