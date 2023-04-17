@@ -42,6 +42,9 @@ command to run if program contains helper info
 Sangbeom Yoo    [@SangYoo1324](https://sangbeomyooportfoliosite.netlify.app/)
 
 ## Version History
+* 0.8
+  * git.ignore application.yml 
+
 * 0.7
   * email method added
   * CKEDITOR config for toolbar(font related) updated.
